@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Download and install · ALPHA — Usina</title><link rel="stylesheet" href="reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="index.html">Presentation</a><a href="manual/en.html">Manual</a><a href="install.en.html">Install</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">ON THIS PAGE</p><nav class="toc" aria-label="ON THIS PAGE"><a href="#before-opening">Before opening</a>
+<a href="#windows-1011-x64">Windows 10/11 · x64</a>
+<a class="toc-secondary" href="#windows-warning">Windows warning</a>
+<a href="#linux-x64-experimental">Linux · x64 · experimental</a>
+<a href="#troubleshooting">Troubleshooting</a>
+<a href="#update-or-remove">Update or remove</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALPHA · Features and file formats can change. Check the version and edition before following a workflow.</p><details class="mobile-index"><summary>Choose a topic</summary><nav class="toc" aria-label="Choose a topic"><a href="#before-opening">Before opening</a>
+<a href="#windows-1011-x64">Windows 10/11 · x64</a>
+<a class="toc-secondary" href="#windows-warning">Windows warning</a>
+<a href="#linux-x64-experimental">Linux · x64 · experimental</a>
+<a href="#troubleshooting">Troubleshooting</a>
+<a href="#update-or-remove">Update or remove</a></nav></details><article class="article"><h1 id="download-and-install-alpha">Download and install · ALPHA</h1>
+<p><a href="install.html">Português</a> · <a href="about.en.html">Home</a> · <a href="manual/en.html">Manual</a></p>
+<p>The <code>v0.2.0-alpha.1</code> packages are in preparation. These are the planned manual installation steps; final contents and verification results will be confirmed in the release notes.</p>
+<h2 id="before-opening">Before opening</h2>
+<p>Download your system's attachment from <strong>Releases → Assets</strong>, extract the whole package and read the alpha notice. GitHub's automatic “Source code” file is not an installer. Compare the download with <code>SHA256SUMS.txt</code> from the same release. Checksums identify file differences or corruption; they are not digital signatures or independent proof of authorship. Close your DAW before replacing plugins and back up projects before updating.</p>
+<h2 id="windows-1011-x64">Windows 10/11 · x64</h2>
+<p>You only need the format you intend to use.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Copy</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VST3</td>
+<td>Entire <code>Usina.vst3</code> bundle, including its contents</td>
+<td><code>%LOCALAPPDATA%\Programs\Common\VST3</code></td>
+</tr>
+<tr>
+<td>CLAP</td>
+<td><code>Usina.clap</code></td>
+<td><code>%LOCALAPPDATA%\Programs\Common\CLAP</code></td>
+</tr>
+<tr>
+<td>Standalone</td>
+<td>Application and accompanying files required by the package</td>
+<td>A folder of your choice</td>
+</tr>
+</tbody>
+</table></div>
+<p>Paste a destination into Explorer's address bar; create the folder if needed. An alternative system-wide VST3 location is <code>C:\Program Files\Common Files\VST3</code>, which may require administrator permission. Avoid multiple versions in folders scanned by the same host.</p>
+<p>Open your DAW's plugin preferences; menu names vary by application. Check that it supports your chosen format and that the installation folder is included in its search paths. Add the folder if needed, then refresh the plugin scan or restart the DAW according to its instructions. Create an instrument track, find <strong>Usina</strong> in the plugin list and load your installed format. Set the MIDI input, arm the track and enable monitoring. Start with low volume.</p>
+<p>In the Standalone, use <strong>Options → Audio/MIDI Settings</strong> to select audio output and MIDI input. Keep audio input muted when you only want to play notes.</p>
+<h3 id="windows-warning">Windows warning</h3>
+<p>This alpha is unsigned. Windows <strong>SmartScreen</strong> may warn when opening the Standalone. Check the download origin and checksum first. If you choose to run it, the warning may offer <strong>More info → Run anyway</strong>. If that option is unavailable or your organization blocks the app, do not disable protection; contact your administrator or wait for an appropriate distribution.</p>
+<h2 id="linux-x64-experimental">Linux · x64 · experimental</h2>
+<p><strong>Experimental, without warranty. VAPOR may sound different from the Windows edition.</strong></p>
+<p>Extract the archive and copy the complete bundle or file to your account's format folder:</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VST3</td>
+<td><code>~/.vst3/</code></td>
+</tr>
+<tr>
+<td>CLAP</td>
+<td><code>~/.clap/</code></td>
+</tr>
+<tr>
+<td>LV2</td>
+<td><code>~/.lv2/</code></td>
+</tr>
+<tr>
+<td>Standalone</td>
+<td>A folder of your choice</td>
+</tr>
+</tbody>
+</table></div>
+<p>Keep bundle contents intact. The Standalone needs execute permission. Restart your host and refresh its plugin scan. The release will identify the tested distribution and required dependencies; compatibility with every distribution or host is not promised.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>Not listed:</strong> check x64, format, scan path and complete bundle contents. Re-scan. Do not mix Debug and Release builds.</li>
+<li><strong>No sound:</strong> check track arming, monitoring, MIDI input and audio output. Try INIT. A SAMPLE operator with no recording may be silent.</li>
+<li><strong>SEQ stopped:</strong> in the plugin, enable SEQ and start your DAW transport. The Standalone has its own transport.</li>
+<li><strong>MISSING file:</strong> restore or reload the recording/IR. Presets store paths, not embedded media.</li>
+<li><strong>Crackles or delay:</strong> check driver, buffer and session load. Higher oversampling uses more CPU. Include settings in a report; no universal latency is guaranteed.</li>
+<li><strong>Busy MIDI port:</strong> avoid opening the same controller port through both the DAW and CABINE's direct connection.</li>
+</ul>
+<p>If needed, open an Issue with version, system, DAW, format and reproduction steps. Remove personal paths and private information; only share audio you have permission to distribute.</p>
+<h2 id="update-or-remove">Update or remove</h2>
+<p>Close the DAW, retain the previous version and replace the installed files. Preserve <code>.usina</code> presets, <code>.usinamap</code> maps, recordings and IRs. Alpha updates do not guarantee identical project sound. To uninstall a manual installation, remove only the installed bundles/application files with the applications closed; your sounds and sessions can remain.</p>
+</article><footer class="reading-footer"><a href="#top">Back to top ↑</a><span>Use your browser's Print command to print or save as PDF.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

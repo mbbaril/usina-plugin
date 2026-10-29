@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Modulation in practice · patch examples — Usina</title><link rel="stylesheet" href="../reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="../index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="../index.html">Presentation</a><a href="../manual/en.html">Manual</a><a href="../install.en.html">Install</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">ON THIS PAGE</p><nav class="toc" aria-label="ON THIS PAGE"><a href="#create-adjust-and-remove-a-route">Create, adjust and remove a route</a>
+<a href="#patch-1-moving-cutoff">Patch 1: moving cutoff</a>
+<a href="#patch-2-velocity-dependent-fm">Patch 2: velocity-dependent FM</a>
+<a href="#patch-3-a-percussive-opening">Patch 3: a percussive opening</a>
+<a href="#patch-4-slow-random-variation">Patch 4: slow random variation</a>
+<a href="#patch-5-one-macro-several-destinations">Patch 5: one macro, several destinations</a>
+<a href="#patch-6-the-wheel-controls-lfo-depth">Patch 6: the wheel controls LFO depth</a>
+<a href="#patch-7-per-note-pressure-and-timbre">Patch 7: per-note pressure and timbre</a>
+<a href="#combining-sources-and-diagnosing-a-patch">Combining sources and diagnosing a patch</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="../alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALPHA · Features and file formats can change. Check the version and edition before following a workflow.</p><details class="mobile-index"><summary>Choose a topic</summary><nav class="toc" aria-label="Choose a topic"><a href="#create-adjust-and-remove-a-route">Create, adjust and remove a route</a>
+<a href="#patch-1-moving-cutoff">Patch 1: moving cutoff</a>
+<a href="#patch-2-velocity-dependent-fm">Patch 2: velocity-dependent FM</a>
+<a href="#patch-3-a-percussive-opening">Patch 3: a percussive opening</a>
+<a href="#patch-4-slow-random-variation">Patch 4: slow random variation</a>
+<a href="#patch-5-one-macro-several-destinations">Patch 5: one macro, several destinations</a>
+<a href="#patch-6-the-wheel-controls-lfo-depth">Patch 6: the wheel controls LFO depth</a>
+<a href="#patch-7-per-note-pressure-and-timbre">Patch 7: per-note pressure and timbre</a>
+<a href="#combining-sources-and-diagnosing-a-patch">Combining sources and diagnosing a patch</a></nav></details><article class="article"><h1 id="modulation-in-practice-patch-examples">Modulation in practice · patch examples</h1>
+<p><a href="modulation.html">Português</a> · <a href="en.html">Main manual</a> · <a href="modules.en.html">Module guide</a></p>
+<p>The examples isolate one relationship at a time. Save the initial patch. Start with low physical output volume and small amounts. A recipe is a starting point, not a promise of an identical sound across versions or unrelated patches.</p>
+<h2 id="create-adjust-and-remove-a-route">Create, adjust and remove a route</h2>
+<ol>
+<li>Find the destination: SYNTH → FILTER / EG2 / OUTPUT for CUTOFF; select OP2 → OPERATOR for OP2 LEVEL.</li>
+<li>Use the destination's <strong>+</strong> to choose a source, or the edition's source-to-destination assignment gesture.</li>
+<li>Adjust the route's bipolar mini knob. Check its source name as well as its colour.</li>
+<li>Edit the source in MOD. LFO 1 and LFO 2 are distinct; ENV 1 is not OP1's own envelope.</li>
+<li>Compare amount zero with a small active amount. Remove the route explicitly when no longer needed; zero depth is not deletion.</li>
+</ol>
+<p>Menus and available gestures differ between plugin and web/APK. The large knob is the <strong>base</strong>; the mini knob is <strong>depth</strong>; source SPEED is <strong>rate</strong>.</p>
+<p><img src="assets/mod-depth.en.svg" alt="Positive depth adds source movement to the base; negative depth inverts it." /></p>
+<p>A harmonic-rich wave such as SAW HD makes filtering easier to hear than an isolated sine. For FM examples, use <a href="modules.en.html#user-row-sends-column-receives">USER with OP2 feeding OP1</a>, only OP1 directly out. Other connections can alter the comparison.</p>
+<h2 id="patch-1-moving-cutoff">Patch 1: moving cutoff</h2>
+<p><strong>Start:</strong> a sustained harmonic-rich sound, voice filter enabled, CUTOFF away from its limits, EG2 INT at zero to isolate the route.</p>
+<ol>
+<li>Choose a slow LFO 1 in MOD.</li>
+<li>Assign <strong>LFO 1 → CUTOFF</strong> with a small positive depth.</li>
+<li>Compare zero, small and larger depth; then reverse the sign.</li>
+<li>Change SPEED while keeping depth fixed.</li>
+</ol>
+<p>Rate changes how often the filter moves; depth changes how far. If cutoff rests at its extremes, reduce depth or move the base. If the amplitude envelope ends quickly, holding a key may not provide sustained audio. SYNC relates the LFO to tempo where supported; a connected MIDI controller alone does not establish clock sync.</p>
+<h2 id="patch-2-velocity-dependent-fm">Patch 2: velocity-dependent FM</h2>
+<p><strong>Start:</strong> OP2 → OP1, only OP1 OUT, FM/SIN, ratios around x1/x2, OP2 at a low but effective level.</p>
+<ol>
+<li>Set OP2's dedicated VEL influence to zero for this comparison.</li>
+<li>Assign <strong>VELOCITY → OP2 LEVEL</strong> with small positive depth.</li>
+<li>Play the same pitch with different velocities using a controller that sends them.</li>
+<li>Compare against <strong>VELOCITY → OP1 LEVEL</strong>.</li>
+</ol>
+<p>On OP2, this changes the modulation sent to OP1; on OP1, it mainly changes direct contribution. Perceived loudness can change in both cases. Fixed-velocity input cannot demonstrate soft/hard variation. Velocity is set at note onset; aftertouch is another message.</p>
+<h2 id="patch-3-a-percussive-opening">Patch 3: a percussive opening</h2>
+<p><strong>Start:</strong> sustained audio, filter on, lower CUTOFF, EG2 INT zero.</p>
+<ol>
+<li>Choose <strong>ENV 1</strong> in MOD, separately from the operator envelope.</li>
+<li>Use ADSR with short ATTACK, audible DECAY, zero SUSTAIN and short RELEASE.</li>
+<li>Assign <strong>ENV 1 → CUTOFF</strong> with small positive depth.</li>
+<li>Compare separate notes with a held note.</li>
+</ol>
+<p>The envelope opens at note start and returns to its sustain level. Longer ATTACK changes an immediate opening into a gradual rise. EG2 INT is another way to apply the dedicated filter envelope; isolate one path before combining both.</p>
+<h2 id="patch-4-slow-random-variation">Patch 4: slow random variation</h2>
+<p><strong>Start:</strong> OP2 modulating OP1; a non-integer ratio can emphasize a metallic structure. Leave OP2 LEVEL away from its limits.</p>
+<ol>
+<li>Choose <strong>RAND 1 → SAMPLE &amp; HOLD</strong> and a low SPEED.</li>
+<li>Assign <strong>RAND 1 → OP2 LEVEL</strong> at small depth.</li>
+<li>Compare short RISE/FALL with longer values.</li>
+<li>Keep SPEED unchanged while comparing transitions.</li>
+</ol>
+<p>SPEED determines new targets; RISE/FALL shape travel to them. A long transition may not reach a target before the next draw. RANDOM LOOP repeats a sequence; LENGTH selects length and FLIP changes replacement probability on return. With FLIP zero, its existing pattern repeats.</p>
+<h2 id="patch-5-one-macro-several-destinations">Patch 5: one macro, several destinations</h2>
+<p><strong>Start:</strong> a filter-responsive patch, active DELAY in FX A, active ROOM in AUX, audible SEND/RETURN.</p>
+<ol>
+<li>Centre MACRO 1 at zero.</li>
+<li>Assign <strong>MACRO 1 → CUTOFF</strong>, <strong>MACRO 1 → DELAY MIX</strong>, <strong>MACRO 1 → AUX SEND</strong>.</li>
+<li>Start with small positive depths; adjust each independently.</li>
+<li>Move the macro both ways and compare.</li>
+</ol>
+<p>Macros are bipolar; negative movement can reduce the same destinations. A route does not create or enable an absent effect. PLAY snapshots A–D store macro positions: they can recall different amounts of this gesture, but do not morph between complete presets.</p>
+<h2 id="patch-6-the-wheel-controls-lfo-depth">Patch 6: the wheel controls LFO depth</h2>
+<p><strong>Start:</strong> a working cutoff example and a wheel sending CC1. Remove the direct LFO 1 → CUTOFF route to isolate the combiner.</p>
+<ol>
+<li>Set <strong>COMB 1 → MULTIPLY</strong>.</li>
+<li>Choose <strong>SOURCE = LFO 1</strong>, <strong>MOD = MOD WHEEL</strong>, <strong>AMOUNT = +1 / +100%</strong>, according to display units.</li>
+<li>Assign <strong>COMB 1 → CUTOFF</strong> at small depth.</li>
+<li>Compare wheel zero, halfway and full, without changing LFO SPEED.</li>
+</ol>
+<p>At that AMOUNT, the result is LFO × wheel. Other AMOUNT settings blend influence and are not pure multiplication. The wheel controls extent, not rate. Movement at wheel zero may indicate another active route.</p>
+<h2 id="patch-7-per-note-pressure-and-timbre">Patch 7: per-note pressure and timbre</h2>
+<p>In the plugin, set MOD → KEYBOARD → <strong>MPE INPUT → LOWER ZONE / CH 1 MASTER</strong>. Channel 1 is master; channels 2–16 carry per-note expression. Match NOTE BEND to the controller's range.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Route or setting</th>
+<th>Compare</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pressure</td>
+<td>AFTERTOUCH → CUTOFF</td>
+<td>Different pressure on two held notes</td>
+</tr>
+<tr>
+<td>Timbre</td>
+<td>TIMBRE (CC74) → OP2 LEVEL</td>
+<td>Per-note timbre gesture changes FM intensity</td>
+</tr>
+<tr>
+<td>Pitch bend</td>
+<td>NOTE BEND range</td>
+<td>Each note follows its own bend</td>
+</tr>
+</tbody>
+</table></div>
+<p>Begin with one route and note, then two. A shared bus effect is not evidence of per-note independence. Channel expression alone is not per-note MPE. Controller, transport and destination must support the same setup; touch height, pressure and CC74 are not inherently the same axis.</p>
+<h2 id="combining-sources-and-diagnosing-a-patch">Combining sources and diagnosing a patch</h2>
+<p>ENV 1 → CUTOFF can define note shape while LFO 1 → CUTOFF adds continuous movement. Start with one route, add the other gradually and keep the base away from limits. Removing one does not remove the other.</p>
+<p>Operator envelopes, ENV sources, LFO resets, random sources and instance effects have different scopes. Do not assume a separate random draw per finger or separate bus effects per voice. A global macro remains global even when controlled by MIDI.</p>
+<p>If no change is audible, check source activity, correct destination, route depth/sign, source trigger/clock, operator level/envelope, active filter/effect and other routes. Compare with depth zero before adding gain. Receiving a message does not guarantee that the preset uses it.</p>
+</article><footer class="reading-footer"><a href="#top">Back to top ↑</a><span>Use your browser's Print command to print or save as PDF.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

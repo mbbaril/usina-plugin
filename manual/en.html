@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Usina manual · ALPHA — Usina</title><link rel="stylesheet" href="../reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="../index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="../index.html">Presentation</a><a href="../manual/en.html">Manual</a><a href="../install.en.html">Install</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">ON THIS PAGE</p><nav class="toc" aria-label="ON THIS PAGE"><a href="#chapters">Chapters</a>
+<a href="#where-to-begin">What would you like to explore?</a>
+<a href="#five-minutes">Five minutes</a>
+<a href="#the-screen-and-signal">The screen and signal</a>
+<a href="#frequency-level-and-envelopes">Frequency, level and envelopes</a>
+<a href="#operator-modes">Operator modes</a>
+<a class="toc-secondary" href="#modal-objects">MODAL objects</a>
+<a class="toc-secondary" href="#unison-and-bits">UNISON and BITS</a>
+<a href="#filter-eg2-and-lpg">Filter, EG2 and LPG</a>
+<a href="#modulation-at-the-destination">Modulation at the destination</a>
+<a href="#effects-and-routing">Effects and routing</a>
+<a href="#sample-capture-and-transform">SAMPLE: capture and transform</a>
+<a href="#seq">SEQ</a>
+<a href="#cabine-and-controllers">CABINE and controllers</a>
+<a class="toc-secondary" href="#midi-learn-forget-pitch-bend-and-mpe">MIDI learn, forget, pitch bend and MPE</a>
+<a href="#play">PLAY</a>
+<a href="#saving-input-and-safety">Saving, input and safety</a>
+<a href="#interface-glossary">Interface glossary</a>
+<a href="#limits-and-faq">Limits and FAQ</a>
+<a href="#third-party-notices">Third-party notices</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="../alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALPHA · Features and file formats can change. Check the version and edition before following a workflow.</p><details class="mobile-index"><summary>Choose a topic</summary><nav class="toc" aria-label="Choose a topic"><a href="#chapters">Chapters</a>
+<a href="#where-to-begin">What would you like to explore?</a>
+<a href="#five-minutes">Five minutes</a>
+<a href="#the-screen-and-signal">The screen and signal</a>
+<a href="#frequency-level-and-envelopes">Frequency, level and envelopes</a>
+<a href="#operator-modes">Operator modes</a>
+<a class="toc-secondary" href="#modal-objects">MODAL objects</a>
+<a class="toc-secondary" href="#unison-and-bits">UNISON and BITS</a>
+<a href="#filter-eg2-and-lpg">Filter, EG2 and LPG</a>
+<a href="#modulation-at-the-destination">Modulation at the destination</a>
+<a href="#effects-and-routing">Effects and routing</a>
+<a href="#sample-capture-and-transform">SAMPLE: capture and transform</a>
+<a href="#seq">SEQ</a>
+<a href="#cabine-and-controllers">CABINE and controllers</a>
+<a class="toc-secondary" href="#midi-learn-forget-pitch-bend-and-mpe">MIDI learn, forget, pitch bend and MPE</a>
+<a href="#play">PLAY</a>
+<a href="#saving-input-and-safety">Saving, input and safety</a>
+<a href="#interface-glossary">Interface glossary</a>
+<a href="#limits-and-faq">Limits and FAQ</a>
+<a href="#third-party-notices">Third-party notices</a></nav></details><article class="article"><h1 id="usina-manual-alpha">Usina manual · ALPHA</h1>
+<p><a href="index.html">Português</a> · <a href="../install.en.html">Installation</a> · <a href="../alpha.html#en">Alpha notice</a> · <a href="../about.en.html">Home</a></p>
+<p>User guide for the plugin/Standalone edition being prepared for <strong>v0.2.0-alpha.1</strong>. Features and labels require confirmation against the distributed version. The web edition and the APK have their own interfaces and workflows; this manual does not promise parity between editions.</p>
+<h2 id="chapters">Chapters</h2>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Find</th>
+<th>Chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First sound, controls and performance</td>
+<td><a href="#five-minutes">This guide</a></td>
+</tr>
+<tr>
+<td>Algorithms, operators, filters and effects</td>
+<td><a href="modules.en.html">Module guide</a></td>
+</tr>
+<tr>
+<td>FILTER 2, stereo, LPG and capture</td>
+<td><a href="voices.en.html">Voices, filters and capture</a></td>
+</tr>
+<tr>
+<td>Routes and seven patch examples</td>
+<td><a href="modulation.en.html">Modulation in practice</a></td>
+</tr>
+<tr>
+<td>AUX sends and global feedback</td>
+<td><a href="routing.en.html">AUX and LOOP INSERT</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>Choose where to begin and explore at your own pace. This guide combines gestures, images and examples. Uppercase names match the controls; terms are explained as you meet them.</p>
+<section class="guide-welcome" aria-labelledby="where-to-begin">
+<p class="guide-kicker">YOUR STARTING POINT</p>
+<h2 id="where-to-begin">What would you like to explore?</h2>
+<div class="guide-paths">
+<a href="#five-minutes"><span class="path-mark" aria-hidden="true">01</span><strong>I want to play</strong><span>Choose a sound, then explore notes and macros.</span><b aria-hidden="true">Start →</b></a>
+<a href="#operator-modes"><span class="path-mark" aria-hidden="true">02</span><strong>I want to transform</strong><span>Combine waves, materials and movement.</span><b aria-hidden="true">Explore →</b></a>
+<a href="#sample-capture-and-transform"><span class="path-mark" aria-hidden="true">03</span><strong>I want to record</strong><span>Make a recording of your own part of the sound.</span><b aria-hidden="true">Capture →</b></a>
+</div>
+<details class="guide-words"><summary>Words you will find on screen</summary><dl><dt>DAW</dt><dd>An application for arranging and recording music. Usina also has an independent application called Standalone.</dd><dt>Preset</dt><dd>A set of sound settings you can load as a starting point.</dd><dt>Knob</dt><dd>A circular control. Drag it to change a value.</dd><dt>Macro</dt><dd>A control that can move several settings together.</dd><dt>Modulation</dt><dd>A source moves a setting, such as making a filter open and close automatically.</dd></dl></details>
+</section>
+
+<h2 id="five-minutes">Five minutes</h2>
+<ol>
+<li><a href="../install.en.html">Install</a>, open an instrument track in your DAW and load Usina. Set MIDI input, arm the track and enable monitoring. In the Standalone, select audio and MIDI through Options.</li>
+<li>Start with low output volume and audio input muted. Choose a sound from the top library; arrows browse the current category.</li>
+<li>Play a short note, then a held note. Open <strong>PLAY</strong> for a performance-focused view. All manuals play the same patch.</li>
+<li>Move a macro and listen. A macro affects its assigned destinations; an unassigned macro may change nothing.</li>
+<li><strong>SAVE</strong> a version of your sound before exploring. <strong>INIT</strong> starts with a sine; it is not Undo.</li>
+</ol>
+<p>Try the <a href="../sounds.html#en">sound selection</a>. You do not need FM or programming knowledge to begin.</p>
+<h2 id="the-screen-and-signal">The screen and signal</h2>
+<p>The header holds the library, INIT, SAVE, LOAD and <strong>SYNTH, FX, SEQ, CABINE, PLAY</strong> views. SYNTH shows six operators and their algorithm roles. Select an operator to edit it. Lower pages separate <strong>OPERATOR</strong>, <strong>FILTER / EG2 / OUTPUT</strong> and <strong>MOD</strong>.</p>
+<p>An <strong>operator</strong> is a sound source or processor with its own frequency, level and envelope. A <strong>voice</strong> is the operator network and filter triggered by a note. An <strong>instance</strong> shares effects, input/feedback and output.</p>
+<p>The algorithm determines which operators reach the output and which feed others. A loud operator can be inaudible directly because it modulates another. USER's connection matrix allows custom links. Change one connection at a time and compare.</p>
+<p><img src="assets/signal.svg" alt="An operator can reach output directly or transform another operator before that operator reaches output." /></p>
+<p><em>Conceptual diagram: an arrow means one signal feeds the next block, not the controls' position on screen.</em></p>
+<h2 id="frequency-level-and-envelopes">Frequency, level and envelopes</h2>
+<p><strong>RATIO</strong> relates operator frequency to the played note: x1 follows the fundamental; higher ratios create higher relationships. <strong>COARSE</strong> chooses the main ratio; <strong>FINE</strong> refines it. <strong>DETUNE</strong> adds a fine offset; <strong>TRANS</strong> transposes. <strong>FIXED</strong> uses a fixed frequency. Dimmed values are inactive in that configuration.</p>
+<p>On a carrier, <strong>LEVEL</strong> changes loudness; on a modulator it mainly changes the transformation of the next operator. <strong>VEL</strong> controls note-velocity influence. Devices may label octaves differently: compare actual pitch or MIDI note number when diagnosing a mismatch.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Envelope control</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ATTACK</td>
+<td>Time to reach the initial peak</td>
+</tr>
+<tr>
+<td>DECAY</td>
+<td>Time from peak to sustain</td>
+</tr>
+<tr>
+<td>SUSTAIN</td>
+<td>Held level, not a duration</td>
+</tr>
+<tr>
+<td>RELEASE</td>
+<td>Exit time after release</td>
+</tr>
+</tbody>
+</table></div>
+<p>The diagram shows the attack peak, decay end and release end. Where direct graph editing is available, <strong>three handles can edit four parameters:</strong> D/S changes decay time horizontally and sustain level vertically. The drawn sustain width is illustrative; sustain follows how long the key is held. Graph gestures differ between editions.</p>
+<p><img src="assets/envelope.svg" alt="Envelope with attack A, decay D, held level S and release R. Sustain lasts while the key is held; release begins when it is released." /></p>
+<p><em>Illustration without a fixed time scale: height means level and width means time.</em></p>
+<p>ATK CURVE, CURVE and REL CURVE shape the stages. <code>= DEC</code> uses decay's curve for release. <strong>ADR</strong> runs attack, decay and release without holding sustain. <strong>RETRIG</strong> chooses a source to strike the envelope again while the key is held. <strong>RATE KEY</strong> varies envelope times by pitch.</p>
+<h2 id="operator-modes">Operator modes</h2>
+<p>A–D change meaning with MODE. Read their labels rather than relying on a knob position to always mean the same thing.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Purpose</th>
+<th>Specific controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM</td>
+<td>A wave receiving phase modulation</td>
+<td>FB, WIDTH</td>
+</tr>
+<tr>
+<td>RING</td>
+<td>Signal multiplication and metallic relationships</td>
+<td>DEPTH, SHAPE</td>
+</tr>
+<tr>
+<td>FILTER</td>
+<td>Filter the received signal and mix an oscillator</td>
+<td>TYPE, OSC MIX, CUTOFF, RESO</td>
+</tr>
+<tr>
+<td>FILTER FM</td>
+<td>Combine filtering and modulation</td>
+<td>TYPE, CUTOFF, RESO</td>
+</tr>
+<tr>
+<td>FOLD</td>
+<td>Fold a waveform into more complex shapes</td>
+<td>GAIN, OSC MIX, BIAS</td>
+</tr>
+<tr>
+<td>EFFECT</td>
+<td>Processing inside the operator algorithm</td>
+<td>FX, OSC MIX; remaining labels depend on effect</td>
+</tr>
+<tr>
+<td>BYPASS</td>
+<td>Pass the received signal</td>
+<td>No dedicated mode controls</td>
+</tr>
+<tr>
+<td>MUTE</td>
+<td>Silence that operator</td>
+<td>No dedicated mode controls</td>
+</tr>
+<tr>
+<td>MODAL</td>
+<td>An object responding to excitation</td>
+<td>STRUCTURE, OSC MIX, SIZE, DECAY; OBJECT and EXCITER pages</td>
+</tr>
+<tr>
+<td>CHAOS</td>
+<td>Chaotic processes</td>
+<td>MODEL, CHAOS, SHAPE, SMOOTH</td>
+</tr>
+<tr>
+<td>STOCHASTIC</td>
+<td>Evolving stochastic waveforms</td>
+<td>DISTRIB, LVL STEP, POINTS, LEN STEP</td>
+</tr>
+<tr>
+<td>MACRO</td>
+<td>Selectable synthesis models</td>
+<td>MODEL, HARMONICS, TIMBRE, MORPH</td>
+</tr>
+<tr>
+<td>SAMPLE</td>
+<td>A recording used as an operator</td>
+<td>READ, START, LENGTH, XFADE or FADE</td>
+</tr>
+<tr>
+<td>UNISON</td>
+<td>Stacked, slightly detuned copies</td>
+<td>VOICES, DETUNE, MIX, DRIFT; SUB and PWM</td>
+</tr>
+<tr>
+<td>BITS</td>
+<td>Transform a wave's digital representation</td>
+<td>BITS, XOR, KEEP, OFFSET</td>
+</tr>
+</tbody>
+</table></div>
+<p>The <strong>MACRO operator mode is separate from the four performance macros</strong>. An EFFECT operator is also separate from an FX page slot.</p>
+<h3 id="modal-objects">MODAL objects</h3>
+<p>Choose STRUCTURE and MATERIAL, then explore SIZE and DECAY. BRIGHT, STIFF, POSITION, DENSITY and IRREG shape the response. The operator envelope shapes the excitation—the hand touching the object—while the object can keep resonating afterwards.</p>
+<p>EXCITER offers STRIKE, BOW, BLOW, SCRAPE and <strong>DROP</strong>, which produces a falling, bouncing object. PRESSURE changes the interaction; TENSION makes pitch respond to movement; RATTLE adds noisy contact. <strong>DAMP</strong> adds damping after key release without changing the held note. Explore one structure and excitation before combining it with FM.</p>
+<h3 id="unison-and-bits">UNISON and BITS</h3>
+<p>UNISON's VOICES selects 1–9 copies; DETUNE spreads pitch; MIX balances the centre and side copies; DRIFT adds slow independent movement. SUB adds a square one octave below. PWM affects compatible pulse waves. More copies cost more processing; these are not independent instrument parts.</p>
+<p>BITS selects resolution; XOR transforms bits; KEEP removes some; OFFSET shifts the code with wraparound. Compare using it as an audible source and as a modulator: the same operation may sound very different.</p>
+<h2 id="filter-eg2-and-lpg">Filter, EG2 and LPG</h2>
+<p>In <strong>FILTER / EG2 / OUTPUT</strong>, choose filter type, then adjust CUTOFF, RESO and DRIVE. Cutoff locates the transition region; resonance emphasizes its neighbourhood. Low-pass, high-pass and band-pass responses differ; check type before repeating a gesture.</p>
+<p><strong>EG2</strong> means <em>Envelope Generator 2</em>, here associated with the filter. An envelope describes a change over time after a note event. EG2 INT sets how much it moves cutoff; it is not output volume. Do not confuse it with the separate source called ENV 2 in MOD.</p>
+<p><strong>VCA</strong> means <em>Voltage-Controlled Amplifier</em>. The name comes from electronic instruments; in software, a control signal can change gain without a physical control voltage. Think of it as a stage that opens and closes the level of the sound. An envelope can shape its attack and tail, or an LFO can make it pulse. This does not specifically remove high frequencies as a low-pass filter does; saturating stages can also change timbre.</p>
+<p><strong>LPG</strong> means <em>Low-Pass Gate</em>. It combines level control and low-pass filtering, so a closing gate tends to make the sound both quieter and darker. This can suit plucked or struck sounds. It is not a threshold-based noise gate.</p>
+<p>In SYNTH → FILTER / EG2 / OUTPUT, the LPG follows the voice filter. OFF bypasses it, PING triggers a percussive response per note, and EG2 follows the filter envelope. DECAY changes closing time; COLOR controls high-frequency bleed, with lower values sounding darker. Recent plugin versions also offer SOURCE to follow a chosen modulation source; check the edition you use.</p>
+<p>Try a bright sustained sound at a comfortable level. Compare OFF and PING, increase DECAY, then compare low and high COLOR. If the operator envelope ends first, it can hide the LPG tail. LPG DECAY and operator RELEASE are separate controls. CASC VCA belongs to the cascade filter and selects its level-control source; it is neither LPG nor the master volume.</p>
+<h2 id="modulation-at-the-destination">Modulation at the destination</h2>
+<p>Use the destination knob's <strong>+</strong>, select a source, then adjust its coloured bipolar <strong>mini knob</strong>. Dragging a source onto a knob is another assignment path. Positive depth follows the source; negative depth reverses its influence. Removing the route disconnects it; zero depth retains a connection with no effect.</p>
+<p>Several sources can reach one destination. Base value and route depth are different settings. Try <strong>LFO 1 → CUTOFF</strong> with a small depth, or velocity to a modulator's level for touch-sensitive brightness.</p>
+<p>MOD groups keyboard/expression, envelopes, LFOs, functions, random sources, combiners, macros and controllers. SEQ 1–4 are also sources. Source drawings help follow movement. A stationary source may depend on a held note, transport or an input receiving no signal.</p>
+<p><strong>RAND 1–3 have RISE and FALL</strong>, independently smoothing upward and downward changes. RANDOM LOOP repeats steps; LENGTH sets loop length and FLIP the chance of replacing a step. SAMPLE &amp; HOLD produces new plateaus; BINARY produces two states with PROBA and CORREL. Smoothing differs from random event rate.</p>
+<p><strong>COMB 1–3</strong> offer SUM, DIFF, MULTIPLY, DIVIDE, CROSSFADE, LAG, THRESHOLD, OFFSET, REMAP, FOLLOWER, MIN, MAX and INPUT LEVEL. LAG slows a source's response; FOLLOWER follows a source's level; INPUT LEVEL responds to audio input level. This is not sung-note recognition.</p>
+<p>Binary combiners interpret a source as an eight-bit code: BIT extracts a bit as a gate, XOR combines codes, AND retains high or low bits depending on AMOUNT, and ADD MOD 256 sums with wraparound. A ramp through BIT can create related rhythmic patterns. These are control processes, separate from the audio operator BITS.</p>
+<h2 id="effects-and-routing">Effects and routing</h2>
+<p>Select a slot in <strong>FX A, FX B, AUX or LOOP INSERT</strong>, choose its type, then edit its panel. Each bus has three slots. NONE leaves a slot empty. Types are TEXTURE, ROOM, DISTORT, IR, VAPOR, DELAY and FILTER.</p>
+<ul>
+<li><strong>A/B:</strong> voice effects; ROUTING chooses A &gt; B, B &gt; A or A // B.</li>
+<li><strong>AUX:</strong> send/return; PRE takes signal before A/B, POST after.</li>
+<li><strong>LOOP INSERT:</strong> processes the internal feedback loop.</li>
+</ul>
+<p>TEXTURE provides granular/delay processing and different media; time, size, density, pitch, shape, freeze and space depend on mode. ROOM is reverberation; AMOUNT shapes its length/presence, with send and return determining presence in AUX. DISTORT provides nonlinear shaping with character, symmetry and tone.</p>
+<p>IR convolves with an impulse response you recorded, downloaded for free or purchased, subject to its usage terms. You do not need to create it yourself; none are bundled. Permission to use an IR does not necessarily include permission to redistribute its original file with a preset. VAPOR offers GRANULAR, STRETCH, LOOP DELAY, SPECTRAL, REVERB and RESONATOR, with FREEZE/REVERSE where applicable. High density and feedback can accumulate energy. Its new internal LIMIT is optional, off by default, and does not replace the output guard.</p>
+<p>DELAY's DIGITAL character transitions to a new time; TAPE glides pitch when TIME changes and offers WOW/FLUTTER. SYNC selects a tempo division; FREE uses TIME. FREEZE holds the echoes and TAP sets timing from your taps.</p>
+<p>FILTER provides bus filtering with TYPE, CUTOFF, RESO, DRIVE, SPREAD, FOLLOW and MIX. FOLLOW is bipolar percent, not dB gain; see <a href="voices.en.html#filter-in-fx-slots">FILTER in FX slots</a>.</p>
+<p>Effect MIX and bus MIX are distinct stages. AUX returns processed signal and uses SEND/RETURN. If a change is inaudible, check slot, effect/bus enable, mix and routing before adding gain.</p>
+<h2 id="sample-capture-and-transform">SAMPLE: capture and transform</h2>
+<p>SAMPLE participates in the operator algorithm. It can reach output, excite MODAL or modulate another operator.</p>
+<ol>
+<li>Select <strong>MODE → SAMPLE</strong>.</li>
+<li>Choose recording slot <strong>A–D</strong>. LOAD accepts WAV, AIFF, FLAC, OGG or MP3; CAPTURE records input; CLEAR clears the selected recording.</li>
+<li>Configure the input in your host/Standalone and check IN GAIN. Capture is taken before IN MIX, so IN MIX can stay at zero without monitoring the microphone through the synth.</li>
+<li>Capture LENGTH offers FREE for manual stop, or 1, 2, 4 bars. With host transport running, capture waits for the next bar. When stopped, it starts immediately and lasts the selected bars at the host tempo.</li>
+<li>AUTO LVL targets −3 dBFS peak with at most +30 dB gain. Noise rises with signal; normalization cannot repair clipped input.</li>
+<li>READ selects ONCE, LOOP, PING-PONG or REVERSE. START and playback LENGTH select a region. XFADE smooths LOOP's seam; FADE shapes reading edges in other modes.</li>
+</ol>
+<p>Capture LENGTH is how long to record; playback LENGTH is how much of the recording to read. Manual capture has a 20-second limit; loaded recordings have a 30-second limit. The active mono recording is shared by SAMPLE operators in the patch. A–D are recording slots, not four simultaneous instrument parts.</p>
+<p>Capture finishes into the slot where it started even if you select another. <strong>SAMPLE CAPTURE</strong> starts/stops or cancels waiting; <strong>SAMPLE CAPTURE (held)</strong> follows a held button; <strong>SAMPLE A..D</strong> select recordings. These can be learned as controller actions.</p>
+<p>Presets/sessions store recording paths, not embedded audio. Move recordings and IRs with your work. MISSING means a referenced file needs restoring/reloading. Record and share only material you have permission to use, especially other people's voices and music.</p>
+<h2 id="seq">SEQ</h2>
+<p>Choose LANE first: NOTES, SEQ 1–4 or DRUM 1–4. Each lane may have different length, direction and clock division. Pages show steps; STEP edits the selected step's note, velocity, gate, probability, condition, ratchet and accent.</p>
+<p>Chords and durations are part of the evolving format. Confirm the delivered edition before exchanging sessions among plugin, web and APK. Advanced app piano-roll features are not promised in this plugin alpha.</p>
+<p>EUCLID, RANDOM, MUTATE and CLEAR affect the selected lane; save before generating or clearing. SEQ 1–4 become modulation sources; disabled steps hold their last value. The plugin follows DAW transport/tempo; Standalone has its own PLAY/BPM. Connecting devices by MIDI does not automatically synchronize them.</p>
+<h2 id="cabine-and-controllers">CABINE and controllers</h2>
+<p>Seven surfaces: <strong>ROTAS, SONS, GESTOS, DRUMS, MELODY, KEYS, USER</strong>. The plugin retains physical Launchpad support and a virtual grid; its free native presentation is evolving. New web/APK layouts must not be mistaken for already delivered plugin features.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Main use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ROTAS</td>
+<td>Source rows and destination columns; grid taps cycle OFF, +50%, +100%, −50%, OFF</td>
+</tr>
+<tr>
+<td>SONS</td>
+<td>Presets; grid pages hold 56 sounds</td>
+</tr>
+<tr>
+<td>GESTOS</td>
+<td>Four macros, cutoff, resonance, paired A/B mix and AUX send</td>
+</tr>
+<tr>
+<td>DRUMS</td>
+<td>Four step lanes, accents, mute and selection</td>
+</tr>
+<tr>
+<td>MELODY</td>
+<td>Melody steps and scale keys for assigning notes</td>
+</tr>
+<tr>
+<td>KEYS</td>
+<td>Isomorphic playing grid with scale, root and octave</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>TAP, preset changes, freezes and momentary macro/effect gestures</td>
+</tr>
+</tbody>
+</table></div>
+<p>SESSION's bottom grid row sets Macro 1/2 to four levels; tapping the selected level returns to zero. Held USER gestures return when released. Launchpad Mini MK3 pads do not measure velocity; KEYS uses fixed velocity. The hardware is not required for the on-screen CABINE.</p>
+<p>Use AUTO for a direct Launchpad connection. Avoid the DAW and direct connection opening the same controller port. Physical layer buttons retain repeated-press access to extra modes. Other controllers need their own mapping.</p>
+<h3 id="midi-learn-forget-pitch-bend-and-mpe">MIDI learn, forget, pitch bend and MPE</h3>
+<p>Right-click a knob → MIDI LEARN, then move an absolute CC. Right-click → FORGET CC removes it. Relative encoders are not supported. Native learn may apply incoming values immediately; do not assume the APK's pickup behavior exists in the plugin.</p>
+<p>In ACTIONS, select an action, LEARN a note/CC, or FORGET it. A control note should not also trigger the synth. CTRL 1–8 in MOD turn notes/CCs into sources. EXPORT MAP / IMPORT MAP save <code>.usinamap</code> maps. Mappings also travel with sessions and can be defaults for new instances. Other people's controllers may send different messages.</p>
+<p>In <strong>MOD → KEYBOARD</strong>, MASTER BEND sets ordinary bend range. <strong>MPE INPUT → LOWER ZONE / CH 1 MASTER</strong> uses channel 1 as master and 2–16 for per-note expression. Match NOTE BEND to the controller. Route AFTERTOUCH and TIMBRE to hear pressure/CC74; receiving expression does not mean a preset uses it.</p>
+<p>A phone controller depends on its app and MIDI transport. USB, BLE and Web MIDI availability differ by system. Universal controller compatibility or inter-device synchronization is not claimed.</p>
+<h2 id="play">PLAY</h2>
+<p>ORGAN offers manuals; GRID uses a scale layout. VEL TOUCH uses position within a key for velocity where available. All manuals share one patch; this is not a multitimbral instrument.</p>
+<p>HOLD keeps released notes sounding; a new chord replaces them. Turning HOLD off releases retained notes. Changing views is not a panic command: HOLD may continue.</p>
+<p><strong>A–D store four macro positions</strong>, not complete presets or audio. An empty slot stores; recalling a filled slot moves macros over GLIDE time. In the plugin, Shift-click stores and the context menu offers STORE/CLEAR. XY mixes the four corners; an empty corner means macros at zero.</p>
+<p>REC arms the next XY gesture recording; LOOP repeats it. Touching XY returns to manual control. LOCK prevents storing/deleting and arming REC; it does not silence output. Storage labels/gestures differ in web/APK.</p>
+<h2 id="saving-input-and-safety">Saving, input and safety</h2>
+<p>SAVE writes <code>.usina</code> sound data, routes, functions, effects and sequence. LOAD retains equipment settings such as input, level, quality and mappings; feedback returns off. A preset does not replace a DAW-session backup. Preserve referenced recordings and IRs too.</p>
+<p>IN GAIN sets input gain; IN MIX sets its audible contribution. <strong>&gt; FX</strong> routes input through the effects instead of adding it dry after them. Start with IN MIX and FEEDBACK at zero. For feedback, use small changes and rehearse stopping the signal in your host.</p>
+<p>The output guard handles invalid values, DC, peaks and sustained energy; feedback suppression acts on the external path. These cannot know headphone/speaker acoustic level or control gain applied after the plugin. <strong>A limiter cannot guarantee safe hearing.</strong></p>
+<p>For unexpected sound, lower physical volume first and stop playback/input; release notes and check HOLD, sustain, SEQ and feedback before resuming. Avoid investigating with headphones on at high volume.</p>
+<h2 id="interface-glossary">Interface glossary</h2>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM</td>
+<td>Frequency modulation; operators influence other operators. The FM mode receives phase modulation</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>Oscillator: a waveform source; an operator can also be a processor</td>
+</tr>
+<tr>
+<td>VCA</td>
+<td>Voltage-controlled amplifier by historical terminology; a digitally controlled gain stage here</td>
+</tr>
+<tr>
+<td>VCF / FILTER</td>
+<td>Filtering; reduces or emphasizes frequency regions without requiring an external voltage</td>
+</tr>
+<tr>
+<td>LPG</td>
+<td>Low-pass gate: level and brightness respond together</td>
+</tr>
+<tr>
+<td>EG / ENV</td>
+<td>Envelope generator; confirm which operator or modulation envelope is selected</td>
+</tr>
+<tr>
+<td>ADSR</td>
+<td>Attack, Decay, Sustain, Release; sustain is a level, not a duration</td>
+</tr>
+<tr>
+<td>LFO</td>
+<td>Low-frequency oscillator used as a modulation source</td>
+</tr>
+<tr>
+<td>GATE</td>
+<td>A held/open state; its meaning depends on the control</td>
+</tr>
+<tr>
+<td>TRIGGER / PING</td>
+<td>An event that initiates an action</td>
+</tr>
+<tr>
+<td>CUTOFF / RESO</td>
+<td>Filter transition region and resonance emphasis</td>
+</tr>
+<tr>
+<td>DRIVE</td>
+<td>Excitation of a nonlinear stage; not simply final output volume</td>
+</tr>
+<tr>
+<td>RATIO / FIXED</td>
+<td>Frequency relative to the note, or an independently chosen frequency</td>
+</tr>
+<tr>
+<td>S&amp;H</td>
+<td>Sample and hold: retain a value until the next update</td>
+</tr>
+<tr>
+<td>AUX / SEND / RETURN</td>
+<td>Parallel bus, amount sent, and processed contribution returned</td>
+</tr>
+<tr>
+<td>IR</td>
+<td>Impulse response used for convolution; its file has its own usage terms</td>
+</tr>
+<tr>
+<td>MIDI / CC</td>
+<td>Musical control messages / Control Change; these are not audio</td>
+</tr>
+<tr>
+<td>MPE</td>
+<td>MIDI Polyphonic Expression: per-note expression with compatible input and settings</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="limits-and-faq">Limits and FAQ</h2>
+<ul>
+<li><strong>Ready for a show?</strong> This is alpha. Rehearse on the same version/equipment and keep an alternative. Failure-free operation is not promised.</li>
+<li><strong>macOS?</strong> No native release yet. The web edition is separate.</li>
+<li><strong>Higher oversampling always better?</strong> It costs CPU. Listen and watch load; no universal ideal setting is claimed.</li>
+<li><strong>Send only a preset?</strong> Referenced audio/IRs may be missing. Share only material you are authorized to distribute.</li>
+<li><strong>Every source to every parameter?</strong> Lists and type choices are not equivalent to continuous knob destinations. The delivered interface shows available assignments.</li>
+<li><strong>Planned features?</strong> Sketch banks, complete-preset morphing, image-driven sequencing, pitch recognition, automatic slicing and independent parts are not promised in this alpha.</li>
+<li><strong>Future compatibility?</strong> File preservation is an intention, not a guarantee of opening or identical sound during alpha.</li>
+</ul>
+<p>For problems, use Issues with version, format, system, DAW and steps. See <a href="../contribute.html#en">contributing</a> and <a href="../credits.html">credits</a>.</p>
+<h2 id="third-party-notices">Third-party notices</h2>
+<p>See <code>THIRD_PARTY_NOTICES.txt</code> in the binary packages for licence texts of inventoried dependencies, alongside the package's other notices and licences.</p>
+<p>This software is based in part on the work of the Independent JPEG Group.</p>
+<p>Launchpad is a trademark of Focusrite Group PLC. VST is a trademark of Steinberg Media Technologies GmbH, registered in Europe and other countries. These names identify compatibility; Usina is not affiliated with these companies.</p>
+</article><footer class="reading-footer"><a href="#top">Back to top ↑</a><span>Use your browser's Print command to print or save as PDF.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

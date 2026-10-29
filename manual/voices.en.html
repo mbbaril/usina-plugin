@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Voices, filters and capture — Usina</title><link rel="stylesheet" href="../reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="../index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="../index.html">Presentation</a><a href="../manual/en.html">Manual</a><a href="../install.en.html">Install</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">ON THIS PAGE</p><nav class="toc" aria-label="ON THIS PAGE"><a href="#filter-2">FILTER 2</a>
+<a href="#filter-in-fx-slots">FILTER in FX slots</a>
+<a href="#stereo-lpg">Stereo LPG</a>
+<a href="#casc-vca-source">CASC VCA SOURCE</a>
+<a href="#voice-and-operator-stereo">Voice and operator stereo</a>
+<a href="#unison">UNISON</a>
+<a href="#bits-and-binary-comb">BITS and binary COMB</a>
+<a href="#modal-damp-and-drop">MODAL DAMP and DROP</a>
+<a href="#sample-live-capture">SAMPLE live capture</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="../alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALPHA · Features and file formats can change. Check the version and edition before following a workflow.</p><details class="mobile-index"><summary>Choose a topic</summary><nav class="toc" aria-label="Choose a topic"><a href="#filter-2">FILTER 2</a>
+<a href="#filter-in-fx-slots">FILTER in FX slots</a>
+<a href="#stereo-lpg">Stereo LPG</a>
+<a href="#casc-vca-source">CASC VCA SOURCE</a>
+<a href="#voice-and-operator-stereo">Voice and operator stereo</a>
+<a href="#unison">UNISON</a>
+<a href="#bits-and-binary-comb">BITS and binary COMB</a>
+<a href="#modal-damp-and-drop">MODAL DAMP and DROP</a>
+<a href="#sample-live-capture">SAMPLE live capture</a></nav></details><article class="article"><h1 id="voices-filters-and-capture">Voices, filters and capture</h1>
+<p>Guide to the plugin edition. Control names follow the native interface. This is an alpha; screenshots show the native interface in development. <a href="voices.html">Português</a> · <a href="en.html">Main manual</a> · <a href="modules.en.html">Module guide</a> · <a href="routing.en.html">Routing</a></p>
+<h2 id="filter-2">FILTER 2</h2>
+<p><strong>Location:</strong> SYNTH → FILTER / EG2 / OUTPUT → VOICE FILTER → FILTER 2. The tab selects the filter being edited; <strong>ROUTE</strong> selects the signal path.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>ROUTE</th>
+<th>Signal path</th>
+<th>MIX at 0% → 100%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OFF</td>
+<td>Second filter excluded</td>
+<td>No FILTER 2 contribution</td>
+</tr>
+<tr>
+<td>SERIES</td>
+<td>FILTER 1 → FILTER 2</td>
+<td>First filter alone → both in series</td>
+</tr>
+<tr>
+<td>PARALLEL</td>
+<td>Both filters receive the signal in parallel</td>
+<td>First filter → second filter</td>
+</tr>
+<tr>
+<td>STEREO</td>
+<td>FILTER 1 on the left; FILTER 2 can replace the right filter</td>
+<td>Right channel: first filter → second filter</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>TYPE</strong> contains the voice-filter types except <strong>SK CASC (HP &gt; LP)</strong>: LPF 12/24/SK/OTA, HPF 12/24/SK, BPF 6/12, BRF 6/12, SK LPF/HPF HOT and CMOS LP/HP/BP/DIST.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CUTOFF</td>
+<td>Cutoff displayed in Hz/kHz</td>
+</tr>
+<tr>
+<td>RESO</td>
+<td>Resonance, 0–100%</td>
+</tr>
+<tr>
+<td>DRIVE</td>
+<td>×1–×8 input gain for saturating types; SVF types remain linear</td>
+</tr>
+<tr>
+<td>EG2 INT</td>
+<td>Bipolar amount of the shared EG2, displayed in semitones; no separate envelope is created</td>
+</tr>
+<tr>
+<td>KEY</td>
+<td>Tracking relative to KEY CTR, −200% to +200%; +100% moves one semitone per played semitone</td>
+</tr>
+<tr>
+<td>MIX</td>
+<td>Route-dependent blend as described above, not master volume</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Try:</strong> compare different filter cutoffs in PARALLEL while moving MIX. Select SERIES to hear FILTER 2 process FILTER 1. Start with low resonance.</p>
+<p><img src="assets/screenshots/manual_F01.png" alt="FILTER 2 in STEREO, with MIX and the shared EG2." /></p>
+<p><em>FILTER 2 in STEREO, with MIX and the shared EG2.</em></p>
+<h2 id="filter-in-fx-slots">FILTER in FX slots</h2>
+<p><strong>Location:</strong> FX → FX A, FX B, AUX or LOOP → select a slot → FILTER. This bus effect processes the combined signal, rather than each voice separately.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TYPE</td>
+<td>Same applicable types as FILTER 2; no SK CASC</td>
+</tr>
+<tr>
+<td>CUTOFF</td>
+<td>20 Hz–20 kHz</td>
+</tr>
+<tr>
+<td>RESO</td>
+<td>Resonance</td>
+</tr>
+<tr>
+<td>DRIVE</td>
+<td>×1–×8 on saturating types; no effect on linear SVF types</td>
+</tr>
+<tr>
+<td>SPREAD</td>
+<td>Separates channel cutoffs by up to one octave each way; positive raises the right cutoff</td>
+</tr>
+<tr>
+<td>FOLLOW</td>
+<td>Positive opens with rising signal level; negative closes; zero disables following</td>
+</tr>
+<tr>
+<td>MIX</td>
+<td>Dry/filtered blend; AUX returns the filtered signal only</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>Output gain, −24 to +12 dB</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>FOLLOW and dB:</strong> the knob is displayed as a <strong>bipolar percentage</strong>, not dB. Its detector reads input level on a <strong>−48 to 0 dBFS</strong> scale. At full amount, the cutoff movement can reach four octaves. <strong>OUTPUT</strong> is the control expressed in dB. FOLLOW tracks amplitude, not played pitch or detected notes.</p>
+<p><strong>Try:</strong> use a pattern with attacks and gaps, moderate cutoff and positive FOLLOW. Compare with zero. Add a little SPREAD and also check the result in mono.</p>
+<p><img src="assets/screenshots/manual_F02.png" alt="FILTER in FX A slot 1; FOLLOW is displayed as a percentage." /></p>
+<p><em>FILTER in FX A slot 1; FOLLOW is displayed as a percentage.</em></p>
+<p><img src="assets/screenshots/manual_F03.png" alt="FILTER in AUX, with POST, SEND and RETURN." /></p>
+<p><em>FILTER in AUX, with POST, SEND and RETURN.</em></p>
+<h2 id="stereo-lpg">Stereo LPG</h2>
+<p><strong>Location:</strong> SYNTH → FILTER / EG2 / OUTPUT → LPG, below output controls. A low-pass gate couples level and brightness; it does not replace operator envelopes.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Interface control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OFF / PING / EG2 / SOURCE</td>
+<td>Main mode: note-triggered response, EG2 following or source following</td>
+</tr>
+<tr>
+<td>SOURCE</td>
+<td>Main source in SOURCE mode; bipolar −1…+1 is mapped to 0…1</td>
+</tr>
+<tr>
+<td>RIGHT: R SAME / R PING / R EG2 / R SOURCE</td>
+<td>Right-channel mode, called R MODE in parameter data. R SAME shares the left gate; other choices use a separate gate</td>
+</tr>
+<tr>
+<td>R SOURCE</td>
+<td>Source when RIGHT is R SOURCE</td>
+</tr>
+<tr>
+<td>DECAY</td>
+<td>Main decay setting, 0–100</td>
+</tr>
+<tr>
+<td>R DECAY</td>
+<td>−100…+100 offset added to the right decay setting, not a duration in seconds</td>
+</tr>
+<tr>
+<td>COLOR</td>
+<td>High-frequency content passing through the gate</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Try:</strong> use PING on both sides and a negative R DECAY. Compare the tails after a short note. SOURCE with an LFO creates periodic opening. RIGHT chooses a mode, not a pan position.</p>
+<p><img src="assets/screenshots/manual_L01.png" alt="LPG in SOURCE; right side in R SOURCE with its own source and decay offset." /></p>
+<p><em>LPG in SOURCE; right side in R SOURCE with its own source and decay offset.</em></p>
+<h2 id="casc-vca-source">CASC VCA SOURCE</h2>
+<p><strong>Location:</strong> FILTER 1 → TYPE → SK CASC (HP &gt; LP). <strong>CASC VCA</strong> selects GATE, EG2, ENV or SOURCE. With SOURCE selected, <strong>VCA SOURCE</strong> chooses the modulation controlling the cascaded stage level.</p>
+<p>The cascade operates after the voices are summed. This VCA is separate from the LPG and master level. Select SOURCE first, then its source. An LFO can control the stage rhythmically; leave cascade feedback low while comparing settings.</p>
+<p><img src="assets/screenshots/manual_L02.png" alt="SK CASC with CASC VCA set to SOURCE and VCA SOURCE selected." /></p>
+<p><em>SK CASC with CASC VCA set to SOURCE and VCA SOURCE selected.</em></p>
+<h2 id="voice-and-operator-stereo">Voice and operator stereo</h2>
+<p><strong>Location:</strong> SYNTH → FILTER / EG2 / OUTPUT → OUTPUT.</p>
+<ul>
+<li><strong>SPREAD:</strong> KEY places lower notes left and higher notes right; ALTERNATE alternates sides; RANDOM selects a position for each note.</li>
+<li><strong>WIDTH:</strong> placement extent, 0–100%; zero centers the voices.</li>
+<li><strong>PAN:</strong> overall left/center/right position. Modulation can move voices individually.</li>
+<li>Filter <strong>OFFSET:</strong> right cutoff relative to the left, −48…+48 semitones; not another absolute cutoff.</li>
+</ul>
+<p>Operator <strong>WIDTH</strong>, in its MODE area, spreads UNISON copies or separates MODAL pickup positions. Output WIDTH positions complete notes. Operator WIDTH does not provide stereo expansion in every operator mode.</p>
+<p><strong>Try:</strong> compare consecutive notes with SPREAD ALTERNATE and output WIDTH. Then hold one UNISON note and change operator WIDTH to hear the distinction.</p>
+<p><img src="assets/screenshots/manual_S01.png" alt="OUTPUT: ALTERNATE distribution, WIDTH and PAN." /></p>
+<p><em>OUTPUT: ALTERNATE distribution, WIDTH and PAN.</em></p>
+<p><img src="assets/screenshots/manual_S02.png" alt="FILTER 1: right OFFSET at +7 semitones relative to CUTOFF." /></p>
+<p><em>FILTER 1: right OFFSET at +7 semitones relative to CUTOFF.</em></p>
+<p><img src="assets/screenshots/manual_S03a.png" alt="UNISON operator WIDTH in the MODE panel." /></p>
+<p><em>UNISON operator WIDTH in the MODE panel.</em></p>
+<p><img src="assets/screenshots/manual_S03b.png" alt="MODAL WIDTH in the OBJECT tab, beside the object controls." /></p>
+<p><em>MODAL WIDTH in the OBJECT tab, beside the object controls.</em></p>
+<h2 id="unison">UNISON</h2>
+<p><strong>Location:</strong> operator → MODE → UNISON. <strong>VOICES</strong> selects 1–9 copies, <strong>DETUNE</strong> separates tuning, <strong>MIX</strong> blends the center and side copies, and <strong>DRIFT</strong> slowly varies them. <strong>SUB</strong> adds a square wave one octave below; <strong>PWM</strong> moves square-wave pulse widths. <strong>WIDTH</strong> spreads copies in stereo. The operator still accepts algorithm modulation.</p>
+<p>One voice or MIX zero provides the center-wave reference. Choose a square waveform to hear PWM; the control does not turn every waveform into a pulse.</p>
+<p><img src="assets/screenshots/manual_O01.png" alt="UNISON with SQR waveform, SUB, PWM and WIDTH." /></p>
+<p><em>UNISON with SQR waveform, SUB, PWM and WIDTH.</em></p>
+<h2 id="bits-and-binary-comb">BITS and binary COMB</h2>
+<p>Operator <strong>BITS</strong> processes the waveform as numeric code. <strong>BITS</strong> selects 1–16-bit resolution, <strong>XOR</strong> flips masked bits, <strong>KEEP</strong> removes low bits and <strong>OFFSET</strong> adds with wraparound. This changes timbre; it is not note sequencing.</p>
+<p><strong>COMB</strong>, in SYNTH → MOD, transforms modulation sources. Binary types encode −1…+1 as an 8-bit value and decode the result:</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BIT</td>
+<td>Extracts one bit as 0/1; AMOUNT selects the bit and negative values invert the gate</td>
+</tr>
+<tr>
+<td>XOR</td>
+<td>Combines SOURCE and MOD codes by bit inversion</td>
+</tr>
+<tr>
+<td>AND</td>
+<td>Retains high bits for positive AMOUNT or low bits for negative AMOUNT</td>
+</tr>
+<tr>
+<td>ADD MOD 256</td>
+<td>Adds scaled MOD to SOURCE with byte wraparound</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Try:</strong> use a rising LFO as SOURCE, select BIT and route a small amount to a destination. Changing the bit creates related step patterns; it does not record sequencer notes.</p>
+<p><img src="assets/screenshots/manual_O02.png" alt="BITS: resolution, XOR, KEEP and OFFSET." /></p>
+<p><em>BITS: resolution, XOR, KEEP and OFFSET.</em></p>
+<p><img src="assets/screenshots/manual_M01.png" alt="Binary XOR COMB, sources and formula." /></p>
+<p><em>Binary XOR COMB, sources and formula.</em></p>
+<h2 id="modal-damp-and-drop">MODAL DAMP and DROP</h2>
+<p><strong>Location:</strong> operator → MODE → MODAL. In the <strong>EXCITER</strong> tab, <strong>DAMP</strong> increases damping <strong>after key release</strong>. Zero retains natural ringing. It differs from DECAY and the excitation envelope RELEASE.</p>
+<p>Select <strong>DROP</strong> in EXCITER for successive impacts representing a falling and bouncing object. STRIKE and excitation settings determine contact/energy for the configuration. DROP excites the voice; it does not add sequencer steps.</p>
+<p><strong>Try:</strong> release a resonating note and compare DAMP zero with a higher setting. Compare DROP impacts with a single STRIKE excitation.</p>
+<p><img src="assets/screenshots/manual_O03.png" alt="DAMP is in the MODAL EXCITER tab and controls damping after note release." /></p>
+<p><em>DAMP is in the MODAL EXCITER tab and controls damping after note release.</em></p>
+<p><img src="assets/screenshots/manual_O04.png" alt="DROP selected in the MODAL EXCITER tab." /></p>
+<p><em>DROP selected in the MODAL EXCITER tab.</em></p>
+<h2 id="sample-live-capture">SAMPLE live capture</h2>
+<p><strong>Location:</strong> operator → MODE → SAMPLE. Recording controls provide <strong>A–D</strong>, LOAD, CAPTURE, CLEAR, LENGTH and AUTO LVL. A–D select recordings, independently of PLAY's macro snapshots.</p>
+<ol>
+<li>Choose destination A–D and configure audio input. Capture follows IN GAIN and precedes IN MIX; IN MIX can stay at zero to avoid input monitoring.</li>
+<li>Capture <strong>LENGTH</strong> is FREE, 1 BAR, 2 BARS or 4 BARS. With transport running, bar-length capture waits for the next bar. With transport stopped it starts immediately.</li>
+<li>Press <strong>CAPTURE</strong>. Press again to end a free capture; bar-length captures stop automatically.</li>
+<li><strong>AUTO LVL</strong>, on by default, adjusts the take to a −3 dBFS peak, with gain increase limited to +30 dB. It cannot repair input clipping.</li>
+<li>Play the recording and adjust READ, START, LENGTH and XFADE/FADE. Operator playback LENGTH is separate from capture LENGTH.</li>
+</ol>
+<p>A take is saved as an audio file referenced by the preset/session. Keep those files accessible when moving projects; saving a preset does not embed the recording. Capture does not configure the audio interface or change project sample rate.</p>
+<p><img src="assets/screenshots/manual_A01.png" alt="SAMPLE: slots A–D, capture controls and LENGTH set to 1 BAR." /></p>
+<p><em>SAMPLE: slots A–D, capture controls and LENGTH set to 1 BAR.</em></p>
+<p><img src="assets/screenshots/manual_A02.png" alt="Armed SAMPLE: WAIT BAR before capture begins." /></p>
+<p><em>Armed SAMPLE: WAIT BAR before capture begins.</em></p>
+</article><footer class="reading-footer"><a href="#top">Back to top ↑</a><span>Use your browser's Print command to print or save as PDF.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

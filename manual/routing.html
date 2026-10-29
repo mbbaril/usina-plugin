@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>AUX e LOOP INSERT · caminhos do áudio — Usina</title><link rel="stylesheet" href="../reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="../index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="../index.html">Apresentação</a><a href="../manual/index.html">Manual</a><a href="../install.html">Instalar</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">NESTA PÁGINA</p><nav class="toc" aria-label="NESTA PÁGINA"><a href="#onde-encontrar-os-controles">Onde encontrar os controles</a>
+<a href="#aux-acrescentar-um-caminho-ao-principal">AUX: acrescentar um caminho ao principal</a>
+<a class="toc-secondary" href="#pre-e-post-de-onde-vem-a-copia">PRE e POST: de onde vem a cópia?</a>
+<a class="toc-secondary" href="#send-return-e-cauda">SEND, RETURN e cauda</a>
+<a class="toc-secondary" href="#por-que-mix-pode-parecer-diferente-no-aux">Por que MIX pode parecer diferente no AUX?</a>
+<a class="toc-secondary" href="#receita-sala-ao-redor-de-uma-nota">Receita: sala ao redor de uma nota</a>
+<a class="toc-secondary" href="#receita-um-eco-enviado-por-gesto">Receita: um eco enviado por gesto</a>
+<a href="#loop-insert-processar-o-que-vai-voltar">LOOP INSERT: processar o que vai voltar</a>
+<a class="toc-secondary" href="#quais-controles-fazem-o-que">Quais controles fazem o quê?</a>
+<a class="toc-secondary" href="#o-que-se-acumula-a-cada-volta">O que se acumula a cada volta?</a>
+<a class="toc-secondary" href="#receita-reconhecer-primeiro-uma-volta">Receita: reconhecer primeiro uma volta</a>
+<a href="#tres-coisas-chamadas-feedback">Três coisas chamadas feedback</a>
+<a href="#se-algo-nao-se-comportar-como-esperado">Se algo não se comportar como esperado</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="../alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALFA · Recursos e formatos podem mudar. Confira a versão e a edição antes de seguir um procedimento.</p><details class="mobile-index"><summary>Escolher um assunto</summary><nav class="toc" aria-label="Escolher um assunto"><a href="#onde-encontrar-os-controles">Onde encontrar os controles</a>
+<a href="#aux-acrescentar-um-caminho-ao-principal">AUX: acrescentar um caminho ao principal</a>
+<a class="toc-secondary" href="#pre-e-post-de-onde-vem-a-copia">PRE e POST: de onde vem a cópia?</a>
+<a class="toc-secondary" href="#send-return-e-cauda">SEND, RETURN e cauda</a>
+<a class="toc-secondary" href="#por-que-mix-pode-parecer-diferente-no-aux">Por que MIX pode parecer diferente no AUX?</a>
+<a class="toc-secondary" href="#receita-sala-ao-redor-de-uma-nota">Receita: sala ao redor de uma nota</a>
+<a class="toc-secondary" href="#receita-um-eco-enviado-por-gesto">Receita: um eco enviado por gesto</a>
+<a href="#loop-insert-processar-o-que-vai-voltar">LOOP INSERT: processar o que vai voltar</a>
+<a class="toc-secondary" href="#quais-controles-fazem-o-que">Quais controles fazem o quê?</a>
+<a class="toc-secondary" href="#o-que-se-acumula-a-cada-volta">O que se acumula a cada volta?</a>
+<a class="toc-secondary" href="#receita-reconhecer-primeiro-uma-volta">Receita: reconhecer primeiro uma volta</a>
+<a href="#tres-coisas-chamadas-feedback">Três coisas chamadas feedback</a>
+<a href="#se-algo-nao-se-comportar-como-esperado">Se algo não se comportar como esperado</a></nav></details><article class="article"><h1 id="aux-e-loop-insert-caminhos-do-audio">AUX e LOOP INSERT · caminhos do áudio</h1>
+<p><a href="routing.en.html">English</a> · <a href="index.html">Manual principal</a> · <a href="modules.html#efeitos-escolher-pelo-gesto">Efeitos e módulos</a> · <a href="modulation.html">Patches de modulação</a></p>
+<p>Esses caminhos respondem a perguntas diferentes. <strong>AUX:</strong> quanto deste sinal quero enviar a um processamento paralelo e somar de volta? <strong>LOOP INSERT:</strong> como quero transformar o sinal que voltará pela realimentação interna?</p>
+<p><strong>ALFA · guia da implementação atual.</strong> Os mapas são conceituais e omitem detalhes de suavização, compensação e proteção para tornar o percurso legível. Não são capturas da interface. As receitas precisam ser conferidas na edição e no release usados.</p>
+<h2 id="onde-encontrar-os-controles">Onde encontrar os controles</h2>
+<p><strong>Plugin:</strong> abra FX. O painel de barramentos mostra FX A, FX B, AUX e LOOP INSERT. Selecione o slot desejado para abrir a edição do efeito. <strong>Web/APK:</strong> FX oferece abas FX A, FX B, AUX e LOOP; entre no barramento e selecione um slot. Recursos como IR e opções novas podem diferir entre edições.</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Caminho</th>
+<th>Controles do barramento</th>
+<th>Confira</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FX A / FX B</td>
+<td>ON, MIX, slots</td>
+<td>Tipo, mistura e ordem A/B</td>
+</tr>
+<tr>
+<td>AUX</td>
+<td>ON, SEND, RETURN, PRE/POST, slots</td>
+<td>Sinal enviado, retorno e ponto de tomada</td>
+</tr>
+<tr>
+<td>LOOP INSERT</td>
+<td>ON, slots; FEEDBACK e TIME associados ao laço</td>
+<td>Processamento do retorno e quantidade de realimentação</td>
+</tr>
+</tbody>
+</table></div>
+<p>Os controles do barramento ficam separados dos controles do efeito selecionado. MIX do DELAY, MIX de FX A, AUX SEND e FEEDBACK do laço não são versões do mesmo knob.</p>
+<h2 id="aux-acrescentar-um-caminho-ao-principal">AUX: acrescentar um caminho ao principal</h2>
+<p>O AUX recebe uma cópia do sinal escolhido, processa seus slots e soma o retorno <strong>depois de FX A/B</strong>. O caminho principal continua existindo. É útil para acrescentar ecos, salas e texturas sem obrigar todo o sinal principal a atravessá-los.</p>
+<figure class="patch-map"><figcaption><strong>AUX: um envio que se soma de volta</strong><span>Mapa funcional. PRE e POST são alternativas.</span></figcaption><div class="flow-line"><div class="flow-node"><small>FONTE PRE</small><strong>Antes de A/B</strong></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>FX A / FX B</strong><span>Roteamento escolhido</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><small>FONTE POST</small><strong>Depois de A/B</strong></div></div><div class="aux-branch"><div class="flow-node"><strong>PRE ou POST</strong><span>Seleção do envio</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><strong>SEND</strong><span>Entrada no AUX</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Slots AUX</strong><span>Processamento</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><strong>RETURN</strong><span>Soma após A/B</span></div></div><p>O sinal principal segue seu caminho. O AUX acrescenta a contribuição processada; RETURN em 0 dB não significa silêncio.</p></figure>
+
+<p><strong>SEND</strong> controla quanto sinal novo chega ao AUX. <strong>RETURN</strong> controla o nível do resultado que volta. <strong>ON</strong> liga/desliga a contribuição do barramento. Também precisam existir slots com processamento ativo.</p>
+<h3 id="pre-e-post-de-onde-vem-a-copia">PRE e POST: de onde vem a cópia?</h3>
+<ul>
+<li><strong>PRE:</strong> recebe o sinal antes de FX A e FX B, sem as transformações feitas nesses dois barramentos.</li>
+<li><strong>POST:</strong> recebe o resultado depois de FX A/B, seja qual for o roteamento A &gt; B, B &gt; A ou A // B.</li>
+<li>Nos dois casos, o retorno AUX é acrescentado depois de A/B. PRE não significa que a reverb do AUX será colocada antes de FX A na cadeia principal.</li>
+</ul>
+<p>Compare DISTORT em FX A e ROOM no AUX. Em PRE, ROOM recebe o sinal antes da distorção de A. Em POST, recebe o sinal transformado por A/B. A matéria que alimenta a sala muda, não apenas seu volume.</p>
+<h3 id="send-return-e-cauda">SEND, RETURN e cauda</h3>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Gesto</th>
+<th>O que muda</th>
+<th>O que não presumir</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aumentar SEND</td>
+<td>Mais sinal entra no processamento</td>
+<td>Não é apenas aumentar a saída do efeito</td>
+</tr>
+<tr>
+<td>Levar SEND a zero</td>
+<td>Deixa de entrar sinal novo pelo envio</td>
+<td>A cauda ou material já guardado pode continuar</td>
+</tr>
+<tr>
+<td>Abaixar RETURN</td>
+<td>Reduz o resultado somado ao principal</td>
+<td>O efeito pode continuar processando internamente</td>
+</tr>
+<tr>
+<td>RETURN em 0 dB</td>
+<td>Retorno sem ganho/atenuação adicional nesse controle</td>
+<td>Não significa desligado</td>
+</tr>
+<tr>
+<td>Desligar AUX</td>
+<td>Retira a contribuição do barramento</td>
+<td>Não equivale a parar de alimentar e deixar a cauda terminar</td>
+</tr>
+</tbody>
+</table></div>
+<p>RETURN é expresso em <strong>dB</strong>; SEND representa quantidade de envio. Seus números não são diretamente comparáveis. O mínimo de RETURN também não deve ser tomado automaticamente como silêncio absoluto; use ON para desligar o barramento.</p>
+<h3 id="por-que-mix-pode-parecer-diferente-no-aux">Por que MIX pode parecer diferente no AUX?</h3>
+<p>O AUX usa o retorno processado, sem acrescentar uma nova cópia seca pelo controle de mistura dos efeitos que oferecem esse percurso. Ajuste a presença principalmente em <strong>SEND e RETURN</strong>, e use os parâmetros do efeito para moldar seu caráter. Modelos específicos podem dar interpretação própria a alguns controles; consulte os rótulos do modo.</p>
+<p>No caminho principal, o efeito e o MIX do barramento podem combinar seco e processado. No AUX, a fonte principal já segue por outro caminho. Não espere que um MIX interno repita obrigatoriamente o comportamento do mesmo efeito em FX A.</p>
+<h3 id="receita-sala-ao-redor-de-uma-nota">Receita: sala ao redor de uma nota</h3>
+<ol>
+<li>Comece com o FEEDBACK global em zero.</li>
+<li>Coloque ROOM em AUX e ligue o efeito e o barramento.</li>
+<li>Use RETURN em 0 dB como referência e SEND inicialmente em zero, com volume físico baixo.</li>
+<li>Toque notas curtas e aumente SEND aos poucos. AMOUNT da ROOM muda sua duração/característica.</li>
+<li>Volte SEND a zero e acompanhe a cauda. Depois compare com desligar AUX.</li>
+</ol>
+<p>Se nada aparecer, confira slot, efeito ON, AUX ON, SEND, RETURN e sinal na fonte. Um slot NONE não cria uma sala.</p>
+<h3 id="receita-um-eco-enviado-por-gesto">Receita: um eco enviado por gesto</h3>
+<p>Coloque DELAY no AUX, com tempo e feedback interno moderados. Parta de SEND zero, toque uma nota e aumente SEND brevemente; depois retorne a zero. O gesto escolhe quanto material novo entra no eco. A continuidade depende do DELAY e de seu próprio FEEDBACK/FREEZE.</p>
+<p>Uma macro endereçada a AUX SEND pode fazer esse gesto. Não é necessário aumentar o FEEDBACK global para ter repetições de DELAY.</p>
+<h2 id="loop-insert-processar-o-que-vai-voltar">LOOP INSERT: processar o que vai voltar</h2>
+<p>O laço interno guarda uma cópia do sinal numa linha de atraso. Ela retorna com a quantidade de <strong>FEEDBACK</strong> e é somada novamente ao resultado. LOOP INSERT processa essa cópia <strong>antes de ela entrar na memória</strong>.</p>
+<figure class="patch-map"><figcaption><strong>LOOP INSERT: a cópia que retorna</strong><span>Caminho direto e memória do laço são separados.</span></figcaption><div class="flow-line"><div class="flow-node"><strong>Soma do sinal</strong><span>Vozes/FX, AUX, entrada e retorno</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><strong>LEVEL</strong><span>Tomada para o laço depois daqui</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Guarda → saída</strong><span>Caminho ouvido diretamente</span></div></div><div class="loop-stages"><div><b>1 · Cópia antes da guarda</b><span>O sinal já passou por LEVEL.</span></div><div><b>2 · LOOP INSERT</b><span>Os slots transformam a cópia.</span></div><div><b>3 · Memória / TIME</b><span>Material guardado e lido com atraso.</span></div><div><b>4 · FEEDBACK e proteções</b><span>O retorno é limitado e volta à soma do sinal.</span></div></div><p>↶ O retorno volta à soma. Não atravessa automaticamente FX A/B ou AUX em cada volta.</p></figure>
+
+<p>A tomada que alimenta o laço fica <strong>depois de LEVEL e antes da guarda final de saída</strong>. Pode conter vozes, seus efeitos, retorno AUX, entrada audível e material de voltas anteriores. O retorno passa por suas proteções antes de voltar à soma.</p>
+<p><strong>No Usina, o retorno não é enviado automaticamente de volta à entrada de FX A/B ou do AUX.</strong> O processamento repetido em cada volta é o de LOOP INSERT. Uma reverb em FX A faz parte da cópia inicial, mas não ocupa o mesmo papel de uma reverb inserida no laço.</p>
+<h3 id="quais-controles-fazem-o-que">Quais controles fazem o quê?</h3>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Controle</th>
+<th>Papel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FEEDBACK global</td>
+<td>Quanto do material guardado retorna</td>
+</tr>
+<tr>
+<td>TIME do laço</td>
+<td>Distância temporal da leitura na memória</td>
+</tr>
+<tr>
+<td>Slots LOOP INSERT</td>
+<td>Transformação do sinal que será guardado</td>
+</tr>
+<tr>
+<td>ON de LOOP INSERT</td>
+<td>Ativa/desativa os efeitos desse caminho</td>
+</tr>
+<tr>
+<td>LEVEL</td>
+<td>Participa da alimentação da memória; não é apenas um monitor depois do laço</td>
+</tr>
+<tr>
+<td>CEILING / guarda</td>
+<td>Proteção de saída; não substitui controlar a energia de cada processo</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>FEEDBACK zero:</strong> a contribuição de retorno é zero, mesmo com efeitos no insert. <strong>LOOP INSERT desligado:</strong> o laço pode continuar retornando sem esses efeitos. <strong>FX global desligado:</strong> não deve ser usado como sinônimo de FEEDBACK zero. Para interromper o retorno, confira FEEDBACK.</p>
+<p>Com um insert ativo, o processamento por blocos impõe um tempo mínimo ao laço. Tempos muito curtos podem depender do bloco do sistema/host. O controle não promete atraso físico idêntico em todos os ambientes.</p>
+<h3 id="o-que-se-acumula-a-cada-volta">O que se acumula a cada volta?</h3>
+<p>Pense numa folha recopiada: uma transformação no caminho da cópia reaparece nas gerações seguintes. Saturação, grãos, ecos e outros processos podem alterar o material repetidamente. O efeito também pode ter memória e feedback próprios.</p>
+<ul>
+<li>DISTORT no laço pode transformar mais o material em cada passagem.</li>
+<li>DELAY no laço combina TIME global com o tempo e a realimentação internos do DELAY.</li>
+<li>TEXTURE/VAPOR podem manter e reorganizar material; FREEZE acrescenta outro estado de memória.</li>
+<li>Efeitos no AUX ou A/B modificam a fonte que entra no laço, mas não são automaticamente seu insert de retorno.</li>
+</ul>
+<p>Essas relações não garantem som ou nível previsíveis. Ganho, mistura, tempo, entrada e proteções participam do resultado.</p>
+<h3 id="receita-reconhecer-primeiro-uma-volta">Receita: reconhecer primeiro uma volta</h3>
+<ol>
+<li>Salve o patch e deixe microfone/IN MIX em zero para começar sem laço acústico externo.</li>
+<li>Comece sem efeito no LOOP INSERT, FEEDBACK zero e tempo de laço espaçado o suficiente para reconhecer repetições.</li>
+<li>Toque uma nota curta. Aumente FEEDBACK devagar a partir de zero, com volume físico moderado.</li>
+<li>Volte FEEDBACK a zero para comparar e interromper sua contribuição.</li>
+<li>Só depois insira um efeito no LOOP INSERT e compare com pouco retorno.</li>
+</ol>
+<p>Escolha um efeito que você já reconheça. Evite começar com ganhos, densidades e feedbacks internos altos. Não há valor numérico universal que garanta audição segura.</p>
+<h2 id="tres-coisas-chamadas-feedback">Três coisas chamadas feedback</h2>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Lugar</th>
+<th>O que retorna</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FB de operador FM / diagonal USER</td>
+<td>Sinal dentro do operador/rede</td>
+</tr>
+<tr>
+<td>FEEDBACK do DELAY, TEXTURE ou VAPOR</td>
+<td>Material na memória daquele efeito</td>
+</tr>
+<tr>
+<td>FEEDBACK global com LOOP INSERT</td>
+<td>Cópia do sinal no laço da instância</td>
+</tr>
+</tbody>
+</table></div>
+<p>Eles podem coexistir. Diminuir um não garante parar os demais. Para investigar um som que continua, confira também HOLD, sustain, sequência, FREEZE e caudas.</p>
+<h2 id="se-algo-nao-se-comportar-como-esperado">Se algo não se comportar como esperado</h2>
+<ul>
+<li><strong>AUX não aparece:</strong> confira slot, efeito ON, AUX ON, SEND e RETURN.</li>
+<li><strong>SEND zero, mas ainda soa:</strong> pode haver cauda ou material retido. Compare com AUX desligado.</li>
+<li><strong>PRE não colocou o AUX antes de A/B:</strong> PRE escolhe a origem do envio; o retorno continua depois dos barramentos principais.</li>
+<li><strong>Insert muda pouco com FEEDBACK zero:</strong> ele trata a cópia que voltaria; não substitui o caminho direto.</li>
+<li><strong>Desliguei LOOP INSERT, mas continua repetindo:</strong> desligar o insert não é zerar o retorno global.</li>
+<li><strong>LEVEL muda o laço:</strong> a tomada para a memória fica depois desse controle.</li>
+<li><strong>A guarda atua muito:</strong> reduza energia na fonte e nos retornos. Sua atuação não indica volume acústico seguro.</li>
+</ul>
+<p>Em caso de nível inesperado, reduza primeiro o volume físico e interrompa reprodução/entrada. Retome com retornos baixos e uma parte por vez. As proteções do instrumento não controlam ganhos posteriores nem o volume do equipamento.</p>
+</article><footer class="reading-footer"><a href="#top">Voltar ao início ↑</a><span>Para imprimir ou salvar em PDF, use Imprimir no menu do navegador.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Usina v0.2.0-alpha.1 · ALFA — Usina</title><link rel="stylesheet" href="../reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="../index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="../index.html">Apresentação</a><a href="../manual/index.html">Manual</a><a href="../install.html">Instalar</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">NESTA PÁGINA</p><nav class="toc" aria-label="NESTA PÁGINA"><a href="#portugues">Português</a>
+<a class="toc-secondary" href="#sintese-e-modulacao">Síntese e modulação</a>
+<a class="toc-secondary" href="#audio-e-performance">Áudio e performance</a>
+<a class="toc-secondary" href="#sistemas-e-arquivos-previstos">Sistemas e arquivos previstos</a>
+<a class="toc-secondary" href="#limitacoes-e-validacao">Limitações e validação</a>
+<a href="#english">English</a>
+<a class="toc-secondary" href="#synthesis-and-modulation">Synthesis and modulation</a>
+<a class="toc-secondary" href="#audio-and-performance">Audio and performance</a>
+<a class="toc-secondary" href="#planned-distribution-and-limits">Planned distribution and limits</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="../alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALFA · Recursos e formatos podem mudar. Confira a versão e a edição antes de seguir um procedimento.</p><details class="mobile-index"><summary>Escolher um assunto</summary><nav class="toc" aria-label="Escolher um assunto"><a href="#portugues">Português</a>
+<a class="toc-secondary" href="#sintese-e-modulacao">Síntese e modulação</a>
+<a class="toc-secondary" href="#audio-e-performance">Áudio e performance</a>
+<a class="toc-secondary" href="#sistemas-e-arquivos-previstos">Sistemas e arquivos previstos</a>
+<a class="toc-secondary" href="#limitacoes-e-validacao">Limitações e validação</a>
+<a href="#english">English</a>
+<a class="toc-secondary" href="#synthesis-and-modulation">Synthesis and modulation</a>
+<a class="toc-secondary" href="#audio-and-performance">Audio and performance</a>
+<a class="toc-secondary" href="#planned-distribution-and-limits">Planned distribution and limits</a></nav></details><article class="article"><h1 id="usina-v0.2.0-alpha.1-alfa">Usina v0.2.0-alpha.1 · ALFA</h1>
+<p><strong>Rascunho para revisão técnica. Esta versão ainda não está publicada.</strong> As informações abaixo descrevem recursos presentes na árvore de desenvolvimento; os anexos finais e seus resultados de validação precisam ser conferidos antes do lançamento.</p>
+<h2 id="portugues">Português</h2>
+<p>Usina combina FM, modelagem física, ruído, gravações e efeitos numa rede de seis operadores. Esta é a primeira versão alfa pública prevista do plugin.</p>
+<h3 id="sintese-e-modulacao">Síntese e modulação</h3>
+<ul>
+<li><strong>Quinze modos de operador:</strong> FM, RING, FILTER, FILTER FM, FOLD, EFFECT, BYPASS, MUTE, MODAL, CHAOS, STOCHASTIC, MACRO, SAMPLE, UNISON e BITS.</li>
+<li><strong>FILTER 2:</strong> segundo filtro de voz, com rotas em série, paralelo ou estéreo. A opção em cascata permanece específica do primeiro filtro.</li>
+<li><strong>UNISON:</strong> pilha de até nove cópias, com DETUNE, MIX, DRIFT, SUB e PWM.</li>
+<li><strong>BITS:</strong> processamento binário da forma de onda, com BITS, XOR, KEEP e OFFSET.</li>
+<li><strong>MODAL:</strong> DAMP controla o amortecimento após soltar a tecla; DROP acrescenta impactos sucessivos ao excitador.</li>
+<li><strong>COMB:</strong> operações BIT, XOR, AND e ADD MOD 256, além dos combinadores contínuos.</li>
+<li><strong>LPG estéreo:</strong> controle do lado direito e seleção de fontes de modulação. O VCA do filtro em cascata também aceita uma fonte.</li>
+</ul>
+<h3 id="audio-e-performance">Áudio e performance</h3>
+<ul>
+<li><strong>Estéreo de voz:</strong> SPREAD, WIDTH e PAN distribuem as notas. WIDTH no UNISON separa as cópias; no MODAL, separa os pontos de captação. OFFSET permite diferenciar o filtro entre canais.</li>
+<li><strong>SAMPLE:</strong> quatro gravações A–D, carregamento de arquivo e captura da entrada. Captura manual ou de 1, 2 ou 4 compassos; AUTO LVL ajusta o pico da gravação. Os arquivos são referenciados por caminho, não incorporados à sessão.</li>
+<li><strong>FX:</strong> FX A, FX B, AUX e LOOP INSERT, com três slots por barramento. Efeitos TEXTURE, ROOM, DISTORT, IR, VAPOR, DELAY e <strong>FILTER</strong>. FILTER reutiliza os tipos de filtro de voz aplicáveis a um barramento, sem a opção em cascata.</li>
+<li><strong>Standalone:</strong> F11/Escape alternam e encerram a tela cheia; a opção também está no menu ALFA. F10 alterna os diagnósticos de áudio e processo.</li>
+<li><strong>Controles:</strong> sequenciador, CABINE e PLAY; MIDI learn/forget, pitch bend e entrada MPE. As apresentações novas da edição web não são anunciadas como recursos desta edição do plugin.</li>
+</ul>
+<h3 id="sistemas-e-arquivos-previstos">Sistemas e arquivos previstos</h3>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Sistema</th>
+<th>Pacote previsto</th>
+<th>Formatos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows 10/11, 64 bits</td>
+<td><code>Usina-0.2.0-alpha.1-windows-x64.zip</code></td>
+<td>VST3, CLAP, Standalone</td>
+</tr>
+<tr>
+<td>Fontes correspondentes</td>
+<td><code>Usina-0.2.0-alpha.1-fontes.zip</code></td>
+<td>Código e instruções da mesma versão</td>
+</tr>
+<tr>
+<td>Integridade</td>
+<td><code>SHA256SUMS.txt</code></td>
+<td>Somas dos anexos finais</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="https://github.com/mbbaril/usina-plugin/releases">Releases</a> · <a href="https://github.com/mbbaril/usina-plugin/issues">Issues</a> · <a href="https://github.com/mbbaril/usina-plugin/discussions">Discussions</a></p>
+<p>Os downloads serão associados à tag <code>v0.2.0-alpha.1</code>. Não há anexos disponíveis anunciados por este rascunho. O “Source code” automático do GitHub contém a vitrine; as fontes completas do plugin devem ser fornecidas no anexo correspondente, junto aos binários. Cada pacote acompanha licenças, <code>THIRD_PARTY.md</code> e <code>THIRD_PARTY_NOTICES.txt</code>.</p>
+<h3 id="limitacoes-e-validacao">Limitações e validação</h3>
+<p>Alfa, sem garantia: pode travar, deixar notas presas e mudar sons ou formatos. Faça cópias dos projetos. Microfone e realimentação podem gerar níveis altos; comece com volume baixo. A guarda de saída não substitui o controle físico do volume. O plugin não é assinado. Linux experimental, macOS, APK e web alpha.7 não fazem parte desta entrega.</p>
+<p>Validação automática do candidato: 25/25 testes nativos, pluginval nível 10 no VST3 e compilação do CLAP a partir do ZIP completo de fontes extraído em pasta limpa. A validação em equipamentos de uso real e o teste prolongado ainda não foram concluídos. Os hashes finais estão em SHA256SUMS.txt. Não inclui promessa de bancos de sketches, morph completo de presets, sequenciadores por imagem, fatias automáticas ou compatibilidade universal de controladores.</p>
+<p>O plugin não coleta dados nem se conecta à internet. Links só abrem o navegador por ação sua. O conjunto é AGPL-3.0; as partes GPL-3.0 e demais componentes preservam suas licenças e avisos.</p>
+<p><a href="../install.html">Instalação</a> · <a href="../manual/index.html">Manual</a> · <a href="../alpha.html">Aviso completo</a> · <a href="../credits.html">Créditos</a> · <a href="../security.html">Segurança</a></p>
+<p><a id="en"></a></p>
+<h2 id="english">English</h2>
+<p><strong>Technical-review draft; not published.</strong> These features exist in the development tree. Final attachments and validation results must be checked before release.</p>
+<h3 id="synthesis-and-modulation">Synthesis and modulation</h3>
+<ul>
+<li><strong>Fifteen operator modes:</strong> FM, RING, FILTER, FILTER FM, FOLD, EFFECT, BYPASS, MUTE, MODAL, CHAOS, STOCHASTIC, MACRO, SAMPLE, UNISON and BITS.</li>
+<li><strong>FILTER 2:</strong> a second voice filter with series, parallel and stereo routing. The cascade option remains specific to the first filter.</li>
+<li><strong>UNISON:</strong> up to nine copies, with DETUNE, MIX, DRIFT, SUB and PWM.</li>
+<li><strong>BITS:</strong> waveform bit processing with BITS, XOR, KEEP and OFFSET.</li>
+<li><strong>MODAL:</strong> DAMP applies damping after key release; DROP adds successive impacts to the exciter.</li>
+<li><strong>COMB:</strong> BIT, XOR, AND and ADD MOD 256 alongside continuous combiners.</li>
+<li><strong>Stereo LPG:</strong> right-channel settings and modulation sources. The cascaded filter VCA also accepts a source.</li>
+</ul>
+<h3 id="audio-and-performance">Audio and performance</h3>
+<ul>
+<li><strong>Stereo voices:</strong> SPREAD, WIDTH and PAN place notes; operator WIDTH spreads UNISON copies or MODAL pickups. Filter OFFSET differentiates channels.</li>
+<li><strong>SAMPLE:</strong> four recordings A–D, file loading and input capture; manual or 1/2/4-bar recording, with AUTO LVL peak adjustment. Recordings are path-referenced, not embedded in the session.</li>
+<li><strong>FX:</strong> three slots each in FX A, FX B, AUX and LOOP INSERT. TEXTURE, ROOM, DISTORT, IR, VAPOR, DELAY and <strong>FILTER</strong>. FILTER uses the applicable voice-filter types on a bus, excluding the cascade option.</li>
+<li><strong>Standalone:</strong> F11/Escape toggle and exit full screen; the option is also available in ALFA. F10 toggles audio and process diagnostics.</li>
+<li><strong>Performance:</strong> sequencer, CABINE, PLAY, MIDI learn/forget, pitch bend and MPE input. New web layouts are not claimed as plugin features.</li>
+</ul>
+<h3 id="planned-distribution-and-limits">Planned distribution and limits</h3>
+<p>Windows x64: VST3, CLAP and Standalone. Linux, macOS, APK and web alpha.7 packages are not included in this delivery. The planned filenames are listed above. Complete corresponding source, licenses, third-party notices and <code>SHA256SUMS.txt</code> must accompany the release. GitHub's automatic source archive contains the showcase, not the full plugin source.</p>
+<p>Candidate automated validation: 25/25 native tests, VST3 pluginval at strictness level 10, and a successful CLAP build from the complete source ZIP extracted into a clean directory. Real-device validation and a prolonged run remain pending. Final attachment hashes are listed in SHA256SUMS.txt. The plugin is unsigned.</p>
+<p>Alpha means no warranty: crashes, stuck notes and sound/format changes are possible. Back up projects; start at low volume. Input and feedback may become loud; output guards do not replace physical volume control. No sketch banks, complete preset morphing, image sequencing, automatic slicing or universal controller support is promised.</p>
+<p>The plugin collects no data and does not connect to the internet. Links open the browser only on your action. The combined distribution is AGPL-3.0, retaining GPL-3.0 and third-party terms.</p>
+<p><a href="https://github.com/mbbaril/usina-plugin/releases">Releases</a> · <a href="https://github.com/mbbaril/usina-plugin/issues">Issues</a> · <a href="https://github.com/mbbaril/usina-plugin/discussions">Discussions</a> · <a href="../install.en.html">Install</a> · <a href="../manual/en.html">Manual</a> · <a href="../alpha.html#en">Full notice</a> · <a href="../credits.html">Credits</a> · <a href="../security.html#english">Security</a></p>
+</article><footer class="reading-footer"><a href="#top">Voltar ao início ↑</a><span>Para imprimir ou salvar em PDF, use Imprimir no menu do navegador.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

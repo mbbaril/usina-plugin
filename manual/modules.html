@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Por dentro do Usina · guia por módulo — Usina</title><link rel="stylesheet" href="../reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="../index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="../index.html">Apresentação</a><a href="../manual/index.html">Manual</a><a href="../install.html">Instalar</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">NESTA PÁGINA</p><nav class="toc" aria-label="NESTA PÁGINA"><a href="#mapa-das-telas">Mapa das telas</a>
+<a href="#entender-uma-ligacao-antes-de-editar">Entender uma ligação antes de editar</a>
+<a href="#algoritmos-ler-e-construir-o-fluxo">Algoritmos: ler e construir o fluxo</a>
+<a class="toc-secondary" href="#abrir-o-seletor-e-escolher">Abrir o seletor e escolher</a>
+<a class="toc-secondary" href="#ler-o-desenho">Ler o desenho</a>
+<a class="toc-secondary" href="#comparar-cadeia-e-paralelo">Comparar cadeia e paralelo</a>
+<a class="toc-secondary" href="#selecionar-nao-e-reconectar">Selecionar não é reconectar</a>
+<a class="toc-secondary" href="#user-linha-envia-coluna-recebe">USER: linha envia, coluna recebe</a>
+<a class="toc-secondary" href="#tres-realimentacoes-que-nao-sao-a-mesma-coisa">Três realimentações que não são a mesma coisa</a>
+<a href="#os-controles-comuns-dos-operadores">Os controles comuns dos operadores</a>
+<a href="#modos-ondas-e-transformacoes">Modos: ondas e transformações</a>
+<a class="toc-secondary" href="#fm">FM</a>
+<a class="toc-secondary" href="#ring">RING</a>
+<a class="toc-secondary" href="#filter-e-filter-fm">FILTER e FILTER FM</a>
+<a class="toc-secondary" href="#fold">FOLD</a>
+<a class="toc-secondary" href="#effect">EFFECT</a>
+<a class="toc-secondary" href="#bypass-e-mute">BYPASS e MUTE</a>
+<a href="#modos-objetos-processos-e-gravacoes">Modos: objetos, processos e gravações</a>
+<a class="toc-secondary" href="#modal">MODAL</a>
+<a class="toc-secondary" href="#chaos">CHAOS</a>
+<a class="toc-secondary" href="#stochastic">STOCHASTIC</a>
+<a class="toc-secondary" href="#macro">MACRO</a>
+<a class="toc-secondary" href="#sample">SAMPLE</a>
+<a class="toc-secondary" href="#unison">UNISON</a>
+<a class="toc-secondary" href="#bits">BITS</a>
+<a href="#filtros-retirar-destacar-e-transformar">Filtros: retirar, destacar e transformar</a>
+<a class="toc-secondary" href="#vca-e-lpg-na-interface">VCA e LPG na interface</a>
+<a href="#envelopes-desenhar-o-tempo">Envelopes: desenhar o tempo</a>
+<a href="#modulacao-fonte-destino-quantidade">Modulação: fonte, destino, quantidade</a>
+<a href="#efeitos-escolher-pelo-gesto">Efeitos: escolher pelo gesto</a>
+<a class="toc-secondary" href="#texture">TEXTURE</a>
+<a class="toc-secondary" href="#room">ROOM</a>
+<a class="toc-secondary" href="#distort">DISTORT</a>
+<a class="toc-secondary" href="#ir">IR</a>
+<a class="toc-secondary" href="#vapor">VAPOR</a>
+<a class="toc-secondary" href="#filter">FILTER</a>
+<a class="toc-secondary" href="#delay">DELAY</a>
+<a href="#encontrar-o-que-esta-causando-o-resultado">Encontrar o que está causando o resultado</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="../alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALFA · Recursos e formatos podem mudar. Confira a versão e a edição antes de seguir um procedimento.</p><details class="mobile-index"><summary>Escolher um assunto</summary><nav class="toc" aria-label="Escolher um assunto"><a href="#mapa-das-telas">Mapa das telas</a>
+<a href="#entender-uma-ligacao-antes-de-editar">Entender uma ligação antes de editar</a>
+<a href="#algoritmos-ler-e-construir-o-fluxo">Algoritmos: ler e construir o fluxo</a>
+<a class="toc-secondary" href="#abrir-o-seletor-e-escolher">Abrir o seletor e escolher</a>
+<a class="toc-secondary" href="#ler-o-desenho">Ler o desenho</a>
+<a class="toc-secondary" href="#comparar-cadeia-e-paralelo">Comparar cadeia e paralelo</a>
+<a class="toc-secondary" href="#selecionar-nao-e-reconectar">Selecionar não é reconectar</a>
+<a class="toc-secondary" href="#user-linha-envia-coluna-recebe">USER: linha envia, coluna recebe</a>
+<a class="toc-secondary" href="#tres-realimentacoes-que-nao-sao-a-mesma-coisa">Três realimentações que não são a mesma coisa</a>
+<a href="#os-controles-comuns-dos-operadores">Os controles comuns dos operadores</a>
+<a href="#modos-ondas-e-transformacoes">Modos: ondas e transformações</a>
+<a class="toc-secondary" href="#fm">FM</a>
+<a class="toc-secondary" href="#ring">RING</a>
+<a class="toc-secondary" href="#filter-e-filter-fm">FILTER e FILTER FM</a>
+<a class="toc-secondary" href="#fold">FOLD</a>
+<a class="toc-secondary" href="#effect">EFFECT</a>
+<a class="toc-secondary" href="#bypass-e-mute">BYPASS e MUTE</a>
+<a href="#modos-objetos-processos-e-gravacoes">Modos: objetos, processos e gravações</a>
+<a class="toc-secondary" href="#modal">MODAL</a>
+<a class="toc-secondary" href="#chaos">CHAOS</a>
+<a class="toc-secondary" href="#stochastic">STOCHASTIC</a>
+<a class="toc-secondary" href="#macro">MACRO</a>
+<a class="toc-secondary" href="#sample">SAMPLE</a>
+<a class="toc-secondary" href="#unison">UNISON</a>
+<a class="toc-secondary" href="#bits">BITS</a>
+<a href="#filtros-retirar-destacar-e-transformar">Filtros: retirar, destacar e transformar</a>
+<a class="toc-secondary" href="#vca-e-lpg-na-interface">VCA e LPG na interface</a>
+<a href="#envelopes-desenhar-o-tempo">Envelopes: desenhar o tempo</a>
+<a href="#modulacao-fonte-destino-quantidade">Modulação: fonte, destino, quantidade</a>
+<a href="#efeitos-escolher-pelo-gesto">Efeitos: escolher pelo gesto</a>
+<a class="toc-secondary" href="#texture">TEXTURE</a>
+<a class="toc-secondary" href="#room">ROOM</a>
+<a class="toc-secondary" href="#distort">DISTORT</a>
+<a class="toc-secondary" href="#ir">IR</a>
+<a class="toc-secondary" href="#vapor">VAPOR</a>
+<a class="toc-secondary" href="#filter">FILTER</a>
+<a class="toc-secondary" href="#delay">DELAY</a>
+<a href="#encontrar-o-que-esta-causando-o-resultado">Encontrar o que está causando o resultado</a></nav></details><article class="article"><h1 id="por-dentro-do-usina-guia-por-modulo">Por dentro do Usina · guia por módulo</h1>
+<p><a href="modules.en.html">English</a> · <a href="index.html">Voltar ao manual</a> · <a href="../install.html">Instalação</a></p>
+<p>Escolha uma parte do instrumento para explorar. Cada seção reúne <strong>onde fica</strong>, <strong>o que muda</strong> e <strong>um caminho para experimentar</strong>. Você pode acompanhar pelos desenhos, pelos valores ou pelo som, conforme sua preferência. Os exemplos são convites; não existe um resultado obrigatório.</p>
+<p><strong>ALFA:</strong> este guia descreve a interface em preparação. O plugin e a edição web/APK compartilham conceitos, mas podem ter recursos e apresentações diferentes. Novidades encontradas no código ainda precisam ser conferidas no release final.</p>
+<h2 id="mapa-das-telas">Mapa das telas</h2>
+<div class="atlas-map" aria-label="Cinco áreas do instrumento e seus assuntos">
+<a href="#algoritmos-ler-e-construir-o-fluxo"><strong>SYNTH</strong><span>Algoritmo → operadores → filtro</span><small>Construir a matéria sonora</small></a>
+<a href="#efeitos-escolher-pelo-gesto"><strong>FX</strong><span>A / B · AUX · LOOP</span><small>Transformar o caminho do áudio</small></a>
+<a href="index.html#seq"><strong>SEQ</strong><span>Notas · passos · modulações</span><small>Organizar eventos no tempo</small></a>
+<a href="index.html#cabine-e-controladores"><strong>CABINE</strong><span>Superfícies e ações</span><small>Explorar o som por gestos</small></a>
+<a href="index.html#play"><strong>PLAY</strong><span>Teclas · macros · XY</span><small>Concentrar a tela na performance</small></a>
+</div>
+
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Quero…</th>
+<th>No plugin</th>
+<th>Na edição web/APK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Escolher um som</td>
+<td>Biblioteca no topo</td>
+<td>Seletor de timbre no topo; abre a biblioteca</td>
+</tr>
+<tr>
+<td>Editar um operador</td>
+<td>SYNTH → selecionar OP1–OP6 → OPERATOR</td>
+<td>SYNTH → selecionar operador → OPERATOR; a visão geral pode estar recolhida</td>
+</tr>
+<tr>
+<td>Trocar o tipo de síntese</td>
+<td>Painel MODE do operador selecionado</td>
+<td>MODE do operador selecionado</td>
+</tr>
+<tr>
+<td>Editar o envelope do operador</td>
+<td>OPERATOR → ENVELOPE</td>
+<td>OPERATOR → envelope e gráfico editável</td>
+</tr>
+<tr>
+<td>Filtrar a voz</td>
+<td>SYNTH → FILTER / EG2 / OUTPUT</td>
+<td>SYNTH → FILTER / EG2 / OUTPUT</td>
+</tr>
+<tr>
+<td>Criar movimento</td>
+<td>SYNTH → MOD → família da fonte</td>
+<td>SYNTH → MOD → ENVELOPES, LFO, FUNCTIONS, RANDOM ou COMBINATE</td>
+</tr>
+<tr>
+<td>Ajustar uma ligação de modulação</td>
+<td>Mini knob do destino ou lista de rotas</td>
+<td>Mini knob do destino ou lista de rotas</td>
+</tr>
+<tr>
+<td>Editar um efeito</td>
+<td>FX → selecionar barramento e slot</td>
+<td>FX → FX A, FX B, AUX ou LOOP → selecionar slot</td>
+</tr>
+<tr>
+<td>Criar uma sequência</td>
+<td>SEQ → escolher LANE</td>
+<td>SEQ → escolher pista e editor disponível</td>
+</tr>
+<tr>
+<td>Tocar pads e gestos</td>
+<td>CABINE → superfície desejada</td>
+<td>CABINE → ESTE APP → superfície desejada</td>
+</tr>
+<tr>
+<td>Controlar outra instância</td>
+<td>Depende do roteamento MIDI/protocolo usado</td>
+<td>CABINE → REMOTA (PLUGIN), ou PLAY → SAÍDA MIDI; são percursos diferentes</td>
+</tr>
+<tr>
+<td>Tocar com menos edição na tela</td>
+<td>PLAY</td>
+<td>PLAY; PAINEL escolhe Tudo, Macros ou Teclas</td>
+</tr>
+</tbody>
+</table></div>
+<p>Em telas menores, pode ser necessário recolher a visão geral, ocultar o teclado ou abrir as opções do painel. Esses ajustes mudam o espaço disponível, não o som. Na CABINE remota, a tela acompanha o plugin conectado; ela não é uma segunda cópia independente do timbre.</p>
+<h2 id="entender-uma-ligacao-antes-de-editar">Entender uma ligação antes de editar</h2>
+<p><img src="assets/signal.svg" alt="Um operador pode ir à saída ou alimentar outro operador por FM." /></p>
+<p><strong>Operador ouvido:</strong> está ligado à saída no algoritmo. Seu LEVEL muda principalmente sua presença no resultado. <strong>Operador modulador:</strong> alimenta outro; LEVEL muda a intensidade da transformação. Um operador pode participar de mais de uma ligação. O desenho do algoritmo é o ponto de partida para entender seu papel.</p>
+<p>Uma experiência: parta de INIT, escolha um algoritmo com OP2 alimentando OP1 e aumente OP2 aos poucos. Compare OP2 em x1, x2 e em uma relação não inteira. Relações inteiras favorecem parciais alinhadas; relações não inteiras podem produzir estruturas menos próximas de uma nota harmônica. O resultado depende também da onda e dos níveis.</p>
+<h2 id="algoritmos-ler-e-construir-o-fluxo">Algoritmos: ler e construir o fluxo</h2>
+<p>Um algoritmo é o <strong>mapa de ligações entre os seis operadores</strong>. Ele não escolhe sozinho as ondas, os envelopes ou os efeitos: organiza quem alimenta quem e quais saídas são ouvidas. Mudar de algoritmo mantendo os mesmos operadores pode transformar bastante o resultado.</p>
+<h3 id="abrir-o-seletor-e-escolher">Abrir o seletor e escolher</h3>
+<p><strong>No plugin:</strong> em SYNTH, use <strong>ALGO…</strong> no painel ALGORITHM. Nos algoritmos prontos, clicar no desenho também abre a coleção. Escolha um dos <strong>40 desenhos</strong> ou <strong>USER</strong>. A escolha muda o mapa; não é uma pré-escuta independente nem um novo preset inteiro. Salve antes de comparar estruturas se quiser recuperar o ponto anterior.</p>
+<p><strong>Na web/APK:</strong> abra a visão geral de SYNTH, se estiver recolhida. Toque no título <strong>ALGORITHM</strong> para escolher. Nos algoritmos prontos, o desenho abre o seletor; em <strong>USER</strong>, tocar no desenho abre <strong>USER / MATRIX</strong> para editar. O título continua dando acesso à escolha de outros algoritmos.</p>
+<h3 id="ler-o-desenho">Ler o desenho</h3>
+<ul>
+<li><strong>Número 1–6:</strong> identifica OP1–OP6, não a ordem das notas ou das etapas de um sequenciador.</li>
+<li><strong>Quadrado preenchido e ligado à barra de saída:</strong> o operador tem saída direta. A interface também usa <strong>OUT</strong> para esse papel.</li>
+<li><strong>Quadrado de contorno:</strong> pode alimentar outros sem ser somado diretamente à saída. <strong>MOD</strong> identifica esse papel na visão dos operadores.</li>
+<li><strong>Linha entre operadores:</strong> o sinal de um alimenta outro. Nos desenhos sem setas, as ligações usuais descem do modulador para o destino; siga os blocos até a barra de saída.</li>
+<li><strong>Pequeno laço no próprio operador:</strong> ligação de si para si. <strong>Curva lateral entre níveis:</strong> retorno em uma estrutura com ciclo. Não trate essas linhas como uma ligação simples de cima para baixo.</li>
+<li><strong>Operador apagado:</strong> não participa das ligações/saídas mostradas. Mesmo assim, um operador conectado pode estar sem contribuição sonora por LEVEL zero, MUTE ou outro ajuste.</li>
+</ul>
+<p>A cor ajuda a orientar, mas confirme o número, as ligações, a barra e o rótulo OUT/MOD. A posição na parte inferior do desenho, sozinha, não prova que um operador esteja na saída.</p>
+<h3 id="comparar-cadeia-e-paralelo">Comparar cadeia e paralelo</h3>
+<div class="visual-pair">
+<figure class="explain-card"><figcaption><b>1. Em cadeia</b><span>Uma transformação alimenta a seguinte.</span></figcaption><img src="assets/algo-chain.svg" alt="OP3 modula OP2, OP2 modula OP1 e somente OP1 vai à saída."/><p>OP3 afeta a transformação feita por OP2; o resultado chega a OP1. Ajustar um bloco acima pode mudar o comportamento de toda a cadeia.</p></figure>
+<figure class="explain-card"><figcaption><b>2. Em paralelo</b><span>Duas saídas chegam ao resultado.</span></figcaption><img src="assets/algo-parallel.svg" alt="OP2 alimenta OP1; OP1 e OP3 têm saída direta e são somados."/><p>OP1 recebe OP2. OP3 tem saída própria. Você pode equilibrar as duas contribuições sem que OP3 precise modular OP1.</p></figure>
+</div>
+<div class="experiment"><span class="experiment-tag">COMPARE UM GESTO</span><p><strong>Modulador:</strong> mova LEVEL de OP2. <strong>Saída direta:</strong> mova LEVEL de OP1. Compare o que muda na estrutura do som e o que muda em sua presença. Os dois efeitos podem se misturar conforme o patch.</p></div>
+
+<p>Nos exemplos acima, as setas foram acrescentadas para ensinar a direção; o instrumento pode desenhar somente linhas. São relações exemplificadas, não uma reprodução numerada de um algoritmo da biblioteca. O papel de cada ligação também depende de MODE: FM, filtro, dobra, SAMPLE ou outro processo não respondem da mesma maneira ao sinal recebido.</p>
+<h3 id="selecionar-nao-e-reconectar">Selecionar não é reconectar</h3>
+<p>Na visão geral, <strong>selecionar o cartão OP1–OP6 abre seus controles</strong>. Isso não o torna saída nem cria uma ligação. MODE/WAVE, LEVEL e envelope pertencem ao operador selecionado; ALGORITHM pertence ao conjunto. Confira o título OPn do painel antes de editar.</p>
+<p>O LEVEL de uma saída direta muda principalmente sua presença. O LEVEL de um modulador muda a força com que ele alimenta o destino. Se o operador fizer os dois papéis, os dois resultados podem mudar juntos. O número do operador não define um papel permanente: OP1 pode ser uma saída em um mapa e participar de outra maneira em USER.</p>
+<h3 id="user-linha-envia-coluna-recebe">USER: linha envia, coluna recebe</h3>
+<p><strong>No plugin</strong>, selecionar USER mostra a matriz editável no lugar do desenho do algoritmo. Arraste uma célula para cima/baixo para ajustar sua quantidade de <strong>0 a 100</strong>; duplo clique alterna <strong>0/100</strong>. A fileira <strong>OUT</strong> liga/desliga a saída direta de cada operador.</p>
+<p><strong>Na web/APK</strong>, selecione USER e abra seu desenho para mostrar a matriz em janela. Cada cruzamento tem um knob de quantidade; arraste na vertical. Duplo clique alterna <strong>0/100</strong>. A fileira OUT seleciona os operadores ouvidos diretamente.</p>
+<figure class="matrix-example"><figcaption><strong>Exemplo USER · OP2 → OP1</strong><span>Ilustração estática. As células não editam o instrumento.</span></figcaption><div class="table-scroll" tabindex="0" aria-label="Exemplo de matriz de seis operadores"><div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table><thead><tr><th scope="col">DE ↓ / PARA →</th><th scope="col">OP1</th><th scope="col">OP2</th><th scope="col">OP3</th><th scope="col">OP4</th><th scope="col">OP5</th><th scope="col">OP6</th></tr></thead><tbody><tr><th scope="row">OP1</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><th scope="row" class="matrix-source">OP2</th><td class="matrix-link"><strong>50</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><th scope="row">OP3</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><th scope="row">OP4</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><th scope="row">OP5</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><th scope="row">OP6</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="matrix-outs"><th scope="row">OUT</th><td class="matrix-link">ON</td><td>OFF</td><td>OFF</td><td>OFF</td><td>OFF</td><td>OFF</td></tr></tbody></table></div></div><p><b>Linha OP2</b> envia para a <b>coluna OP1</b> com quantidade 50. Só OP1 está ligado diretamente à saída. O zero indica ausência daquela ligação.</p></figure>
+
+<p><strong>Linha OP2 × coluna OP1 = OP2 alimenta OP1.</strong> Não é OP1 alimentando OP2. A diagonal, como OP2 × OP2, é uma ligação do operador consigo. A matriz do algoritmo usa quantidades positivas; não é a bandeja de profundidades bipolares das modulações de parâmetros.</p>
+<p>Um percurso de construção:</p>
+<ol>
+<li>Salve o timbre. Selecione USER e confira os valores já existentes — escolher USER não significa copiar automaticamente o algoritmo anterior ou limpar a matriz.</li>
+<li>Para isolar uma relação, deixe apenas <strong>OUT de OP1</strong> ligado e as demais saídas diretas desligadas. Confira também as células: outras ligações ainda podem alimentar OP1.</li>
+<li>Garanta que OP1 participe com LEVEL acima de zero e modo sonoro adequado. Toque ou dispare uma nota.</li>
+<li>Aumente <strong>linha OP2 → coluna OP1</strong> gradualmente. OP2 precisa produzir sinal: confira MODE, LEVEL e envelope.</li>
+<li>Compare essa quantidade com <strong>LEVEL de OP2</strong>. Ambos influenciam a transformação, em etapas diferentes.</li>
+<li>Para comparar soma e modulação, ligue OUT de OP2 também. Agora OP2 pode ser ouvido diretamente e continuar alimentando OP1.</li>
+</ol>
+<p>Se não houver nenhuma saída direta, pode haver atividade interna sem som na saída. Desligar OUT de OP2 não elimina sua função de modulador; zerar a célula OP2 → OP1 remove aquela ligação, mas não silencia outras saídas/ligações de OP2.</p>
+<h3 id="tres-realimentacoes-que-nao-sao-a-mesma-coisa">Três realimentações que não são a mesma coisa</h3>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Controle</th>
+<th>Onde</th>
+<th>Papel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FB do modo FM / diagonal USER</td>
+<td>Dentro do operador ou da rede</td>
+<td>O sinal retorna ao próprio operador/rede</td>
+</tr>
+<tr>
+<td>ALG FB</td>
+<td>Painel ALGORITHM</td>
+<td>Controla o retorno especial dos algoritmos 4, 6 e 34; fica apagado nos demais</td>
+</tr>
+<tr>
+<td>FEEDBACK / LOOP INSERT</td>
+<td>Página FX</td>
+<td>Retorno do caminho de áudio da instância, com seus efeitos e proteções</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>PHASE</strong> escolhe o comportamento de fase apresentado pelo instrumento; não reconecta os operadores. Nenhum desses controles deve ser usado como substituto de outro só porque todos podem alterar o brilho ou a instabilidade.</p>
+<h2 id="os-controles-comuns-dos-operadores">Os controles comuns dos operadores</h2>
+<p><strong>Onde:</strong> SYNTH → OPERATOR, depois de selecionar OP1–OP6.</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>Controles</th>
+<th>Como pensar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Afinação</td>
+<td>FREQ, COARSE, FINE, DETUNE, TRANS, FIXED HZ</td>
+<td>Relação com a nota ou frequência independente</td>
+</tr>
+<tr>
+<td>Intensidade</td>
+<td>LEVEL, VEL, VEL PITCH</td>
+<td>Quanto participa e como responde à força da nota</td>
+</tr>
+<tr>
+<td>Região do teclado</td>
+<td>KT LOW/HIGH/CENTER, curvas</td>
+<td>Como a intensidade varia entre notas graves e agudas</td>
+</tr>
+<tr>
+<td>Tempo</td>
+<td>ATTACK, DECAY, SUSTAIN, RELEASE, curvas, RATE KEY</td>
+<td>Como começa, continua e termina</td>
+</tr>
+<tr>
+<td>Tipo</td>
+<td>MODE e controles próprios</td>
+<td>O processo que acontece dentro desse operador</td>
+</tr>
+</tbody>
+</table></div>
+<p>FREQ em RATIO acompanha a nota por uma razão; FIXED usa uma frequência própria. FINE refina a relação, DETUNE desvia em cents e TRANS desloca em semitons. <strong>Cents</strong> dividem um semitom em cem partes. <strong>Hz</strong> mede ciclos por segundo. O nome de oitava pode variar entre programas; isso não significa necessariamente que a nota esteja errada.</p>
+<h2 id="modos-ondas-e-transformacoes">Modos: ondas e transformações</h2>
+<h3 id="fm">FM</h3>
+<p>Usa a onda escolhida em WAVE, recebendo modulação de fase pelo algoritmo. <strong>FB</strong> realimenta o próprio operador e aumenta sua complexidade. <strong>WIDTH</strong> altera a forma quando ativo; OFF indica que esse processamento está desligado. Comece com SIN, FB baixo e um único modulador. Aumentar o nível do modulador costuma modificar o brilho e a distribuição de parciais, não apenas o volume.</p>
+<h3 id="ring">RING</h3>
+<p>Combina sinais por multiplicação. <strong>DEPTH</strong> controla a profundidade e <strong>SHAPE</strong> o caráter da transformação. Pode produzir componentes acima e abaixo das frequências envolvidas. Compare duas razões próximas com razões bem afastadas; use níveis moderados para perceber a mudança.</p>
+<h3 id="filter-e-filter-fm">FILTER e FILTER FM</h3>
+<p>São filtros <strong>dentro do operador</strong>, diferentes do filtro geral da voz. TYPE escolhe a resposta, CUTOFF sua região e RESO sua ênfase. FILTER também oferece OSC MIX para misturar o oscilador interno. FILTER FM combina filtragem com a entrada de modulação do operador; nem todos os controles de FILTER têm equivalente ali.</p>
+<p>Os tipos incluem LPF, HPF, BPF e BRF; LADDER em respostas LP/HP/BP e inclinações diferentes; SK LPF e SK HPF. Compare o mesmo sinal antes e depois de mudar TYPE. A escolha pode alterar bastante o nível: não compense imediatamente com muito ganho.</p>
+<h3 id="fold">FOLD</h3>
+<p>Quando a forma ultrapassa determinada região, ela se dobra. <strong>GAIN</strong> aumenta a intensidade dessa transformação, <strong>BIAS</strong> desloca a região de trabalho e <strong>OSC MIX</strong> inclui a onda interna. Experimente uma senoide com GAIN crescente; depois mova BIAS para observar como a simetria muda.</p>
+<h3 id="effect">EFFECT</h3>
+<p>Processa o sinal naquele ponto do algoritmo. <strong>FX</strong> escolhe o processo e <strong>OSC MIX</strong> inclui o oscilador. Os controles restantes mudam de nome conforme o efeito:</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>FX do operador</th>
+<th>Controles próprios</th>
+<th>Ideia de uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PEAK EQ</td>
+<td>FREQ, GAIN</td>
+<td>Realçar ou atenuar uma região</td>
+</tr>
+<tr>
+<td>SHELV EQ</td>
+<td>LOW, HIGH</td>
+<td>Equilibrar regiões graves e agudas</td>
+</tr>
+<tr>
+<td>PHASER</td>
+<td>FREQ, FB</td>
+<td>Interferência e movimento de fase</td>
+</tr>
+<tr>
+<td>RING</td>
+<td>FREQ, MIX</td>
+<td>Mistura da transformação por multiplicação</td>
+</tr>
+<tr>
+<td>COMB</td>
+<td>FREQ, FB</td>
+<td>Repetições muito curtas e ressonâncias em pente</td>
+</tr>
+<tr>
+<td>DIST</td>
+<td>DIST, LOW</td>
+<td>Distorção e equilíbrio dos graves</td>
+</tr>
+<tr>
+<td>DRIVE</td>
+<td>DRIVE, LOW</td>
+<td>Ganho com transformação não linear</td>
+</tr>
+<tr>
+<td>DEC</td>
+<td>FREQ, BIT</td>
+<td>Redução de taxa e resolução</td>
+</tr>
+<tr>
+<td>WAVESHAPER</td>
+<td>SHAPE, DAMP</td>
+<td>Escolha da curva de transformação e amortecimento</td>
+</tr>
+<tr>
+<td>PUNCH</td>
+<td>PUNCH, HIGH</td>
+<td>Ênfase de ataque e equilíbrio agudo</td>
+</tr>
+<tr>
+<td>STRING</td>
+<td>FREQ, DECAY</td>
+<td>Ressonância de corda</td>
+</tr>
+<tr>
+<td>TUBE, PLATE, BAR, SHEET, SPRING</td>
+<td>FREQ, DECAY</td>
+<td>Famílias de ressonância com relações distintas</td>
+</tr>
+<tr>
+<td>DISPERSE</td>
+<td>FREQ, STAGES</td>
+<td>Dispersão por estágios</td>
+</tr>
+</tbody>
+</table></div>
+<p>Esses processos pertencem ao operador. Para colocar um efeito depois das vozes ou no envio AUX, use a página FX.</p>
+<h3 id="bypass-e-mute">BYPASS e MUTE</h3>
+<p><strong>BYPASS</strong> deixa passar o sinal recebido. <strong>MUTE</strong> silencia o operador. Use-os para compreender uma cadeia: ouvir o resultado com e sem um bloco ajuda a reconhecer sua contribuição. MUTE pode interromper uma ligação necessária; silêncio não significa necessariamente falha no instrumento.</p>
+<h2 id="modos-objetos-processos-e-gravacoes">Modos: objetos, processos e gravações</h2>
+<h3 id="modal">MODAL</h3>
+<p><strong>Onde:</strong> MODE → MODAL → OBJECT e EXCITER. OBJECT reúne STRUCTURE, MATERIAL, SIZE, DECAY e propriedades como BRIGHT, STIFF, POSITION, DENSITY e IRREG. STRUCTURE define relações entre ressonâncias; MATERIAL influencia as perdas; SIZE muda a escala de altura; DECAY modifica quanto a energia persiste.</p>
+<p>EXCITER escolhe <strong>STRIKE</strong> (golpe), <strong>BOW</strong> (fricção), <strong>BLOW</strong> (sopro), <strong>SCRAPE</strong> (raspagem) ou <strong>DROP</strong> (queda e quiques). STRIKE/HARDNESS tratam a batida; PRESSURE a interação contínua ou os quiques; DAMP amortece ao soltar. POSITION muda o ponto de excitação, podendo enfraquecer certas ressonâncias. TENSION liga movimento e afinação; RATTLE acrescenta contato ruidoso.</p>
+<p>Experimente a mesma estrutura com golpe e raspagem. Depois mantenha o gesto e troque o material. Assim você separa o que pertence ao objeto do que pertence à maneira de tocá-lo. O envelope molda a excitação, e o objeto pode continuar ressoando depois dela.</p>
+<h3 id="chaos">CHAOS</h3>
+<p>MODEL escolhe um sistema caótico; CHAOS muda seu regime, SHAPE outro aspecto do processo e SMOOTH suaviza a saída. Pequenas mudanças podem produzir resultados bem diferentes. Experimente com uma nota sustentada e altere um controle por vez. Caos não é o mesmo que sortear um valor independente a cada momento.</p>
+<h3 id="stochastic">STOCHASTIC</h3>
+<p>Constrói uma forma que evolui por alterações aleatórias. DISTRIB escolhe a distribuição; LVL STEP governa mudanças de nível, POINTS o número de pontos e LEN STEP mudanças de duração. Compare passos pequenos, que evoluem mais lentamente, com maiores. SMOOTH de CHAOS não deve ser procurado aqui: os controles pertencem a processos diferentes.</p>
+<h3 id="macro">MACRO</h3>
+<p>Escolha MODEL e explore HARMONICS, TIMBRE e MORPH. Cada modelo interpreta esses gestos segundo sua própria síntese; mudar MODEL pode alterar muito o resultado. Esse nome indica um <strong>modo sonoro de operador</strong>. As quatro macros de performance, em MOD/PLAY, são controles de endereçamento e não escolhem esses modelos.</p>
+<h3 id="sample">SAMPLE</h3>
+<p>Use uma gravação sua no algoritmo. READ define ONCE, LOOP, PING-PONG ou REVERSE. START e LENGTH escolhem a região; XFADE suaviza a emenda em LOOP; FADE trata as bordas nos outros modos. O envelope e LEVEL continuam participando como nos demais operadores.</p>
+<p><strong>Plugin:</strong> as posições de áudio A–D, CAPTURE, duração por compassos e AUTO LVL estão descritas no <a href="index.html#sample-gravar-e-transformar">capítulo de captura</a>. <strong>Web/APK:</strong> o painel SAMPLE e o suporte do backend podem diferir; não presuma quatro posições ou captura no áudio nativo sem confirmação da edição. A–D da PLAY guardam macros, não gravações.</p>
+<figure class="flow-figure"><figcaption><strong>Da entrada à gravação selecionada</strong><span>Exemplo do plugin · B está selecionada.</span></figcaption><div class="flow-line"><div class="flow-node"><strong>Entrada</strong><span>Microfone ou áudio</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>IN GAIN</strong><span>Nível de captura</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><strong>CAPTURE</strong><span>Antes de IN MIX</span></div></div><div class="sample-slots" aria-label="Quatro posições de áudio, com B selecionada"><div><strong>A</strong><span>Gravação A</span></div><div class="slot-selected"><strong>B · selecionada</strong><span>Destino desta captura</span></div><div><strong>C</strong><span>Gravação C</span></div><div><strong>D</strong><span>Gravação D</span></div></div><p>A posição selecionada fornece a gravação aos operadores SAMPLE. As quatro posições não são quatro instrumentos simultâneos.</p></figure>
+<div class="depth-examples"><article><strong>LENGTH da captura</strong><p>Quanto tempo gravar: FREE ou compassos disponíveis.</p></article><article><strong>LENGTH da leitura</strong><p>Qual trecho da gravação será reproduzido pelo operador.</p></article><article><strong>A–D da PLAY</strong><p>Guardam posições de macros. Não guardam áudio.</p></article></div>
+
+<h3 id="unison">UNISON</h3>
+<p>VOICES escolhe cópias da onda; DETUNE separa suas alturas; MIX equilibra centro e laterais; DRIFT acrescenta movimento lento. SUB inclui uma quadrada uma oitava abaixo. PWM varia a largura das ondas compatíveis. Experimente primeiro uma cópia, depois várias com pouco DETUNE. Compare antes de aumentar todos os controles. Mais cópias aumentam o custo de processamento.</p>
+<h3 id="bits">BITS</h3>
+<p>BITS escolhe resolução, XOR modifica bits, KEEP conserva parte do código e OFFSET o desloca com retorno ao início da faixa. Uma onda originalmente suave pode ganhar degraus e mudanças abruptas. Explore com volume moderado e compare o papel de fonte ouvida com o de modulador. Esse modo não é o mesmo que os tipos binários de COMB, que transformam fontes de controle.</p>
+<h2 id="filtros-retirar-destacar-e-transformar">Filtros: retirar, destacar e transformar</h2>
+<p><strong>Onde:</strong> SYNTH → FILTER / EG2 / OUTPUT → FILTER. O filtro de voz trabalha depois da rede de operadores. TYPE escolhe a família; CUTOFF, RESO, DRIVE e intensidade de EG2 formam o grupo comum. Valores específicos aparecem conforme o tipo selecionado.</p>
+<p><img src="assets/filters.svg" alt="Quatro respostas conceituais: LP reduz agudos, HP reduz graves, BP destaca uma região e BR cria uma rejeição." /></p>
+<p><em>Desenhos explicativos, não medições dos modelos do Usina. Horizontal: frequência crescente. Vertical: passagem do sinal. Ressonância e saturação podem mudar a resposta.</em></p>
+<div class="visual-pair">
+<figure class="explain-card"><figcaption><b>CUTOFF · onde a passagem muda</b><span>Exemplo de passa-baixas.</span></figcaption><img src="assets/cutoff-compare.svg" alt="Duas curvas passa-baixas: uma começa a cair mais cedo e outra mais adiante na frequência. Uma seta indica aumento do cutoff."/><p>Mover o corte desloca a região de transição. Abrir mais o passa-baixas permite a passagem de uma região maior dos agudos.</p></figure>
+<figure class="explain-card"><figcaption><b>RESO · destaque perto do corte</b><span>A frequência de corte é mantida no exemplo.</span></figcaption><img src="assets/resonance-compare.svg" alt="Curva sem pico em linha tracejada e curva com pico perto do corte em linha contínua, ilustrando aumento de ressonância."/><p>Ressonância pode criar uma saliência perto da transição. O tamanho e o comportamento desse pico dependem do modelo e do sinal.</p></figure>
+</div>
+<details class="experiment"><summary>Experimente separando os dois movimentos</summary><ol><li>Escolha um passa-baixas e uma nota sustentada com conteúdo harmônico.</li><li>Mantenha RESO baixa e mova somente CUTOFF.</li><li>Deixe CUTOFF em uma posição e aumente RESO aos poucos.</li><li>Compare o recorte de frequências com o destaque de uma região.</li></ol><p>As curvas acima são conceituais, sem escala ou valor de parâmetro. Não são previsões de nível ou medições dos filtros do Usina.</p></details>
+
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Família da lista</th>
+<th>O que faz</th>
+<th>Por onde explorar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LPF 12 / LPF 24</td>
+<td>Passa-baixas, com redução mais gradual ou mais acentuada dos agudos</td>
+<td>Abra e feche CUTOFF sobre um som rico em harmônicos</td>
+</tr>
+<tr>
+<td>HPF 12 / HPF 24</td>
+<td>Reduz graves abaixo da região de corte</td>
+<td>Compare corpo e leveza sem aumentar o volume</td>
+</tr>
+<tr>
+<td>BPF 6 / BPF 12</td>
+<td>Destaca uma faixa intermediária</td>
+<td>Mova a região para mudar a impressão de vogal ou ressonância</td>
+</tr>
+<tr>
+<td>BRF 6 / BRF 12</td>
+<td>Atenua uma região, preservando lados mais graves e mais agudos</td>
+<td>Use pequenas mudanças para reconhecer o recorte</td>
+</tr>
+<tr>
+<td>LPF SK / HPF SK</td>
+<td>Respostas de uma família não linear</td>
+<td>Compare DRIVE e RESO com as versões anteriores</td>
+</tr>
+<tr>
+<td>LPF OTA</td>
+<td>Passa-baixas com caráter próprio de saturação</td>
+<td>Experimente DRIVE baixo e crescente</td>
+</tr>
+<tr>
+<td>SK CASC (HP &gt; LP)</td>
+<td>Passa-altas seguido de passa-baixas, com realimentação própria</td>
+<td>Ajuste primeiro as duas regiões de corte; depois CASC FB</td>
+</tr>
+<tr>
+<td>SK LPF HOT / SK HPF HOT</td>
+<td>Variantes com comportamento mais intenso</td>
+<td>Comece com DRIVE e RESO baixos</td>
+</tr>
+<tr>
+<td>CMOS LP / HP / BP / DIST</td>
+<td>Família não linear com filtragem ou distorção</td>
+<td>CMOS LIFE introduz irregularidade; compare zero e valores pequenos</td>
+</tr>
+</tbody>
+</table></div>
+<p>Os números 12 e 24 indicam a inclinação nominal em dB por oitava, não volume final. Na cascata, <strong>HP CUT/PEAK</strong> tratam a etapa passa-altas; <strong>CASC FB</strong> a realimentação; <strong>CASC VCA</strong>, <strong>CASC OUT</strong> e <strong>CASC HOT</strong> ajustam a resposta específica. Ela tem estado compartilhado pela parte; não presuma o mesmo comportamento de um filtro independente por nota.</p>
+<p><strong>EG2 INT</strong> aplica o envelope do filtro ao corte. <strong>KEY LOW/HIGH/CENTER</strong> definem acompanhamento pela região do teclado.</p>
+<h3 id="vca-e-lpg-na-interface">VCA e LPG na interface</h3>
+<p><strong>VCA</strong> é a etapa de ganho comandada por um sinal de controle. A sigla vem de <em>Voltage-Controlled Amplifier</em>; a referência a tensão é histórica, sem exigir uma entrada elétrica no software. Não confunda a etapa com o envelope: o envelope pode ser o movimento que a comanda.</p>
+<p>Na família <strong>SK CASC (HP &gt; LP)</strong>, <strong>CASC VCA</strong> escolhe esse comando. Os rótulos atuais do plugin são <strong>GATE</strong>, <strong>EG2</strong>, <strong>ENV</strong> e <strong>SOURCE</strong>. Em SOURCE, <strong>VCA SOURCE</strong> seleciona a fonte de modulação que comanda o nível da parte. Não é um seletor de tipo de filtro nem o ganho mestre; o estado compartilhado da cascata também importa ao tocar acordes. A presença de SOURCE depende da edição e da versão.</p>
+<p><strong>LPG</strong> significa <em>Low-Pass Gate</em>: nível e filtragem passa-baixas atuam em conjunto. Ao fechar, a passagem tende a ficar mais baixa e mais escura. O modelo do Usina inclui uma resposta de abertura/fechamento inspirada no comportamento de uma célula fotorresistiva, um componente de controle óptico usado em circuitos analógicos. Você não precisa conhecer esse circuito para usar o controle.</p>
+<p><strong>Onde:</strong> SYNTH → FILTER / EG2 / OUTPUT → grupo LPG, ao lado de OUTPUT. Ele atua depois do filtro de voz.</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Controle</th>
+<th>O que faz</th>
+<th>Como reconhecer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OFF</td>
+<td>Desativa o LPG</td>
+<td>Compare com os outros modos usando o mesmo timbre</td>
+</tr>
+<tr>
+<td>PING</td>
+<td>Cada nota dispara a resposta percussiva do LPG</td>
+<td>A cauda depende do LPG, além dos envelopes dos operadores</td>
+</tr>
+<tr>
+<td>EG2</td>
+<td>Usa o envelope do filtro como comando</td>
+<td>Alterar EG2 pode mudar tanto o filtro quanto o LPG se ambos o estiverem usando</td>
+</tr>
+<tr>
+<td>SOURCE</td>
+<td>Usa a fonte escolhida em SOURCE, na edição recente do plugin</td>
+<td>Não presume que toda edição web/APK já ofereça esse modo</td>
+</tr>
+<tr>
+<td>DECAY</td>
+<td>Ajusta o tempo de fechamento</td>
+<td>Não substitui RELEASE do operador</td>
+</tr>
+<tr>
+<td>COLOR</td>
+<td>Ajusta a passagem de agudos pelo gate</td>
+<td>Baixo: mais escuro; alto: mais brilhante</td>
+</tr>
+<tr>
+<td>RIGHT / R SOURCE / R DECAY</td>
+<td>Controles recentes do lado direito no plugin</td>
+<td>R SAME segue o esquerdo; outros modos permitem comando próprio e R DECAY acrescenta um desvio ao DECAY</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Exercício:</strong> comece com uma nota sustentada e brilhante. Compare OFF e PING, aumente DECAY e depois varie COLOR. Se a voz sumir cedo demais, confira o envelope do operador antes de concluir que o LPG não responde. Um LPG não é um noise gate por limiar; no PING, o disparo vem da nota.</p>
+<h2 id="envelopes-desenhar-o-tempo">Envelopes: desenhar o tempo</h2>
+<p><strong>Onde:</strong> envelope do operador em OPERATOR; envelope do filtro em FILTER / EG2 / OUTPUT; fontes de envelope em MOD → ENVELOPES. São lugares diferentes com controles semelhantes.</p>
+<p><img src="assets/envelope.svg" alt="A sobe ao pico, D desce até S; S continua enquanto a tecla está pressionada. Ao soltar, começa R." /></p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Quero…</th>
+<th>Comece por…</th>
+<th>Observe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uma entrada suave</td>
+<td>ATTACK maior</td>
+<td>O início cresce antes de atingir o pico</td>
+</tr>
+<tr>
+<td>Um golpe que perde energia</td>
+<td>ATTACK curto, DECAY audível, SUSTAIN baixo</td>
+<td>A parte inicial se destaca do corpo</td>
+</tr>
+<tr>
+<td>Manter um som enquanto pressiono</td>
+<td>ADSR com SUSTAIN acima de zero</td>
+<td>O patamar depende da tecla</td>
+</tr>
+<tr>
+<td>Uma batida que termina mesmo segurando</td>
+<td>ADR</td>
+<td>A duração da tecla não mantém o sustain</td>
+</tr>
+<tr>
+<td>Uma cauda depois de soltar</td>
+<td>RELEASE maior</td>
+<td>A voz pode continuar ativa após a nota</td>
+</tr>
+</tbody>
+</table></div>
+<p>ATK CURVE, CURVE e REL CURVE mudam a trajetória, não só o tempo total. <code>= DEC</code> reaproveita a curva de decay no release. RETRIG escolhe um evento/fonte para reiniciar enquanto a nota permanece pressionada. RATE KEY altera os tempos pela altura. No MODAL, lembre que o envelope molda a excitação: a ressonância do objeto tem seu próprio decaimento.</p>
+<h2 id="modulacao-fonte-destino-quantidade">Modulação: fonte, destino, quantidade</h2>
+<p>Para seguir receitas completas, abra <strong><a href="modulation.html">Modulação na prática: patches ilustrados</a></strong>. O guia acompanha criação de rotas, profundidade, envelopes, aleatórios, macros e combinadores, com pontos de partida e formas de comparar o resultado.</p>
+<figure class="flow-figure"><figcaption><strong>Uma ligação, três escolhas</strong><span>Exemplo: um LFO movimenta o corte.</span></figcaption><div class="flow-line"><div class="flow-node"><small>FONTE</small><strong>LFO 1</strong><span>Cria o movimento</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><small>QUANTIDADE</small><strong>Mini knob</strong><span>Força e direção</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><small>DESTINO</small><strong>CUTOFF</strong><span>Recebe o movimento</span></div></div></figure>
+<div class="depth-examples"><article><strong>+ positiva</strong><p>O destino acompanha a variação da fonte.</p></article><article><strong>0 sem efeito</strong><p>A rota pode continuar guardada, sem movimentar o destino.</p></article><article><strong>− negativa</strong><p>A influência da mesma fonte é invertida.</p></article></div>
+<div class="experiment"><span class="experiment-tag">BASE ≠ QUANTIDADE</span><p>O <b>knob grande</b> ajusta o ponto de partida. O <b>mini knob</b> ajusta quanto essa fonte participa. Ajustar a quantidade de uma rota não é mudar a velocidade do LFO.</p></div>
+
+<p><strong>Fonte</strong> é o movimento; <strong>destino</strong> é o controle que recebe esse movimento; <strong>quantidade</strong> define quanto e em qual direção ele participa. O knob grande define a base. O mini knob colorido define uma ligação, não um segundo valor de base.</p>
+<p><strong>Onde criar:</strong> + do destino ou arrastar uma fonte. <strong>Onde ajustar:</strong> mini knob junto ao destino. <strong>Onde revisar o conjunto:</strong> lista de rotas. A cor identifica a família, mas o nome da fonte também deve ser consultado.</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Família em MOD</th>
+<th>Para que serve</th>
+<th>Controles a procurar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ENVELOPES</td>
+<td>Movimento ligado a uma nota/evento</td>
+<td>ADSR/ADR, curvas, RETRIG</td>
+</tr>
+<tr>
+<td>LFO</td>
+<td>Movimento repetido</td>
+<td>Forma, SPEED/SYNC, fase, simetria, polaridade, redisparo</td>
+</tr>
+<tr>
+<td>FUNCTIONS</td>
+<td>Uma curva desenhada por pontos</td>
+<td>Pontos, curva, modo, velocidade e suavização</td>
+</tr>
+<tr>
+<td>RANDOM</td>
+<td>Sequências ou estados aleatórios</td>
+<td>TYPE, SPEED, FLIP/LENGTH ou PROBA/CORREL, RISE/FALL</td>
+</tr>
+<tr>
+<td>COMBINATE</td>
+<td>Transformar/combinar fontes</td>
+<td>TYPE, SOURCE, MOD, AMOUNT e fórmula</td>
+</tr>
+<tr>
+<td>MACROS</td>
+<td>Reunir destinos em um gesto</td>
+<td>Quatro controles e suas rotas</td>
+</tr>
+<tr>
+<td>CONTROLLERS</td>
+<td>Usar notas/CCs como fontes</td>
+<td>Mensagem, canal, LEARN/FORGET</td>
+</tr>
+</tbody>
+</table></div>
+<p>Exemplo: ligue LFO 1 a CUTOFF com pouca quantidade. Ajuste SPEED para perceber a frequência do movimento. Inverta a quantidade para comparar a direção. Depois tente RISE/FALL em RAND: os valores continuam sorteados, mas as transições ganham tempo de subida/descida.</p>
+<p>SYNC usa divisões de andamento quando oferecido pela fonte. Nem todo SPEED tem o mesmo conjunto de opções. Uma fonte selecionada não cria automaticamente uma rota. Se nada mudar, confira se a rota existe, se a quantidade não é zero e se o destino participa do som.</p>
+<h2 id="efeitos-escolher-pelo-gesto">Efeitos: escolher pelo gesto</h2>
+<p><strong><a href="routing.html">AUX e LOOP INSERT por dentro</a></strong> — mapas do envio/retorno, PRE/POST, laço interno e exemplos de performance.</p>
+<figure class="flow-figure"><figcaption><strong>Em série · A &gt; B</strong><span>O resultado de A entra em B.</span></figcaption><div class="flow-line"><div class="flow-node"><strong>Vozes</strong></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><strong>FX A</strong><span>Slots 1–3</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><strong>FX B</strong><span>Slots 1–3</span></div></div><p>Com B &gt; A, a ordem se inverte. A mistura de cada barramento também participa; o desenho destaca a ordem, não todas as etapas de ganho.</p></figure>
+<figure class="flow-figure"><figcaption><strong>Em paralelo · A // B</strong><span>Caminhos lado a lado.</span></figcaption><div class="parallel-map"><div class="flow-node"><strong>Vozes</strong></div><div class="parallel-branches"><div class="flow-node accent-node"><strong>FX A</strong></div><div class="flow-node accent-node"><strong>FX B</strong></div></div><div class="flow-node"><strong>Soma</strong><span>Contribuições dos caminhos</span></div></div><p>A não alimenta B nesse modo. Compare primeiro com um barramento por vez, depois com ambos.</p></figure>
+<details class="experiment"><summary>E onde entram AUX e LOOP INSERT?</summary><p><b>AUX</b> recebe um envio do sinal. PRE toma antes de A/B; POST depois. SEND define o envio e RETURN a contribuição que volta. É útil para acrescentar espaço sem substituir todo o caminho principal.</p><p><b>LOOP INSERT</b> fica no retorno interno de realimentação. Não é um terceiro barramento de inserção equivalente a A ou B. Seu resultado depende do laço, do tempo e da quantidade de realimentação.</p><p>Diagramas funcionais simplificados. Não representam uma medição, nem todos os detalhes do processamento.</p></details>
+
+<p><strong>Onde:</strong> FX → barramento → slot → tipo. A edição mostra o efeito selecionado naquele slot. Primeiro confira ON, posição e mistura; depois ajuste o caráter. A mesma quantidade de efeito pode soar diferente em série, em paralelo e no AUX.</p>
+<h3 id="texture">TEXTURE</h3>
+<p>Transforma o áudio recente por grãos ou delay e diferentes meios. TIME/POSITION, SIZE, SHAPE, PITCH e DENSITY tratam a organização da textura; FEEDBACK devolve material ao processo; DRY/WET mistura; REVERB acrescenta espaço. Os nomes e funções dependem do modo. FREEZE conserva material no buffer; não significa congelar todos os movimentos dos controles.</p>
+<p>Explore um som curto e compare SIZE pequeno e grande; depois DENSITY. Só então acrescente FEEDBACK. Diferencie uma textura mais cheia de um simples aumento de nível.</p>
+<h3 id="room">ROOM</h3>
+<p>Reverberação com controle AMOUNT. Na inserção, muda presença e duração; no AUX, os controles SEND/RETURN do barramento determinam a participação e AMOUNT trata a sala. Experimente uma nota curta e observe a cauda. Se aumentar RELEASE e ROOM juntos, duas durações estarão mudando ao mesmo tempo.</p>
+<h3 id="distort">DISTORT</h3>
+<p>DRIVE altera a intensidade da transformação; CHARACTER escolhe seu caráter; SYM muda a simetria; TONE trata o equilíbrio e MIX a participação. Os nomes finais devem ser conferidos no painel da versão. Comece com pouco DRIVE e compare em volume semelhante. Distorção não é sinônimo de ganho limpo.</p>
+<h3 id="ir">IR</h3>
+<p>LOAD abre uma resposta de impulso (IR) que você tenha gravado, baixado de uma fonte gratuita ou comprado, respeitando os termos de uso do arquivo. Não é necessário produzir seu próprio IR. CLEAR remove o arquivo carregado; MIX controla a participação, e LOW CUT/HIGH CUT limitam a faixa processada. Nenhum IR acompanha o plugin. Sem arquivo, não há uma sala de fábrica escondida. No AUX, confira SEND e RETURN. A edição web pode não oferecer esse processamento; confira a disponibilidade na edição usada.</p>
+<p>Um IR registra a resposta de um espaço, objeto ou cadeia de processamento a um impulso. A convolução aplica essa resposta ao sinal do Usina: por exemplo, a impressão de uma sala, uma caixa ou uma ressonância registrada. Não é simplesmente reproduzir o arquivo como uma gravação no operador SAMPLE.</p>
+<p><strong>Usar e compartilhar são coisas diferentes:</strong> um IR gratuito ou comprado pode permitir uso no seu trabalho sem permitir redistribuir o arquivo original. Ao compartilhar um preset ou projeto, confira se pode incluir o IR ou indique à outra pessoa onde obtê-lo. O preset do Usina referencia o caminho do arquivo; não o embute automaticamente.</p>
+<h3 id="vapor">VAPOR</h3>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>MODE</th>
+<th>Um modo de pensar o resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GRANULAR</td>
+<td>Pequenos trechos do passado recente reorganizados</td>
+</tr>
+<tr>
+<td>STRETCH</td>
+<td>Separar transformação temporal e afinação</td>
+</tr>
+<tr>
+<td>LOOP DELAY</td>
+<td>Repetição em laço com transformação de altura</td>
+</tr>
+<tr>
+<td>SPECTRAL</td>
+<td>Reter e transformar componentes do espectro</td>
+</tr>
+<tr>
+<td>REVERB</td>
+<td>Cauda com transformação dentro da realimentação</td>
+</tr>
+<tr>
+<td>RESONATOR</td>
+<td>Banco de ressonâncias afinadas</td>
+</tr>
+</tbody>
+</table></div>
+<p>QUALITY escolhe a representação oferecida pelo processador; TRIG escolhe como eventos entram. FREEZE interrompe a renovação do material — em REVERB retém a cauda, em RESONATOR mantém o acorde. REVERSE atua nos percursos compatíveis. Os knobs mudam de rótulo com MODE; POSITION e DENSITY não devem ser interpretados como controles idênticos em todos os modos.</p>
+<p>O LIMIT interno novo é opcional e começa desligado. Densidade e feedback altos podem acumular energia. A guarda final e o limite interno têm papéis diferentes; nenhum deles regula o volume físico do equipamento.</p>
+<h3 id="filter">FILTER</h3>
+<p>Filtro nos slots de FX A/B, AUX e LOOP INSERT. TYPE escolhe a resposta; CUTOFF e RESO definem a região e sua ênfase. DRIVE depende do tipo. SPREAD separa os cortes esquerdo/direito. FOLLOW é percentual bipolar de acompanhamento do nível, não ganho em dB. MIX combina os caminhos conforme o barramento. Consulte <a href="voices.html#filter-nos-slots-de-fx">FILTER nos slots</a> para unidades e limites.</p>
+<h3 id="delay">DELAY</h3>
+<p>TIME define o intervalo em FREE; SYNC usa o andamento. FEEDBACK define a parcela que volta. LOW CUT e HIGH CUT filtram as repetições; MIX mistura e OUTPUT ajusta a saída do efeito. Em DIGITAL, mudanças de tempo fazem transição; em TAPE, deslizam a afinação e disponibilizam WOW/FLUTTER. ROUTING oferece STEREO, PING-PONG e MONO. TAP segue suas batidas; FREEZE conserva as repetições.</p>
+<p>Experimente primeiro uma repetição sem muito FEEDBACK; depois compare DIGITAL/TAPE ao mover TIME. O eco pode continuar depois que a nota terminou. FEEDBACK do delay, feedback do operador e o laço LOOP INSERT são três controles diferentes.</p>
+<h2 id="encontrar-o-que-esta-causando-o-resultado">Encontrar o que está causando o resultado</h2>
+<ul>
+<li><strong>O nível mudou, mas eu queria mudar o brilho:</strong> confira se está ajustando portadora ou modulador.</li>
+<li><strong>O envelope termina, mas o som continua:</strong> confira ressonâncias MODAL, RELEASE, ecos, reverb e HOLD.</li>
+<li><strong>O filtro parece parado:</strong> confira tipo, ligação do envelope/LFO e a quantidade. Um som com poucas frequências pode revelar pouco do corte.</li>
+<li><strong>Uma rota existe, mas não faz diferença:</strong> confira fonte, quantidade e participação do destino no algoritmo.</li>
+<li><strong>O efeito não aparece no lugar esperado:</strong> selecione o barramento e o slot; painéis mostram o efeito colocado ali.</li>
+<li><strong>Não encontro o mesmo controle no celular:</strong> confira edição e versão, opções recolhidas e backend de áudio. Este alfa não promete paridade completa entre plugin e app.</li>
+</ul>
+<p>Para aprofundar o gesto completo de gravação, MIDI e performance, volte ao <a href="index.html">manual principal</a>. Para apontar uma dúvida no texto, conte em qual tela estava e o que queria fazer; isso já ajuda a melhorar o guia.</p>
+</article><footer class="reading-footer"><a href="#top">Voltar ao início ↑</a><span>Para imprimir ou salvar em PDF, use Imprimir no menu do navegador.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

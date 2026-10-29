@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>AUX and LOOP INSERT · audio paths — Usina</title><link rel="stylesheet" href="../reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="../index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="../index.html">Presentation</a><a href="../manual/en.html">Manual</a><a href="../install.en.html">Install</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">ON THIS PAGE</p><nav class="toc" aria-label="ON THIS PAGE"><a href="#find-the-controls">Find the controls</a>
+<a href="#aux-parallel-processing">AUX: parallel processing</a>
+<a class="toc-secondary" href="#send-return-and-tails">SEND, RETURN and tails</a>
+<a class="toc-secondary" href="#example-room-around-a-short-note">Example: room around a short note</a>
+<a class="toc-secondary" href="#example-a-brief-delay-send">Example: a brief delay send</a>
+<a href="#loop-insert-processing-the-stored-return">LOOP INSERT: processing the stored return</a>
+<a class="toc-secondary" href="#repeated-transformations">Repeated transformations</a>
+<a class="toc-secondary" href="#example-identify-one-return-first">Example: identify one return first</a>
+<a href="#distinguish-feedback-paths">Distinguish feedback paths</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="../alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALPHA · Features and file formats can change. Check the version and edition before following a workflow.</p><details class="mobile-index"><summary>Choose a topic</summary><nav class="toc" aria-label="Choose a topic"><a href="#find-the-controls">Find the controls</a>
+<a href="#aux-parallel-processing">AUX: parallel processing</a>
+<a class="toc-secondary" href="#send-return-and-tails">SEND, RETURN and tails</a>
+<a class="toc-secondary" href="#example-room-around-a-short-note">Example: room around a short note</a>
+<a class="toc-secondary" href="#example-a-brief-delay-send">Example: a brief delay send</a>
+<a href="#loop-insert-processing-the-stored-return">LOOP INSERT: processing the stored return</a>
+<a class="toc-secondary" href="#repeated-transformations">Repeated transformations</a>
+<a class="toc-secondary" href="#example-identify-one-return-first">Example: identify one return first</a>
+<a href="#distinguish-feedback-paths">Distinguish feedback paths</a></nav></details><article class="article"><h1 id="aux-and-loop-insert-audio-paths">AUX and LOOP INSERT · audio paths</h1>
+<p><a href="routing.html">Português</a> · <a href="en.html">Main manual</a> · <a href="modules.en.html#bus-effects">Effects</a> · <a href="modulation.en.html">Modulation examples</a></p>
+<p>AUX sends a copy to parallel processing and adds its return. LOOP INSERT processes the material stored for global feedback. The maps omit smoothing, compensation and protection details; they explain paths, not exact screen positions or measured responses. This is an alpha guide; the final release still needs technical review.</p>
+<h2 id="find-the-controls">Find the controls</h2>
+<p>In the plugin, open FX and select a bus and slot. Web/APK uses FX A, FX B, AUX and LOOP tabs. IR and newer options may differ between editions.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FX A / FX B</td>
+<td>ON, MIX, three slots; A &gt; B, B &gt; A or A // B routing</td>
+</tr>
+<tr>
+<td>AUX</td>
+<td>ON, SEND, RETURN, PRE/POST, three slots</td>
+</tr>
+<tr>
+<td>LOOP INSERT</td>
+<td>ON and three slots; global FEEDBACK and TIME define the loop</td>
+</tr>
+</tbody>
+</table></div>
+<p>An effect's own MIX, a bus MIX, AUX SEND and global FEEDBACK are separate controls.</p>
+<h2 id="aux-parallel-processing">AUX: parallel processing</h2>
+<p>AUX receives a copy, processes its slots and adds the return <strong>after FX A/B</strong>. The main path remains present.</p>
+<pre><code class="language-text">PRE:  voices ──┬── FX A/B ───────────┬── output
+               └── SEND → AUX → RETURN ┘
+POST: voices ── FX A/B ──┬───────────┬── output
+                        └─ SEND → AUX → RETURN ┘
+</code></pre>
+<p>PRE takes the copy before FX A/B. POST takes it after their selected series/parallel routing. In both cases, the AUX return is added after A/B. PRE does not insert the AUX effect before FX A in the main chain.</p>
+<p>Compare DISTORT in FX A with ROOM in AUX. PRE feeds ROOM before the distortion; POST feeds the transformed result. This changes what excites the room, not only its volume.</p>
+<h3 id="send-return-and-tails">SEND, RETURN and tails</h3>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Result and limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raise SEND</td>
+<td>More new signal enters processing</td>
+</tr>
+<tr>
+<td>Set SEND to zero</td>
+<td>New send input stops; retained material/tails may continue</td>
+</tr>
+<tr>
+<td>Lower RETURN</td>
+<td>Reduces the result added to main; processing may continue</td>
+</tr>
+<tr>
+<td>RETURN at 0 dB</td>
+<td>No added gain/attenuation at that control; not off</td>
+</tr>
+<tr>
+<td>AUX off</td>
+<td>Removes bus contribution; differs from waiting for a tail to finish</td>
+</tr>
+</tbody>
+</table></div>
+<p>RETURN is in dB; SEND is a send amount. The minimum RETURN setting must not be assumed to mean absolute silence; use ON to disable the bus.</p>
+<p>AUX uses the processed return without adding another dry copy through effect mix controls that provide this behavior. Use SEND/RETURN for contribution and effect parameters for character. Models can interpret individual controls differently. The same internal MIX need not behave identically in AUX and FX A.</p>
+<h3 id="example-room-around-a-short-note">Example: room around a short note</h3>
+<ol>
+<li>Start with global FEEDBACK zero and low physical volume.</li>
+<li>Put ROOM in AUX; enable the effect and bus.</li>
+<li>Use RETURN at 0 dB as reference, SEND initially zero.</li>
+<li>Play short notes and raise SEND gradually. AMOUNT shapes ROOM.</li>
+<li>Return SEND to zero and listen to the tail; compare with AUX off.</li>
+</ol>
+<p>Check slot, effect ON, AUX ON, SEND, RETURN and input signal if nothing appears. NONE does not create a room.</p>
+<h3 id="example-a-brief-delay-send">Example: a brief delay send</h3>
+<p>Put DELAY in AUX with moderate time and internal feedback. Start SEND at zero, play a note, raise SEND briefly and return it to zero. A macro assigned to AUX SEND can perform this gesture. Repeats depend on DELAY's own FEEDBACK/FREEZE; global FEEDBACK is not required for ordinary delay repeats.</p>
+<h2 id="loop-insert-processing-the-stored-return">LOOP INSERT: processing the stored return</h2>
+<p>The internal loop stores a copy in a delay line, then returns it according to global FEEDBACK. LOOP INSERT processes the copy <strong>before storage</strong>.</p>
+<pre><code class="language-text">voices / A/B / AUX / audible input + protected return → LEVEL → output guard → output
+                                                        └→ LOOP INSERT → memory
+                                                                          └→ FEEDBACK → protected return
+</code></pre>
+<p>The storage tap is after LEVEL and before the final output guard. Its signal can include voices, effects, AUX return, audible input and previous loop material. The return passes through protections before rejoining the sum.</p>
+<p><strong>The return does not automatically re-enter FX A/B or AUX.</strong> LOOP INSERT is the processing repeated in the feedback path. A reverb in FX A can be part of the initial copy, but does not have the same role as a reverb inserted in this loop.</p>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Global FEEDBACK</td>
+<td>Amount of stored material returned</td>
+</tr>
+<tr>
+<td>Loop TIME</td>
+<td>Read distance in the memory</td>
+</tr>
+<tr>
+<td>LOOP INSERT slots</td>
+<td>Transformation before storage</td>
+</tr>
+<tr>
+<td>LOOP INSERT ON</td>
+<td>Enable/bypass effects in that path</td>
+</tr>
+<tr>
+<td>LEVEL</td>
+<td>Participates in feeding memory, not just final monitoring</td>
+</tr>
+<tr>
+<td>CEILING / output guard</td>
+<td>Output protection; not a substitute for controlling source energy</td>
+</tr>
+</tbody>
+</table></div>
+<p>FEEDBACK zero removes return contribution. LOOP INSERT off bypasses its effects but can leave the loop returning. Global FX off is not a synonym for FEEDBACK zero. With an insert active, block processing imposes a minimum loop time; very short timing can depend on host/system block size.</p>
+<h3 id="repeated-transformations">Repeated transformations</h3>
+<p>DISTORT can transform each new pass. DELAY combines global loop TIME with its own time and feedback. TEXTURE/VAPOR can retain/reorganize material; FREEZE adds another memory state. Effects can have their own feedback in addition to the global loop.</p>
+<p>Gain, mix, time, input and protections all affect the result. These relationships do not guarantee a predictable level.</p>
+<h3 id="example-identify-one-return-first">Example: identify one return first</h3>
+<ol>
+<li>Save the patch; start with microphone/IN MIX zero.</li>
+<li>Use no LOOP INSERT effect, global FEEDBACK zero and a time long enough to distinguish repeats.</li>
+<li>Play a short note; raise FEEDBACK slowly from zero at moderate physical volume.</li>
+<li>Return FEEDBACK to zero and compare.</li>
+<li>Add one familiar insert effect with a small return amount.</li>
+</ol>
+<p>Avoid starting with large internal gains, densities and feedbacks. No numeric setting guarantees safe hearing.</p>
+<h2 id="distinguish-feedback-paths">Distinguish feedback paths</h2>
+<div class="table-scroll" tabindex="0" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Location</th>
+<th>What returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM FB / USER diagonal</td>
+<td>Operator/network signal</td>
+</tr>
+<tr>
+<td>DELAY, TEXTURE or VAPOR FEEDBACK</td>
+<td>Material in that effect's memory</td>
+</tr>
+<tr>
+<td>Global FEEDBACK with LOOP INSERT</td>
+<td>Copy in the instance feedback path</td>
+</tr>
+</tbody>
+</table></div>
+<p>Reducing one does not stop all others. Also check HOLD, sustain, SEQ, FREEZE and tails. If levels become unexpected, lower physical volume and stop playback/input before investigating. The instrument cannot control later gain stages or acoustic headphone/speaker level.</p>
+</article><footer class="reading-footer"><a href="#top">Back to top ↑</a><span>Use your browser's Print command to print or save as PDF.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

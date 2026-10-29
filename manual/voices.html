@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Vozes, filtros e captura — Usina</title><link rel="stylesheet" href="../reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="../index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="../index.html">Apresentação</a><a href="../manual/index.html">Manual</a><a href="../install.html">Instalar</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">NESTA PÁGINA</p><nav class="toc" aria-label="NESTA PÁGINA"><a href="#filter-2">FILTER 2</a>
+<a href="#filter-nos-slots-de-fx">FILTER nos slots de FX</a>
+<a href="#lpg-estereo">LPG estéreo</a>
+<a href="#casc-vca-source">CASC VCA SOURCE</a>
+<a href="#estereo-das-vozes-e-dos-operadores">Estéreo das vozes e dos operadores</a>
+<a href="#unison">UNISON</a>
+<a href="#bits-e-comb-binario">BITS e COMB binário</a>
+<a href="#modal-damp-e-drop">MODAL: DAMP e DROP</a>
+<a href="#sample-captura-ao-vivo">SAMPLE: captura ao vivo</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="../alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALFA · Recursos e formatos podem mudar. Confira a versão e a edição antes de seguir um procedimento.</p><details class="mobile-index"><summary>Escolher um assunto</summary><nav class="toc" aria-label="Escolher um assunto"><a href="#filter-2">FILTER 2</a>
+<a href="#filter-nos-slots-de-fx">FILTER nos slots de FX</a>
+<a href="#lpg-estereo">LPG estéreo</a>
+<a href="#casc-vca-source">CASC VCA SOURCE</a>
+<a href="#estereo-das-vozes-e-dos-operadores">Estéreo das vozes e dos operadores</a>
+<a href="#unison">UNISON</a>
+<a href="#bits-e-comb-binario">BITS e COMB binário</a>
+<a href="#modal-damp-e-drop">MODAL: DAMP e DROP</a>
+<a href="#sample-captura-ao-vivo">SAMPLE: captura ao vivo</a></nav></details><article class="article"><h1 id="vozes-filtros-e-captura">Vozes, filtros e captura</h1>
+<p>Guia da edição plugin. Os rótulos abaixo seguem a interface nativa. Esta edição é alfa; as capturas mostram a interface nativa em desenvolvimento. <a href="voices.en.html">English</a> · <a href="index.html">Manual principal</a> · <a href="modules.html">Guia dos módulos</a> · <a href="routing.html">Efeitos e roteamento</a></p>
+<h2 id="filter-2">FILTER 2</h2>
+<p><strong>Onde:</strong> SYNTH → FILTER / EG2 / OUTPUT → VOICE FILTER → FILTER 2. A troca de aba escolhe qual filtro você edita; <strong>ROUTE</strong> escolhe o caminho do som.</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>ROUTE</th>
+<th>Caminho</th>
+<th>MIX em 0% → 100%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OFF</td>
+<td>Segundo filtro fora do caminho</td>
+<td>Sem contribuição do FILTER 2</td>
+</tr>
+<tr>
+<td>SERIES</td>
+<td>FILTER 1 → FILTER 2</td>
+<td>Primeiro filtro sozinho → os dois em série</td>
+</tr>
+<tr>
+<td>PARALLEL</td>
+<td>Os dois recebem o sinal em paralelo</td>
+<td>Primeiro filtro → segundo filtro</td>
+</tr>
+<tr>
+<td>STEREO</td>
+<td>FILTER 1 à esquerda; FILTER 2 pode substituir o filtro da direita</td>
+<td>À direita: primeiro filtro → segundo filtro</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>TYPE</strong> oferece os tipos de filtro de voz, exceto <strong>SK CASC (HP &gt; LP)</strong>: LPF 12/24/SK/OTA, HPF 12/24/SK, BPF 6/12, BRF 6/12, SK LPF/HPF HOT e CMOS LP/HP/BP/DIST. O número indica a família de resposta apresentada pelo instrumento; consulte o <a href="modules.html">guia de filtros</a>.</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Controle</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CUTOFF</td>
+<td>Frequência de corte, mostrada em Hz/kHz</td>
+</tr>
+<tr>
+<td>RESO</td>
+<td>Ressonância, 0–100%</td>
+</tr>
+<tr>
+<td>DRIVE</td>
+<td>Ganho de entrada, ×1–×8, nos tipos saturantes; os tipos SVF são lineares</td>
+</tr>
+<tr>
+<td>EG2 INT</td>
+<td>Intensidade bipolar do mesmo EG2, mostrada em semitons; não cria outro envelope</td>
+</tr>
+<tr>
+<td>KEY</td>
+<td>Acompanhamento da nota a partir de KEY CTR; +100% desloca um semitom por semitom; −200% a +200%</td>
+</tr>
+<tr>
+<td>MIX</td>
+<td>Mistura conforme a rota da tabela; não é um volume mestre</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Experimente:</strong> escolha PARALLEL, configure cortes diferentes nos dois filtros e percorra MIX. Depois escolha SERIES para ouvir o segundo filtro atuando sobre o primeiro. Comece com ressonância baixa.</p>
+<p><img src="assets/screenshots/manual_F01.png" alt="FILTER 2 em STEREO, com MIX e EG2 compartilhado." /></p>
+<p><em>FILTER 2 em STEREO, com MIX e EG2 compartilhado.</em></p>
+<h2 id="filter-nos-slots-de-fx">FILTER nos slots de FX</h2>
+<p><strong>Onde:</strong> FX → FX A, FX B, AUX ou LOOP → escolha um slot → FILTER. O texto da interface é <strong>FILTER</strong>; nesta explicação, “efeito de filtro” distingue essa etapa do filtro de cada voz. Processa o sinal do barramento, que pode conter várias vozes.</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Controle</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TYPE</td>
+<td>Os mesmos tipos aplicáveis ao FILTER 2; SK CASC não está disponível</td>
+</tr>
+<tr>
+<td>CUTOFF</td>
+<td>20 Hz–20 kHz</td>
+</tr>
+<tr>
+<td>RESO</td>
+<td>Realce da ressonância</td>
+</tr>
+<tr>
+<td>DRIVE</td>
+<td>×1–×8 nos tipos saturantes; sem ação nos tipos SVF lineares</td>
+</tr>
+<tr>
+<td>SPREAD</td>
+<td>Separa os cortes dos dois canais; no máximo, uma oitava para cada lado. Positivo eleva o corte direito</td>
+</tr>
+<tr>
+<td>FOLLOW</td>
+<td>O corte acompanha o nível do sinal. Positivo abre quando o nível sobe; negativo fecha; zero não acompanha</td>
+</tr>
+<tr>
+<td>MIX</td>
+<td>Mistura o sinal seco e filtrado; no AUX, o retorno usa apenas o sinal filtrado</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>Ganho de saída, −24 a +12 dB</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>FOLLOW e dB:</strong> o controle aparece como <strong>percentual bipolar</strong>, não em dB. O nível que ele acompanha é calculado numa escala de <strong>−48 a 0 dBFS</strong>; no extremo do controle, a ação pode deslocar o corte em até quatro oitavas. <strong>OUTPUT</strong>, sim, é expresso em dB. Não confunda FOLLOW com detecção de notas ou acompanhamento da altura tocada.</p>
+<p><strong>Experimente:</strong> use um padrão com ataques e silêncios, corte moderado e FOLLOW positivo. Compare com FOLLOW zero. Para separar os canais, introduza um pouco de SPREAD; confira também em mono.</p>
+<p><img src="assets/screenshots/manual_F02.png" alt="FILTER no primeiro slot de FX A; FOLLOW é exibido em porcentagem." /></p>
+<p><em>FILTER no primeiro slot de FX A; FOLLOW é exibido em porcentagem.</em></p>
+<p><img src="assets/screenshots/manual_F03.png" alt="FILTER no AUX, com POST, SEND e RETURN." /></p>
+<p><em>FILTER no AUX, com POST, SEND e RETURN.</em></p>
+<h2 id="lpg-estereo">LPG estéreo</h2>
+<p><strong>Onde:</strong> SYNTH → FILTER / EG2 / OUTPUT → LPG, abaixo dos controles de saída. LPG combina atenuação e perda de agudos. DECAY e COLOR não são substitutos dos envelopes dos operadores.</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Lista/controle na interface</th>
+<th>Comportamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OFF / PING / EG2 / SOURCE</td>
+<td>Modo do LPG principal. PING dispara por nota; EG2 acompanha o envelope; SOURCE acompanha a fonte escolhida</td>
+</tr>
+<tr>
+<td>SOURCE</td>
+<td>Fonte do modo SOURCE; uma fonte bipolar −1…+1 é lida como 0…1</td>
+</tr>
+<tr>
+<td>RIGHT: R SAME / R PING / R EG2 / R SOURCE</td>
+<td>Modo do lado direito, chamado R MODE no formato de parâmetros. R SAME usa a mesma abertura do esquerdo; os outros usam uma abertura própria</td>
+</tr>
+<tr>
+<td>R SOURCE</td>
+<td>Fonte do lado direito quando RIGHT está em R SOURCE</td>
+</tr>
+<tr>
+<td>DECAY</td>
+<td>Fechamento principal, 0–100</td>
+</tr>
+<tr>
+<td>R DECAY</td>
+<td>Deslocamento de −100 a +100 adicionado ao DECAY do lado direito; não é um tempo em segundos</td>
+</tr>
+<tr>
+<td>COLOR</td>
+<td>Conteúdo agudo que passa pelo LPG</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Experimente:</strong> mantenha PING no esquerdo, escolha R PING e diminua R DECAY. Toque uma nota curta e compare as caudas dos canais. Para uma abertura periódica, use SOURCE com um LFO. O parâmetro RIGHT é uma escolha de modo; não é um controle de pan.</p>
+<p><img src="assets/screenshots/manual_L01.png" alt="LPG em SOURCE; lado direito em R SOURCE com fonte e decay próprios." /></p>
+<p><em>LPG em SOURCE; lado direito em R SOURCE com fonte e decay próprios.</em></p>
+<h2 id="casc-vca-source">CASC VCA SOURCE</h2>
+<p><strong>Onde:</strong> FILTER 1 → TYPE → SK CASC (HP &gt; LP). <strong>CASC VCA</strong> oferece GATE, EG2, ENV ou SOURCE. Em SOURCE, <strong>VCA SOURCE</strong> escolhe a modulação que controla o nível da etapa em cascata.</p>
+<p>A cascata é uma etapa da parte, depois da soma das vozes. Esse VCA não é o LPG e não é o volume mestre. Escolha primeiro SOURCE em CASC VCA e depois a fonte em VCA SOURCE. Um LFO permite controlar o nível dessa etapa ritmicamente; comece sem aumentar a realimentação da cascata.</p>
+<p><img src="assets/screenshots/manual_L02.png" alt="SK CASC com CASC VCA em SOURCE e VCA SOURCE selecionada." /></p>
+<p><em>SK CASC com CASC VCA em SOURCE e VCA SOURCE selecionada.</em></p>
+<h2 id="estereo-das-vozes-e-dos-operadores">Estéreo das vozes e dos operadores</h2>
+<p><strong>Onde:</strong> SYNTH → FILTER / EG2 / OUTPUT → OUTPUT.</p>
+<ul>
+<li><strong>SPREAD:</strong> KEY posiciona notas graves à esquerda e agudas à direita; ALTERNATE alterna o lado entre notas; RANDOM escolhe uma posição por nota.</li>
+<li><strong>WIDTH:</strong> extensão dessa distribuição, 0–100%. Em zero, as vozes permanecem centralizadas.</li>
+<li><strong>PAN:</strong> posição geral; centro, esquerda ou direita. Uma rota de modulação pode deslocar vozes individualmente.</li>
+<li><strong>OFFSET</strong>, no FILTER 1: diferença do corte direito em relação ao esquerdo, de −48 a +48 semitons. Não é um segundo CUTOFF absoluto.</li>
+</ul>
+<p>O <strong>WIDTH do operador</strong> fica em sua área de MODE. Em <strong>UNISON</strong>, separa as cópias pelos canais; em <strong>MODAL</strong>, separa dois pontos de captação. É diferente do WIDTH de OUTPUT, que posiciona notas completas. Não representa expansão estéreo em todos os modos de operador.</p>
+<p><strong>Experimente:</strong> compare WIDTH de OUTPUT com SPREAD ALTERNATE usando notas sucessivas. Depois mantenha uma única nota e ajuste o WIDTH de um operador UNISON: são duas formas distintas de criar espaço.</p>
+<p><img src="assets/screenshots/manual_S01.png" alt="OUTPUT: distribuição ALTERNATE, WIDTH e PAN." /></p>
+<p><em>OUTPUT: distribuição ALTERNATE, WIDTH e PAN.</em></p>
+<p><img src="assets/screenshots/manual_S02.png" alt="FILTER 1: OFFSET direito em +7 semitons relativo a CUTOFF." /></p>
+<p><em>FILTER 1: OFFSET direito em +7 semitons relativo a CUTOFF.</em></p>
+<p><img src="assets/screenshots/manual_S03a.png" alt="WIDTH do operador UNISON no painel de MODE." /></p>
+<p><em>WIDTH do operador UNISON no painel de MODE.</em></p>
+<p><img src="assets/screenshots/manual_S03b.png" alt="WIDTH do MODAL na aba OBJECT, junto aos controles do objeto." /></p>
+<p><em>WIDTH do MODAL na aba OBJECT, junto aos controles do objeto.</em></p>
+<h2 id="unison">UNISON</h2>
+<p><strong>Onde:</strong> selecione um operador → MODE → UNISON.</p>
+<p><strong>VOICES</strong> escolhe 1–9 cópias; <strong>DETUNE</strong> afasta suas afinações; <strong>MIX</strong> combina a cópia central com as demais; <strong>DRIFT</strong> varia lentamente cada cópia. <strong>SUB</strong> acrescenta uma onda quadrada uma oitava abaixo. <strong>PWM</strong> movimenta a largura de pulso das ondas quadradas. <strong>WIDTH</strong> distribui as cópias em estéreo. A entrada do algoritmo continua modulando o operador.</p>
+<p>Uma única voz ou MIX zero permite comparar com a onda central. Para ouvir PWM, escolha uma forma de onda quadrada; o controle não transforma qualquer onda em pulso.</p>
+<p><img src="assets/screenshots/manual_O01.png" alt="UNISON com onda SQR, SUB, PWM e WIDTH." /></p>
+<p><em>UNISON com onda SQR, SUB, PWM e WIDTH.</em></p>
+<h2 id="bits-e-comb-binario">BITS e COMB binário</h2>
+<p><strong>BITS</strong>, em MODE do operador, trabalha a forma de onda como código numérico. <strong>BITS</strong> escolhe resolução de 1–16 bits; <strong>XOR</strong> inverte bits de uma máscara; <strong>KEEP</strong> remove bits baixos; <strong>OFFSET</strong> soma um deslocamento com retorno ao início da faixa. O resultado pode ter mudanças intensas de timbre. Não é um sequenciador de notas.</p>
+<p><strong>COMB</strong>, em SYNTH → MOD, transforma fontes de modulação. Os tipos binários leem −1…+1 como código de 8 bits e convertem o resultado de volta:</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BIT</td>
+<td>Extrai um bit como sinal 0/1; AMOUNT escolhe o bit, e sinal negativo inverte a saída</td>
+</tr>
+<tr>
+<td>XOR</td>
+<td>Combina os códigos de SOURCE e MOD por inversão de bits</td>
+</tr>
+<tr>
+<td>AND</td>
+<td>Retém bits altos com AMOUNT positivo; bits baixos com AMOUNT negativo</td>
+</tr>
+<tr>
+<td>ADD MOD 256</td>
+<td>Soma MOD escalado a SOURCE com retorno ao início ao ultrapassar a faixa</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Experimente:</strong> SOURCE em um LFO crescente, tipo BIT e destino num parâmetro com quantidade pequena. Trocar o bit produz divisões relacionadas. Isso cria uma modulação por degraus, não grava automaticamente eventos no sequenciador.</p>
+<p><img src="assets/screenshots/manual_O02.png" alt="BITS: resolução, XOR, KEEP e OFFSET." /></p>
+<p><em>BITS: resolução, XOR, KEEP e OFFSET.</em></p>
+<p><img src="assets/screenshots/manual_M01.png" alt="COMB binário XOR, fontes e fórmula." /></p>
+<p><em>COMB binário XOR, fontes e fórmula.</em></p>
+<h2 id="modal-damp-e-drop">MODAL: DAMP e DROP</h2>
+<p><strong>Onde:</strong> operador → MODE → MODAL. Na aba <strong>EXCITER</strong>, <strong>DAMP</strong> aumenta o amortecimento <strong>depois de soltar a tecla</strong>. Em zero, o objeto mantém seu decaimento natural; não confunda com DECAY ou com o RELEASE que controla sua excitação.</p>
+<p>Na área EXCITER, escolha <strong>DROP</strong> para uma sequência de impactos que representa a queda e os ressaltos do objeto. STRIKE e os controles do excitador definem a energia/contato conforme a configuração. DROP é uma excitação da voz; não adiciona passos ao sequenciador.</p>
+<p><strong>Experimente:</strong> toque um objeto ressonante, solte a nota e compare DAMP zero com um valor maior. Depois selecione DROP e compare seus impactos com uma única excitação STRIKE.</p>
+<p><img src="assets/screenshots/manual_O03.png" alt="DAMP fica na aba EXCITER do MODAL e controla o amortecimento após soltar a nota." /></p>
+<p><em>DAMP fica na aba EXCITER do MODAL e controla o amortecimento após soltar a nota.</em></p>
+<p><img src="assets/screenshots/manual_O04.png" alt="DROP selecionado na aba EXCITER do MODAL." /></p>
+<p><em>DROP selecionado na aba EXCITER do MODAL.</em></p>
+<h2 id="sample-captura-ao-vivo">SAMPLE: captura ao vivo</h2>
+<p><strong>Onde:</strong> operador → MODE → SAMPLE. A área da gravação oferece quatro posições <strong>A–D</strong>, LOAD, CAPTURE, CLEAR, LENGTH e AUTO LVL. A escolha A–D determina a gravação usada; não equivale aos instantâneos de macros A–D da PLAY.</p>
+<ol>
+<li>Escolha a posição A–D de destino e configure a entrada de áudio. IN GAIN afeta o que será capturado; a captura ocorre antes de IN MIX, portanto IN MIX pode ficar em zero para não monitorar a entrada.</li>
+<li>Em <strong>LENGTH</strong>, FREE permite encerrar manualmente; 1 BAR, 2 BARS e 4 BARS limitam a duração. Com transporte em execução, a captura quantizada espera o próximo compasso. Com transporte parado, começa imediatamente.</li>
+<li>Acione <strong>CAPTURE</strong>. Na captura livre, acione novamente para encerrar. Na captura por compassos, o encerramento ocorre ao atingir a duração.</li>
+<li><strong>AUTO LVL</strong>, ligado por padrão, ajusta a tomada para pico de −3 dBFS, com aumento limitado a +30 dB. Não recupera um sinal que já foi gravado distorcido.</li>
+<li>Toque e ajuste READ, START, LENGTH e XFADE/FADE do operador. O LENGTH de leitura da amostra é diferente do LENGTH da captura.</li>
+</ol>
+<p>A tomada vira um arquivo de áudio referenciado pelo preset/sessão. Ao transferir o projeto, mantenha esses arquivos acessíveis; salvar o preset não embute automaticamente a gravação. A captura não muda o sample rate do projeto nem configura a interface de áudio por conta própria.</p>
+<p><img src="assets/screenshots/manual_A01.png" alt="SAMPLE: slots A–D, controles de captura e LENGTH em 1 BAR." /></p>
+<p><em>SAMPLE: slots A–D, controles de captura e LENGTH em 1 BAR.</em></p>
+<p><img src="assets/screenshots/manual_A02.png" alt="SAMPLE armado: WAIT BAR antes do início da captura." /></p>
+<p><em>SAMPLE armado: WAIT BAR antes do início da captura.</em></p>
+</article><footer class="reading-footer"><a href="#top">Voltar ao início ↑</a><span>Para imprimir ou salvar em PDF, use Imprimir no menu do navegador.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

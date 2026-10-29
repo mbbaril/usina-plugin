@@ -1,0 +1,5 @@
+name | color (hex, without #) | description
+problema | D73A4A | Comportamento inesperado ou falha / Unexpected behavior or failure
+sugestão | A2EEEF | Proposta de melhoria / Improvement proposal
+documentação | 0075CA | Manual, instalação e informação / Manual, installation and information
+tradução | 7057FF | Traduções e linguagem / Translations and wording

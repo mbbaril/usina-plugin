@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Baixar e instalar · ALFA — Usina</title><link rel="stylesheet" href="reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="index.html">Apresentação</a><a href="manual/index.html">Manual</a><a href="install.html">Instalar</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">NESTA PÁGINA</p><nav class="toc" aria-label="NESTA PÁGINA"><a href="#antes-de-abrir">Antes de abrir</a>
+<a href="#windows-1011-x64">Windows 10/11 · x64</a>
+<a class="toc-secondary" href="#abrir-na-sua-daw">Abrir na sua DAW</a>
+<a class="toc-secondary" href="#aviso-do-windows">Aviso do Windows</a>
+<a href="#linux-x64-experimental">Linux · x64 · experimental</a>
+<a href="#se-nao-aparecer-ou-nao-soar">Se não aparecer ou não soar</a>
+<a href="#atualizar-e-remover">Atualizar e remover</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALFA · Recursos e formatos podem mudar. Confira a versão e a edição antes de seguir um procedimento.</p><details class="mobile-index"><summary>Escolher um assunto</summary><nav class="toc" aria-label="Escolher um assunto"><a href="#antes-de-abrir">Antes de abrir</a>
+<a href="#windows-1011-x64">Windows 10/11 · x64</a>
+<a class="toc-secondary" href="#abrir-na-sua-daw">Abrir na sua DAW</a>
+<a class="toc-secondary" href="#aviso-do-windows">Aviso do Windows</a>
+<a href="#linux-x64-experimental">Linux · x64 · experimental</a>
+<a href="#se-nao-aparecer-ou-nao-soar">Se não aparecer ou não soar</a>
+<a href="#atualizar-e-remover">Atualizar e remover</a></nav></details><article class="article"><h1 id="baixar-e-instalar-alfa">Baixar e instalar · ALFA</h1>
+<p><a href="install.en.html">English</a> · <a href="about.html">Página inicial</a> · <a href="manual/index.html">Manual</a></p>
+<p>Os pacotes de <code>v0.2.0-alpha.1</code> estão em preparação. Estas instruções descrevem a instalação manual prevista; a lista de arquivos e os resultados finais serão confirmados nas notas do release.</p>
+<h2 id="antes-de-abrir">Antes de abrir</h2>
+<ol>
+<li>Baixe o arquivo do seu sistema em <strong>Releases → Assets</strong>. Não baixe o arquivo automático “Source code” para instalar o plugin.</li>
+<li>Extraia o pacote inteiro para uma pasta. Leia o aviso do alfa incluído.</li>
+<li>Confira o nome e a soma do download com <code>SHA256SUMS.txt</code>, obtido no mesmo release. Uma soma detecta corrupção ou diferença de arquivo; não é assinatura digital nem prova independente de autoria.</li>
+<li>Feche a DAW antes de copiar ou substituir plugins. Faça uma cópia dos projetos antes de atualizar.</li>
+</ol>
+<h2 id="windows-1011-x64">Windows 10/11 · x64</h2>
+<p>Escolha <strong>um formato por instância</strong>; não é preciso instalar todos.</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Formato</th>
+<th>Copie</th>
+<th>Destino</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VST3</td>
+<td>A pasta inteira <code>Usina.vst3</code>, com seu conteúdo</td>
+<td><code>%LOCALAPPDATA%\Programs\Common\VST3</code></td>
+</tr>
+<tr>
+<td>CLAP</td>
+<td>O arquivo <code>Usina.clap</code></td>
+<td><code>%LOCALAPPDATA%\Programs\Common\CLAP</code></td>
+</tr>
+<tr>
+<td>Standalone</td>
+<td>O aplicativo e os arquivos que o pacote indicar como necessários</td>
+<td>Uma pasta à sua escolha</td>
+</tr>
+</tbody>
+</table></div>
+<p>Cole o destino na barra de endereços do Explorador. Crie a pasta se ela não existir. Para instalação VST3 para todas as contas, o caminho alternativo é <code>C:\Program Files\Common Files\VST3</code>, que pode exigir permissão de administração. Evite manter versões diferentes em pastas examinadas pela mesma DAW.</p>
+<h3 id="abrir-na-sua-daw">Abrir na sua DAW</h3>
+<ol>
+<li>Abra as preferências de plugins da sua DAW. Os nomes dos menus variam entre programas.</li>
+<li>Confira se ela aceita o formato escolhido e se a pasta de instalação está na busca. Acrescente-a se necessário.</li>
+<li>Atualize a busca de plugins ou reinicie a DAW, conforme suas instruções.</li>
+<li>Crie uma pista de instrumento, procure <strong>Usina</strong> na lista de plugins e carregue o formato escolhido.</li>
+<li>Selecione a entrada MIDI, arme a pista e ligue a monitoração. Comece com o volume baixo e toque uma nota.</li>
+</ol>
+<p>No Standalone, abra <strong>Options → Audio/MIDI Settings</strong> e escolha a saída e a entrada MIDI. Para apenas tocar, mantenha a entrada de áudio muda.</p>
+<h3 id="aviso-do-windows">Aviso do Windows</h3>
+<p>Este alfa não tem assinatura digital. O Windows pode mostrar o <strong>SmartScreen</strong>, sobretudo ao abrir o Standalone. Verifique a origem do download e a soma primeiro. Se decidir executar, o aviso pode oferecer <strong>Mais informações → Executar assim mesmo</strong>. Se essa opção não aparecer ou houver bloqueio da sua organização, não desative a proteção: peça orientação à administração ou aguarde uma distribuição adequada ao seu ambiente.</p>
+<h2 id="linux-x64-experimental">Linux · x64 · experimental</h2>
+<p><strong>Experimental, sem garantia. O efeito VAPOR pode soar diferente da edição Windows.</strong></p>
+<p>Extraia o pacote. Copie o bundle completo ou arquivo do formato escolhido:</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Formato</th>
+<th>Destino da sua conta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VST3</td>
+<td><code>~/.vst3/</code></td>
+</tr>
+<tr>
+<td>CLAP</td>
+<td><code>~/.clap/</code></td>
+</tr>
+<tr>
+<td>LV2</td>
+<td><code>~/.lv2/</code></td>
+</tr>
+<tr>
+<td>Standalone</td>
+<td>Pasta à sua escolha</td>
+</tr>
+</tbody>
+</table></div>
+<p>Mantenha o conteúdo interno dos bundles. No Standalone, o arquivo precisa ter permissão de execução. Reabra a DAW e atualize sua busca de plugins. A distribuição Linux e as dependências necessárias serão informadas no release; não há promessa de funcionamento em toda distribuição ou host.</p>
+<h2 id="se-nao-aparecer-ou-nao-soar">Se não aparecer ou não soar</h2>
+<ul>
+<li><strong>Não aparece na DAW:</strong> confirme x64, formato, pasta de busca e cópia integral do bundle. Faça nova busca. Não misture builds Debug e Release.</li>
+<li><strong>Abre, mas não toca:</strong> confira pista armada, monitoração, entrada MIDI e saída. Experimente INIT. Um operador SAMPLE sem gravação pode ficar mudo.</li>
+<li><strong>SEQ parado:</strong> no plugin, o andamento e o transporte vêm da DAW. Ative SEQ e inicie o transporte do host. O Standalone tem transporte próprio.</li>
+<li><strong>Arquivo MISSING:</strong> restaure ou carregue novamente o áudio/IR. O preset guarda caminhos; não embute esses arquivos.</li>
+<li><strong>Estalos ou atraso:</strong> confira driver, buffer e carga da sessão. Oversampling mais alto custa mais CPU. Anote os valores usados ao relatar o problema; não há latência universal garantida.</li>
+<li><strong>Porta MIDI ocupada:</strong> evite que DAW e conexão direta da CABINE tentem abrir a mesma porta do controlador.</li>
+</ul>
+<p>Se persistir, abra uma Issue com versão, sistema, DAW, formato e passos para repetir. Não publique caminhos com seu nome, conversas ou áudio de outras pessoas sem autorização.</p>
+<h2 id="atualizar-e-remover">Atualizar e remover</h2>
+<p>Feche a DAW, guarde a versão anterior e substitua os arquivos no mesmo destino. Preserve seus <code>.usina</code>, <code>.usinamap</code>, gravações e IRs. Durante o alfa, abrir um projeto antigo não garante som idêntico.</p>
+<p>Para remover a instalação manual, feche os aplicativos e apague somente os bundles/arquivos que você instalou. Não é necessário apagar seus sons ou sessões.</p>
+</article><footer class="reading-footer"><a href="#top">Voltar ao início ↑</a><span>Para imprimir ou salvar em PDF, use Imprimir no menu do navegador.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

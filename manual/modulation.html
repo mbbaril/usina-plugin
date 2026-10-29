@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Modulação na prática · patches ilustrados — Usina</title><link rel="stylesheet" href="../reading.css"></head>
+<body id="top"><a class="skip" href="#reading">Manual</a>
+<header class="reading-head"><div class="head-inner"><a class="reading-brand" href="../index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="../index.html">Apresentação</a><a href="../manual/index.html">Manual</a><a href="../install.html">Instalar</a><span class="alpha">ALFA</span></nav></div></header>
+<div class="doc-layout"><aside class="chapter-list"><p class="toc-label">NESTA PÁGINA</p><nav class="toc" aria-label="NESTA PÁGINA"><a href="#escolha-uma-experiencia">Escolha uma experiência</a>
+<a href="#antes-de-criar-uma-rota">Antes de criar uma rota</a>
+<a href="#criar-ajustar-e-remover-na-interface">Criar, ajustar e remover na interface</a>
+<a href="#base-movimento-e-profundidade">Base, movimento e profundidade</a>
+<a href="#patch-1-um-filtro-que-respira">Patch 1: um filtro que respira</a>
+<a href="#patch-2-fm-que-muda-com-a-velocidade">Patch 2: FM que muda com a velocidade</a>
+<a href="#patch-3-uma-abertura-percussiva">Patch 3: uma abertura percussiva</a>
+<a href="#patch-4-metal-que-se-transforma-devagar">Patch 4: metal que se transforma devagar</a>
+<a href="#patch-5-uma-macro-de-aproximacao">Patch 5: uma macro de aproximação</a>
+<a href="#patch-6-a-roda-libera-o-movimento">Patch 6: a roda libera o movimento</a>
+<a href="#patch-7-pressao-e-timbre-por-mpe">Patch 7: pressão e timbre por MPE</a>
+<a href="#duas-fontes-no-mesmo-destino">Duas fontes no mesmo destino</a>
+<a href="#por-nota-continuo-ou-compartilhado">Por nota, contínuo ou compartilhado?</a>
+<a href="#se-o-resultado-nao-aparecer">Se o resultado não aparecer</a></nav></aside>
+<main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="../alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALFA · Recursos e formatos podem mudar. Confira a versão e a edição antes de seguir um procedimento.</p><details class="mobile-index"><summary>Escolher um assunto</summary><nav class="toc" aria-label="Escolher um assunto"><a href="#escolha-uma-experiencia">Escolha uma experiência</a>
+<a href="#antes-de-criar-uma-rota">Antes de criar uma rota</a>
+<a href="#criar-ajustar-e-remover-na-interface">Criar, ajustar e remover na interface</a>
+<a href="#base-movimento-e-profundidade">Base, movimento e profundidade</a>
+<a href="#patch-1-um-filtro-que-respira">Patch 1: um filtro que respira</a>
+<a href="#patch-2-fm-que-muda-com-a-velocidade">Patch 2: FM que muda com a velocidade</a>
+<a href="#patch-3-uma-abertura-percussiva">Patch 3: uma abertura percussiva</a>
+<a href="#patch-4-metal-que-se-transforma-devagar">Patch 4: metal que se transforma devagar</a>
+<a href="#patch-5-uma-macro-de-aproximacao">Patch 5: uma macro de aproximação</a>
+<a href="#patch-6-a-roda-libera-o-movimento">Patch 6: a roda libera o movimento</a>
+<a href="#patch-7-pressao-e-timbre-por-mpe">Patch 7: pressão e timbre por MPE</a>
+<a href="#duas-fontes-no-mesmo-destino">Duas fontes no mesmo destino</a>
+<a href="#por-nota-continuo-ou-compartilhado">Por nota, contínuo ou compartilhado?</a>
+<a href="#se-o-resultado-nao-aparecer">Se o resultado não aparecer</a></nav></details><article class="article"><h1 id="modulacao-na-pratica-patches-ilustrados">Modulação na prática · patches ilustrados</h1>
+<p><a href="modulation.en.html">English</a> · <a href="index.html">Manual principal</a> · <a href="modules.html">Mapa das telas e módulos</a></p>
+<p>Modular é deixar uma fonte movimentar um ajuste. A fonte pode ser uma oscilação, um envelope, uma sequência ou o gesto de uma pessoa. Aqui vamos construir uma relação por vez, perceber sua contribuição e depois combinar movimentos.</p>
+<p><strong>ALFA · receitas de estudo.</strong> São instruções para montar patches, não arquivos de preset ou demonstrações de áudio já validadas. Os desenhos explicam relações; não são capturas da interface nem medições do motor. Os pontos de partida sugeridos devem ser ajustados ao timbre e à versão usada.</p>
+<h2 id="escolha-uma-experiencia">Escolha uma experiência</h2>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Quero explorar…</th>
+<th>Receita</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Movimento contínuo</td>
+<td><a href="#patch-1-um-filtro-que-respira">Um filtro que respira</a></td>
+</tr>
+<tr>
+<td>Resposta à força de cada nota</td>
+<td><a href="#patch-2-fm-que-muda-com-a-velocidade">FM que muda com a velocidade</a></td>
+</tr>
+<tr>
+<td>Uma transformação que começa a cada nota</td>
+<td><a href="#patch-3-uma-abertura-percussiva">Uma abertura percussiva</a></td>
+</tr>
+<tr>
+<td>Variação menos repetitiva</td>
+<td><a href="#patch-4-metal-que-se-transforma-devagar">Metal que se transforma devagar</a></td>
+</tr>
+<tr>
+<td>Vários destinos com um gesto</td>
+<td><a href="#patch-5-uma-macro-de-aproximacao">Uma macro de aproximação</a></td>
+</tr>
+<tr>
+<td>Movimento sob controle da roda</td>
+<td><a href="#patch-6-a-roda-libera-o-movimento">A roda libera o movimento</a></td>
+</tr>
+<tr>
+<td>Expressão diferente em cada nota</td>
+<td><a href="#patch-7-pressao-e-timbre-por-mpe">Pressão e timbre por MPE</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="antes-de-criar-uma-rota">Antes de criar uma rota</h2>
+<p>Salve o timbre atual. Escolha INIT para um começo conhecido ou use um preset seu e anote suas rotas existentes. Comece com volume moderado. Primeiro confira que uma nota soa e termina como esperado; depois acrescente movimento.</p>
+<p><strong>Nesta documentação, patch é o conjunto de ajustes do som. Rota é uma ligação de modulação.</strong> Um patch pode conter várias rotas e nenhuma sequência de notas.</p>
+<p>Para observar alterações de filtro, uma onda com harmônicos, como <strong>SAW HD</strong>, costuma revelar melhor o recorte que uma senoide isolada. Para estudar FM, use uma ligação simples de OP2 para OP1, como no <a href="modules.html#user-linha-envia-coluna-recebe">exemplo USER</a>. Outras ligações e saídas diretas podem alterar o resultado das receitas.</p>
+<h2 id="criar-ajustar-e-remover-na-interface">Criar, ajustar e remover na interface</h2>
+<ol>
+<li><strong>Encontre o destino.</strong> Para CUTOFF: SYNTH → FILTER / EG2 / OUTPUT. Para LEVEL de OP2: selecione OP2 na visão geral e abra OPERATOR.</li>
+<li><strong>Crie a ligação.</strong> Use o <strong>+</strong> junto ao controle e escolha a fonte. A interface também oferece arrastar uma fonte até o destino.</li>
+<li><strong>Ajuste a quantidade no mini knob</strong> da rota. Arrastar verticalmente muda sua profundidade e sinal. Confira o nome da fonte; a cor sozinha não identifica a ligação com segurança.</li>
+<li><strong>Edite a fonte em MOD.</strong> Escolha a família, depois o módulo correto: LFO 1 não é LFO 2; ENV 1 não é o envelope próprio de OP1.</li>
+<li><strong>Compare.</strong> Leve temporariamente a quantidade a zero e retorne ao valor escolhido. Isso isola a contribuição da rota sem precisar apagá-la.</li>
+<li><strong>Para desfazer a ligação</strong>, use a opção de remoção da rota. Quantidade zero e remoção são estados diferentes.</li>
+</ol>
+<p>As janelas, menus e espaços disponíveis variam entre plugin e web/APK. Na web/APK, o gráfico do destino e a lista de rotas também ajudam a conferir o estado. Essas instruções não pressupõem que uma apresentação visual específica já esteja disponível em todas as edições.</p>
+<h2 id="base-movimento-e-profundidade">Base, movimento e profundidade</h2>
+<p>O <strong>knob grande</strong> é o valor de base. O <strong>mini knob</strong> diz quanto uma fonte pode deslocar esse valor. <strong>SPEED</strong> pertence à fonte e escolhe a rapidez do movimento. São três decisões independentes.</p>
+<p><img src="assets/mod-depth.svg" alt="Uma fonte bipolar oscila ao redor de zero. Com quantidade positiva, seu movimento é somado à base; com quantidade negativa, é invertido." /></p>
+<p><em>Exemplo conceitual. A linha tracejada representa a base; as curvas não usam escala de frequência, volume ou tempo do instrumento.</em></p>
+<ul>
+<li><strong>Fonte bipolar:</strong> pode ficar acima e abaixo de zero. Uma rota positiva pode levar o destino para ambos os lados da base.</li>
+<li><strong>Fonte unipolar:</strong> percorre um lado de zero. Uma rota positiva desloca para um lado; negativa desloca para o outro.</li>
+<li><strong>Quantidade negativa</strong> inverte a influência da fonte; não transforma obrigatoriamente seu desenho em uma forma diferente.</li>
+<li><strong>Limites do destino:</strong> perto do máximo ou mínimo, parte do movimento pode ficar limitada. Aumentar profundidade pode então parecer produzir pouco efeito.</li>
+</ul>
+<p>No motor atual, a quantidade representa uma parcela da faixa do destino. <strong>+10% de rota não significa +10 Hz, +10 dB ou mais 10% do valor mostrado.</strong> O resultado depende da escala e dos limites daquele parâmetro. Por isso, comece com profundidade pequena e confira o valor e o resultado.</p>
+<h2 id="patch-1-um-filtro-que-respira">Patch 1: um filtro que respira</h2>
+<p><strong>Intenção:</strong> abrir e fechar o brilho de forma contínua, sem precisar mover o controle o tempo todo.</p>
+<p><strong>Ponto de partida:</strong> um operador ouvido diretamente, onda SAW HD, nota sustentada e filtro ligado em LPF 12 ou LPF 24. Deixe RESO baixa. Coloque CUTOFF numa região em que fechar e abrir produza diferença. Para isolar o LFO, deixe EG2 INT em zero e confira que outras rotas não estão movendo o mesmo destino.</p>
+<figure class="patch-map"><figcaption><span class="patch-number">PATCH 01</span><strong>Oscilar o brilho</strong></figcaption><div class="flow-line"><div class="flow-node"><small>FONTE</small><strong>LFO 1</strong><img class="source-glyph" src="assets/lfo-glyph.svg" alt="Oscilação periódica suave."/><span>SIN ou TRI · lento</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><small>ROTA</small><strong>+ pequena</strong><span>Mini knob do destino</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><small>DESTINO</small><strong>CUTOFF</strong><span>Filtro ligado</span></div></div><p><b>Abra a fonte:</b> SYNTH → MOD → LFO → LFO 1.<br><b>Crie a rota:</b> SYNTH → FILTER / EG2 / OUTPUT → CUTOFF → +.</p></figure>
+
+<ol>
+<li>Em MOD → LFO, escolha <strong>LFO 1</strong>, forma SIN ou TRI e movimento lento. Para começar, FREE em torno de <strong>0,5 Hz</strong>, se oferecido na edição, faz um ciclo levar aproximadamente dois segundos.</li>
+<li>No CUTOFF, adicione LFO 1. Comece com quantidade positiva pequena, por exemplo <strong>+5% da faixa</strong>.</li>
+<li>Sustente uma nota e acompanhe o desenho do LFO. Compare quantidade zero, pequena e maior.</li>
+<li>Inverta a quantidade para ouvir/observar a direção contrária. Depois altere SPEED sem alterar a quantidade.</li>
+</ol>
+<p><strong>O que observar:</strong> a velocidade muda a frequência do abrir/fechar; a profundidade muda sua extensão. Se o filtro parecer estacionar nas pontas, reduza a quantidade ou afaste a base de seus limites. Se o envelope do operador terminar rápido, segurar a tecla pode não fornecer um som contínuo para a experiência.</p>
+<p><strong>Variação:</strong> escolha uma divisão de SYNC quando disponível. O movimento passa a se relacionar ao andamento; no plugin, o transporte e o tempo vêm do host. Não deduza sincronismo apenas porque um controlador MIDI está conectado.</p>
+<h2 id="patch-2-fm-que-muda-com-a-velocidade">Patch 2: FM que muda com a velocidade</h2>
+<p><strong>Intenção:</strong> fazer a força de cada nota mudar a transformação de FM, além de seu volume.</p>
+<p><strong>Ponto de partida:</strong> USER com OP2 → OP1, somente OP1 em OUT. Ambos em FM/SIN, razões x1 ou x2; OP1 com nível confortável e OP2 com nível baixo, mas audível em sua influência. Confira os envelopes dos dois. Salve antes de limpar ligações de um patch existente.</p>
+<figure class="patch-map"><figcaption><span class="patch-number">PATCH 02</span><strong>A nota muda a intensidade de FM</strong></figcaption><div class="flow-line"><div class="flow-node"><small>FONTE</small><strong>VELOCITY</strong><span>Força no início da nota</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><small>DESTINO</small><strong>OP2.LEVEL</strong><span>Nível do modulador</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><small>ALGORITMO</small><strong>OP2 → OP1</strong><span>OP1 em OUT</span></div></div><p><b>Duas ligações diferentes:</b> VELOCITY → LEVEL é uma rota de parâmetro. OP2 → OP1 é uma ligação de áudio do algoritmo. A primeira movimenta a força da segunda.</p></figure>
+
+<ol>
+<li>Selecione <strong>OP2</strong>, abra OPERATOR e localize LEVEL.</li>
+<li>No + de LEVEL, escolha <strong>VELOCITY</strong> e comece com uma profundidade positiva pequena.</li>
+<li>Toque a mesma nota com forças diferentes em um teclado/controlador que envie velocity, ou use a configuração de velocidade oferecida pela edição.</li>
+<li>Compare a rota em zero e ativa. Depois compare com uma rota de VELOCITY para LEVEL de OP1.</li>
+</ol>
+<p><strong>O que observar:</strong> sobre OP2, a velocidade altera a intensidade da modulação enviada a OP1. Sobre OP1, altera principalmente sua contribuição direta. A percepção de volume também pode mudar no primeiro caso; não são efeitos completamente independentes.</p>
+<p><strong>Importante:</strong> o controle dedicado <strong>VEL</strong> do operador também pode alterar sua resposta à velocidade. Para estudar só a rota, comece com esse controle em zero. Um controlador com velocity fixa não produzirá a comparação entre toques leves e fortes.</p>
+<h2 id="patch-3-uma-abertura-percussiva">Patch 3: uma abertura percussiva</h2>
+<p><strong>Intenção:</strong> o filtro abre no começo de cada nota e volta a fechar, mesmo com a tecla ainda pressionada.</p>
+<p><strong>Ponto de partida:</strong> a mesma onda rica em harmônicos, filtro ligado, CUTOFF mais fechado e EG2 INT em zero. O envelope de amplitude do operador deve permitir duração suficiente para perceber o movimento do filtro.</p>
+<figure class="patch-map"><figcaption><span class="patch-number">PATCH 03</span><strong>Um gesto começa com a nota</strong></figcaption><div class="flow-line"><div class="flow-node"><small>FONTE</small><strong>ENV 1</strong><img class="source-glyph" src="assets/env-glyph.svg" alt="Envelope que sobe rapidamente e retorna ao nível baixo."/><span>Attack curto · sustain 0</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><small>ROTA</small><strong>+ pequena</strong><span>Deixe EG2 INT em 0</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><small>DESTINO</small><strong>CUTOFF</strong><span>Base mais fechada</span></div></div><p>O envelope inicia o movimento. O som precisa durar tempo suficiente para revelar seu decaimento. O nível sustentado da fonte pode ser zero mesmo quando o operador continua soando.</p></figure>
+
+<ol>
+<li>Em MOD → ENVELOPES, escolha <strong>ENV 1</strong>. Aqui estamos usando uma fonte de modulação, não o envelope próprio do operador.</li>
+<li>Comece em ADSR: ATTACK curto, DECAY visível, SUSTAIN em zero e RELEASE curto. Como referência de gesto, experimente decay de algumas centenas de milissegundos conforme o valor exibido.</li>
+<li>Crie <strong>ENV 1 → CUTOFF</strong>, com quantidade positiva pequena.</li>
+<li>Toque notas separadas e depois sustente uma. Confira que o desenho do envelope retorna ao nível de sustain escolhido.</li>
+</ol>
+<p><strong>O que observar:</strong> cada nota inicia uma trajetória. Diferentemente de um LFO livre, esse gesto tem relação com o início e a duração da nota. ATTACK maior transforma a abertura imediata em crescimento gradual.</p>
+<p><strong>Outra forma de chegar lá:</strong> o filtro já oferece <strong>EG2 INT</strong> para aplicar seu envelope dedicado. Use esse caminho ou a rota da receita para começar; usar ambos sem perceber soma influências e dificulta entender a origem do movimento.</p>
+<h2 id="patch-4-metal-que-se-transforma-devagar">Patch 4: metal que se transforma devagar</h2>
+<p><strong>Intenção:</strong> variar a intensidade da transformação sem repetir sempre a mesma curva.</p>
+<p><strong>Ponto de partida:</strong> OP2 modulando OP1, com uma relação não inteira se quiser explorar uma estrutura metálica. Deixe OP2 longe dos extremos de LEVEL, pois a variação pode subir e descer em torno da base.</p>
+<figure class="patch-map"><figcaption><span class="patch-number">PATCH 04</span><strong>Patamares que podem virar transições</strong></figcaption><div class="flow-line"><div class="flow-node"><small>FONTE</small><strong>RAND 1</strong><img class="source-glyph" src="assets/random-glyph.svg" alt="Uma sequência irregular de patamares."/><span>SAMPLE &amp; HOLD</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node accent-node"><small>TRAJETÓRIA</small><strong>RISE / FALL</strong><span>Subida / descida</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><small>DESTINO</small><strong>OP2.LEVEL</strong><span>Quantidade pequena</span></div></div><p>RISE/FALL pertencem à fonte RAND: suavizam o sinal que ela entrega às suas rotas. A profundidade continua sendo ajustada no mini knob de cada destino.</p></figure>
+
+<ol>
+<li>Em MOD → RANDOM, escolha <strong>RAND 1 → SAMPLE &amp; HOLD</strong>.</li>
+<li>Use uma velocidade baixa, para distinguir um valor do seguinte.</li>
+<li>Ligue <strong>RAND 1 → OP2.LEVEL</strong> com profundidade pequena.</li>
+<li>Primeiro deixe RISE/FALL curtos para perceber os patamares. Depois aumente ambos e compare a transição entre os mesmos tipos de evento.</li>
+</ol>
+<p><strong>O que observar:</strong> SPEED escolhe quando novos alvos aparecem; RISE e FALL escolhem como subir e descer até eles. Uma transição muito longa pode não alcançar o alvo antes do sorteio seguinte. Isso é diferente de simplesmente diminuir SPEED.</p>
+<p><strong>Variação:</strong> RANDOM LOOP guarda uma sequência que retorna. LENGTH define seu comprimento; FLIP controla a chance de substituir valores quando o laço volta. Com FLIP em zero, o padrão existente se repete, em vez de ser renovado a cada volta.</p>
+<h2 id="patch-5-uma-macro-de-aproximacao">Patch 5: uma macro de aproximação</h2>
+<p><strong>Intenção:</strong> um gesto abre o filtro e aumenta a participação dos efeitos.</p>
+<p><strong>Ponto de partida:</strong> um timbre que responde ao filtro, um DELAY colocado e ligado em FX A, e ROOM colocado e ligado no AUX. Confira que SEND e RETURN permitem ouvir o AUX. Uma rota para um efeito ausente ou desligado não cria esse efeito.</p>
+<figure class="patch-map"><figcaption><span class="patch-number">PATCH 05</span><strong>Um gesto, três destinos</strong></figcaption><div class="macro-fan"><div class="flow-node accent-node"><small>FONTE</small><strong>MACRO 1</strong><span>Centro = 0</span></div><div class="macro-destinations"><div><b>→ CUTOFF</b><span>Rota 1 · abrir o filtro</span></div><div><b>→ DELAY MIX</b><span>Rota 2 · mais ecos</span></div><div><b>→ AUX SEND</b><span>Rota 3 · mais envio à sala</span></div></div></div><p>Cada seta tem seu próprio mini knob de quantidade. A macro reúne os movimentos; os efeitos precisam existir, estar ligados e ter seu caminho audível.</p></figure>
+
+<ol>
+<li>Coloque <strong>MACRO 1 no centro/zero</strong> e mantenha seus destinos longe dos limites.</li>
+<li>Crie três rotas: MACRO 1 → CUTOFF; MACRO 1 → MIX do DELAY; MACRO 1 → AUX SEND.</li>
+<li>Use profundidades positivas pequenas. Ajuste uma rota por vez; o filtro e os efeitos não têm a mesma escala de resposta.</li>
+<li>Mova a macro para os dois lados. Depois mantenha apenas o lado que combina com seu gesto de performance.</li>
+</ol>
+<p><strong>O que observar:</strong> a macro não escolhe um preset novo. Ela desloca vários destinos do patch atual. Como as macros são fontes bipolares, mover para o lado negativo pode fechar/reduzir os mesmos destinos, respeitando seus limites.</p>
+<p><strong>Na PLAY:</strong> os instantâneos A–D guardam posições das quatro macros. Com esta receita, guardar duas posições de Macro 1 permite transitar entre duas intensidades do gesto. Isso ainda não é morph entre presets completos.</p>
+<h2 id="patch-6-a-roda-libera-o-movimento">Patch 6: a roda libera o movimento</h2>
+<p><strong>Intenção:</strong> o LFO só passa a ter influência quando a roda de modulação é movida.</p>
+<p><strong>Ponto de partida:</strong> um filtro que já responde ao teste do patch 1 e uma roda que envie <strong>CC1</strong>. Não use simultaneamente a rota direta LFO 1 → CUTOFF da primeira receita, para poder isolar o combinador.</p>
+<figure class="patch-map"><figcaption><span class="patch-number">PATCH 06</span><strong>Uma fonte controla a extensão da outra</strong></figcaption><div class="comb-ingredients"><div class="flow-node"><strong>LFO 1</strong><span>SOURCE</span></div><span aria-hidden="true">×</span><div class="flow-node"><strong>MOD WHEEL</strong><span>MOD · CC1</span></div></div><div class="flow-line"><div class="flow-node accent-node"><strong>COMB 1</strong><span>MULTIPLY · AMOUNT +100%</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>CUTOFF</strong><span>Quantidade da rota pequena</span></div></div><p><b>Roda em zero:</b> esta contribuição é zero. <b>Roda no alto:</b> o LFO participa com a profundidade escolhida. O produto puro vale para AMOUNT +100%.</p></figure>
+
+<ol>
+<li>Em MOD → COMBINATE, selecione <strong>COMB 1</strong> e tipo <strong>MULTIPLY</strong>.</li>
+<li>Escolha <strong>SOURCE = LFO 1</strong>, <strong>MOD = MOD WHEEL</strong> e <strong>AMOUNT = +1 / +100%</strong>, conforme a apresentação da edição.</li>
+<li>Crie <strong>COMB 1 → CUTOFF</strong>, com profundidade pequena.</li>
+<li>Compare a roda em zero, no meio e no alto. Mantenha SPEED do LFO constante.</li>
+</ol>
+<p>Nesse ajuste específico, MULTIPLY faz o resultado corresponder a <strong>LFO × roda</strong>: roda em zero elimina essa contribuição; no meio, reduz; no alto, permite a extensão escolhida. Em outros valores de AMOUNT, esse combinador mistura influência e não deve ser entendido como um multiplicador puro.</p>
+<p><strong>O que observar:</strong> a roda controla a extensão do movimento, não sua velocidade. Se o corte se mover com a roda em zero, procure uma rota direta adicional ou outra fonte no mesmo destino.</p>
+<h2 id="patch-7-pressao-e-timbre-por-mpe">Patch 7: pressão e timbre por MPE</h2>
+<p><strong>Intenção:</strong> modificar notas sustentadas separadamente, quando o controlador e o destino oferecem expressão por nota.</p>
+<p><strong>Onde:</strong> no plugin, MOD → KEYBOARD → MPE INPUT → LOWER ZONE / CH 1 MASTER. Os canais 2–16 carregam expressão por nota; o canal 1 é mestre. NOTE BEND deve corresponder ao alcance enviado pelo controlador.</p>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Mensagem</th>
+<th>Rota de estudo</th>
+<th>Resultado a observar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pressão</td>
+<td>AFTERTOUCH → CUTOFF</td>
+<td>A pressão de uma nota modifica seu filtro</td>
+</tr>
+<tr>
+<td>Timbre</td>
+<td>TIMBRE (CC74) → OP2.LEVEL</td>
+<td>O gesto de timbre modifica a transformação daquela nota</td>
+</tr>
+<tr>
+<td>Bend</td>
+<td>Alcance de NOTE BEND</td>
+<td>A altura acompanha o gesto por nota; não é necessário criar uma rota de filtro para isso</td>
+</tr>
+</tbody>
+</table></div>
+<p>Comece com uma nota e uma rota; depois compare duas notas simultâneas com gestos diferentes. Não use um efeito compartilhado como prova de independência por nota. Se o controlador enviar apenas expressão de canal, o comportamento não equivale a MPE por dedo.</p>
+<p>Esta receita exige dispositivo, transporte e roteamento compatíveis. Os gestos do celular dependem da edição do controlador; pressão, altura do toque e CC74 não devem ser presumidos como o mesmo eixo. Nenhuma validação física adicional foi realizada para este guia.</p>
+<h2 id="duas-fontes-no-mesmo-destino">Duas fontes no mesmo destino</h2>
+<p>Uma combinação comum é <strong>ENV 1 → CUTOFF</strong> para a trajetória da nota e <strong>LFO 1 → CUTOFF</strong> para movimento contínuo. Cada rota tem sua quantidade. O knob grande continua sendo a base.</p>
+<ol>
+<li>Ajuste primeiro ENV 1 e deixe a rota de LFO em zero.</li>
+<li>Acrescente o LFO aos poucos.</li>
+<li>Compare uma nota recém-iniciada com uma sustentada.</li>
+<li>Se o destino ficar preso em um extremo, reduza as profundidades ou mude a base.</li>
+</ol>
+<p>Não espere que duas fontes percorram independentemente uma faixa ilimitada. Elas se combinam no destino, que tem limites. Retirar uma rota não retira a outra.</p>
+<h2 id="por-nota-continuo-ou-compartilhado">Por nota, contínuo ou compartilhado?</h2>
+<ul>
+<li><strong>Velocity</strong> vem do início de cada nota. Uma nova pressão sobre a tecla não muda a velocity daquela nota; aftertouch é outro tipo de mensagem.</li>
+<li><strong>Envelopes de voz</strong> acompanham eventos de nota. O envelope de OP2 e ENV 1 são fontes/processos distintos.</li>
+<li><strong>LFOs</strong> podem ter comportamento livre ou redisparado conforme sua configuração. Trocar de forma não decide sozinho se há reset por nota.</li>
+<li><strong>RAND</strong> pode manter um processo global; não presuma um sorteio exclusivo por dedo.</li>
+<li><strong>Efeitos e barramentos</strong> são compartilhados pela instância. Uma fonte por nota aplicada a esses controles não transforma o efeito em seis efeitos independentes.</li>
+<li><strong>MPE</strong> transporta expressão por nota, mas o destino precisa respeitar esse escopo. Um único macro global não se torna individual por nota apenas por receber MIDI.</li>
+</ul>
+<h2 id="se-o-resultado-nao-aparecer">Se o resultado não aparecer</h2>
+<div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
+<thead>
+<tr>
+<th>Sintoma</th>
+<th>Confira primeiro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nenhum movimento</td>
+<td>Rota criada, quantidade diferente de zero e fonte ativa</td>
+</tr>
+<tr>
+<td>Gráfico se move, mas o som não</td>
+<td>Destino ligado, operador participante, efeito no slot e mistura audível</td>
+</tr>
+<tr>
+<td>Só uma parte da oscilação aparece</td>
+<td>Base perto do limite e profundidade excessiva</td>
+</tr>
+<tr>
+<td>A nota termina antes do movimento</td>
+<td>Envelope de amplitude, gate e duração da nota</td>
+</tr>
+<tr>
+<td>Toques diferentes dão o mesmo resultado</td>
+<td>Velocity fixa, curva do controlador ou outra ligação dedicada</td>
+</tr>
+<tr>
+<td>A roda em zero ainda deixa o LFO agir</td>
+<td>Rota direta adicional, valor recebido da roda e configuração do COMB</td>
+</tr>
+<tr>
+<td>Várias notas mudam juntas</td>
+<td>Fonte global, mensagem de canal ou destino compartilhado</td>
+</tr>
+<tr>
+<td>O som muda mais do que eu esperava</td>
+<td>Mais de uma rota, EG2 INT ou VEL dedicados, macros e outras ligações já ativas</td>
+</tr>
+</tbody>
+</table></div>
+<p>Salve cada etapa com um nome que descreva o gesto. Para relatar uma dúvida, informe o destino, a fonte, a quantidade e o que já estava ativo. Uma imagem do destino com seus mini knobs e outra da página da fonte costuma mostrar mais que uma captura da tela inteira.</p>
+</article><footer class="reading-footer"><a href="#top">Voltar ao início ↑</a><span>Para imprimir ou salvar em PDF, use Imprimir no menu do navegador.</span></footer></main></div><p class="back-note">RUÍDO · USINA / ALFA · ALPHA</p></body></html>

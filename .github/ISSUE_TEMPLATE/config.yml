@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Segurança / Security
+    url: https://github.com/mbbaril/usina-plugin/security/advisories/new
+    about: Relate vulnerabilidades em privado / Report vulnerabilities privately
+  - name: Conversas / Discussions
+    url: https://github.com/mbbaril/usina-plugin/discussions
+    about: Dúvidas e exploração musical / Questions and musical exploration
