@@ -22,13 +22,69 @@ Para consultar cada tipo de operador, filtro e efeito e localizar seus controles
 
 ## Em cinco minutos
 
-1. [Instale](../INSTALL.md), abra uma pista de instrumento na sua DAW e carregue Usina. Arme a pista, selecione seu teclado MIDI e ligue a monitoração. No Standalone, escolha áudio e MIDI nas opções.
-2. Comece com o volume de saída baixo e a entrada de áudio muda. Escolha um timbre na biblioteca do topo. As setas percorrem os sons da categoria.
-3. Toque uma nota curta e depois uma longa. Selecione **PLAY** para concentrar a tela no gesto. Os manuais tocam o mesmo timbre.
-4. Mova uma macro e ouça. Uma macro só altera o que o preset endereçou; uma macro sem destino pode não mudar o som.
-5. Use **SAVE** para guardar uma versão sua antes de explorar. **INIT** começa de novo com uma senoide; não é um comando de desfazer.
+### Seu primeiro som
 
-Para uma primeira escuta, siga o [percurso de timbres](../SOUNDS.md). Nenhum conhecimento de programação ou de FM é necessário para começar.
+**DAW** é o programa que hospeda o plugin; **Standalone** é o aplicativo independente. Um **preset** guarda os ajustes de um timbre. Para este exercício, comece com volume baixo e a entrada de áudio muda. Se já estiver explorando um som, use **SAVE** antes de pressionar **INIT**: ele não desfaz alterações.
+
+![SYNTH após INIT: algoritmo à esquerda, operadores acima e edição de OP1 abaixo.](assets/screenshots/learn_init.png)
+
+*Mapa da interface real: INIT e SAVE ficam no topo. OP1 é o primeiro cartão à direita do algoritmo; selecioná-lo abre seus controles na página OPERATOR abaixo.*
+
+1. Pressione **INIT**: OP1 começa com uma senoide, um som simples; os outros operadores começam com LEVEL em zero.
+2. Abra **PLAY** e toque uma tecla na tela ou no controlador MIDI. Segure e solte a mesma nota. Se não ouvir, confira a saída de áudio e a entrada MIDI antes de aumentar níveis.
+3. Volte a **SYNTH > OP1 > OPERATOR**. Aumente **ATTACK**, tocando novamente: a entrada do som deve ficar mais lenta.
+4. Volte a um ataque curto e aumente **RELEASE**. Agora solte a tecla: o som deve levar mais tempo para desaparecer.
+5. Compare uma mudança de cada vez e use **SAVE**. Você acabou de editar um envelope: a evolução do nível no tempo, não uma gravação de áudio.
+
+![PLAY com três teclados na tela, todos tocando o mesmo timbre.](assets/screenshots/learn_play.png)
+
+*PLAY reúne controles de execução; SYNTH edita o som que eles tocam. A captura usa ORGAN; não é necessário usar três teclados para este exercício.*
+
+### Ouça o que uma moduladora faz
+
+Salve o exercício anterior e volte a INIT. No ALGO 1, OP2 alimenta OP1. OP1 é a **portadora**, que chega à saída; OP2 é a **moduladora**, que a transforma. A linha entre os blocos mostra a conexão.
+
+Selecione **OP2** e aumente seu **LEVEL** aos poucos, de 0 até cerca de 20, repetindo a mesma nota. O som de OP1 ganha componentes novas. Compare **COARSE** de OP2 em 1 e em 2: a relação de frequência muda o caráter da transformação. Volte LEVEL a zero para ouvir o som sem essa modulação. **RATIO** é uma relação com a nota tocada, não uma segunda nota do teclado.
+
+### Uma breve história da FM
+
+Em 1967, John Chowning explorou a síntese por modulação de frequência no computador em Stanford: oscilações simples podiam produzir espectros ricos. [Fonte: MIT](https://arts.mit.edu/people/john-chowning/).
+
+Em 1983, o DX7 levou a síntese FM a um público amplo de músicos. [Fonte: história da Yamaha](https://www.yamaha.com/en/about/history/innovation/episode-15/). Sinos e teclados são exemplos conhecidos, mas não limitam a técnica. O Usina também combina outras fontes e processadores; você pode conhecer cada modo aos poucos, ouvindo uma mudança de cada vez.
+
+### Da FM a várias técnicas no mesmo motor
+
+O Usina parte da organização da FM e amplia o papel dos operadores. O objetivo é alcançar uma gama ampla de timbres por caminhos diferentes e permitir várias técnicas de síntese em um só motor. Não é preciso escolher uma técnica para o instrumento inteiro: cada operador pode ter um papel diferente.
+
+![Cinco percursos de síntese: subtração, soma, FM, modelagem física e combinação.](assets/synthesis-paths-pt.svg)
+
+*Diagramas de sinal simplificados, não números de algoritmos. As setas significam “alimenta”; os blocos de soma reúnem saídas. Nem toda ligação faz FM: MODE determina o processamento.*
+
+#### Subtrativo: começar rico e retirar
+
+**Exemplo:** uma onda rica em harmônicos passa pelo filtro de voz. Em SYNTH, deixe uma saída sonora ativa, escolha uma onda rica em WAVE e abra **FILTER / EG2 / OUTPUT**. Escolha um tipo passa-baixas e reduza **CUTOFF**. Compare aberto e fechado: as frequências altas perdem presença. **RESO** enfatiza a região de corte; **EG2** permite fazer essa abertura mudar durante a nota. Use ressonância moderada ao começar.
+
+#### Aditivo: construir pela soma
+
+**Exemplo:** três senoides nas relações 1, 2 e 3, chegando diretamente à saída. Em **ALGO > USER**, zere as conexões entre operadores e deixe apenas OUT de OP1, OP2 e OP3 ligados. Use MODE FM, WAVE SIN e COARSE em 1, 2 e 3, com FINE neutro, FB e WIDTH desligados. Comece com LEVEL baixo nos três. Aumente uma contribuição de cada vez: você está compondo um espectro por soma, sem um operador modular outro. Envelopes diferentes fazem cada componente evoluir no seu tempo. É uma abordagem aditiva com os operadores disponíveis, não um editor de centenas de parciais.
+
+#### FM tradicional: uma oscilação transforma outra
+
+**Exemplo:** OP2 modula OP1, ambos em FM/SIN. INIT oferece esse ponto de partida: OP1 é a saída; aumente LEVEL de OP2 aos poucos. A relação de frequência e o nível da moduladora mudam a distribuição de parciais. O modo FM usa modulação de fase, técnica relacionada à síntese FM; o nome não significa que toda ligação do Usina opere dessa forma.
+
+#### Modelagem física: excitar e deixar ressoar
+
+**Exemplo:** um impacto excita um corpo ressonante. Após INIT, escolha **MODAL** em OP1. Em **EXCITER**, escolha a excitação; em **OBJECT**, compare **MATERIAL**, **SIZE** e **DECAY**, uma mudança por vez. Você controla propriedades do modelo, em vez de somar cada parcial manualmente. O envelope molda a excitação; a ressonância tem seu próprio decaimento. **DAMP** permite explorar o amortecimento depois de soltar a nota.
+
+#### Mistura: técnicas diferentes no mesmo timbre
+
+**Exemplo:** ataque em FM e sustentação em MODAL. Em USER, mantenha somente a ligação OP2 para OP1; deixe OUT de OP1 e OP3 ligados. Configure OP1/OP2 em FM e OP3 em MODAL. Use um envelope curto na camada FM e um decaimento mais longo no MODAL; equilibre os níveis. As camadas chegam à saída em paralelo. Você pode comparar cada uma zerando seu LEVEL e depois reuni-las. Isso não exige que o MODAL seja excitado pelo áudio da camada FM.
+
+**FM heterodoxa** descreve essa liberdade: conservar a rede de operadores e permitir outras fontes e transformações nela. Não é um modo adicional no menu. Uma ligação pode realizar modulação, filtragem ou outro processo conforme MODE; o algoritmo organiza o percurso, e o modo define o que acontece em cada bloco.
+
+### Para continuar explorando
+
+Experimente um preset na biblioteca do topo; as setas percorrem a categoria atual. Siga o [percurso de timbres](../SOUNDS.md) para uma seleção guiada. Macros só afetam os destinos endereçados: uma macro sem destino pode não alterar o som.
 
 ## A tela e o caminho do som
 
@@ -249,7 +305,9 @@ A guarda de saída trata valores inválidos, DC, picos e energia sustentada; a p
 
 Se houver som inesperado, reduza primeiro o volume físico e interrompa a reprodução/entrada; solte as notas e confira HOLD, sustain, SEQ e feedback antes de retomar. Evite começar a investigação com fones no ouvido e volume alto.
 
-## Pequeno glossário para ler a interface
+## Glossário de consulta
+
+Consulte aqui uma palavra desconhecida. São definições curtas, não etapas obrigatórias antes de tocar. Os exercícios anteriores mostram como aplicar os controles.
 
 Os nomes em inglês continuam nos controles. Esta tabela ajuda a reconhecer a função, sem precisar decorar a sigla antes de tocar.
 

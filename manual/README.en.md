@@ -20,13 +20,69 @@ Choose where to begin and explore at your own pace. This guide combines gestures
 
 ## Five minutes
 
-1. [Install](../INSTALL.en.md), open an instrument track in your DAW and load Usina. Set MIDI input, arm the track and enable monitoring. In the Standalone, select audio and MIDI through Options.
-2. Start with low output volume and audio input muted. Choose a sound from the top library; arrows browse the current category.
-3. Play a short note, then a held note. Open **PLAY** for a performance-focused view. All manuals play the same patch.
-4. Move a macro and listen. A macro affects its assigned destinations; an unassigned macro may change nothing.
-5. **SAVE** a version of your sound before exploring. **INIT** starts with a sine; it is not Undo.
+### Your first sound
 
-Try the [sound selection](../SOUNDS.md#en). You do not need FM or programming knowledge to begin.
+A **DAW** hosts the plugin; **Standalone** is the independent application. A **preset** stores a sound's settings. Start this exercise at low volume with audio input muted. If you are already exploring a sound, **SAVE** before pressing **INIT**: it does not undo edits.
+
+![SYNTH after INIT: algorithm on the left, operators above and OP1 editing below.](assets/screenshots/learn_init.png)
+
+*Real interface map: INIT and SAVE are at the top. OP1 is the first card to the right of the algorithm; selecting it opens its controls on the OPERATOR page below.*
+
+1. Press **INIT**: OP1 starts with a sine wave, a simple tone; the other operators start with LEVEL at zero.
+2. Open **PLAY** and play an on-screen key or your MIDI controller. Hold and release the same note. If silent, check audio output and MIDI input before raising levels.
+3. Return to **SYNTH > OP1 > OPERATOR**. Increase **ATTACK** and play again: the sound should fade in more slowly.
+4. Restore a short attack and increase **RELEASE**. Release the key: the sound should now take longer to disappear.
+5. Compare one change at a time and **SAVE**. You have edited an envelope: how level changes over time, not an audio recording.
+
+![PLAY with three on-screen keyboards, all playing the same sound.](assets/screenshots/learn_play.png)
+
+*PLAY groups performance controls; SYNTH edits the sound they play. This capture uses ORGAN; you do not need three keyboards for the exercise.*
+
+### Hear what a modulator does
+
+Save the previous exercise and return to INIT. In ALGO 1, OP2 feeds OP1. OP1 is the **carrier**, which reaches output; OP2 is the **modulator**, which transforms it. The line between the blocks shows the connection.
+
+Select **OP2** and gradually raise its **LEVEL** from 0 to about 20, repeating the same note. OP1's sound gains new components. Compare OP2 **COARSE** at 1 and 2: the frequency relationship changes the transformation's character. Return LEVEL to zero to hear the sound without that modulation. **RATIO** is a relationship to the played note, not a second keyboard note.
+
+### A short history of FM
+
+In 1967, John Chowning explored computer-based frequency modulation synthesis at Stanford: simple oscillations could produce rich spectra. [Source: MIT](https://arts.mit.edu/people/john-chowning/).
+
+In 1983, the DX7 brought FM synthesis to a broad musical audience. [Source: Yamaha history](https://www.yamaha.com/en/about/history/innovation/episode-15/). Bells and keyboards are familiar examples, but do not define its limits. Usina also combines other sources and processors; learn each mode gradually, listening to one change at a time.
+
+### From FM to several techniques in one engine
+
+Usina starts from FM's operator organization and expands what each operator can do. The goal is a broad range of timbres reached through different methods, with several synthesis techniques in one engine. You do not have to choose one technique for the entire instrument: each operator can play a different role.
+
+![Five synthesis paths: subtraction, addition, FM, physical modeling and a combination.](assets/synthesis-paths-en.svg)
+
+*Simplified signal diagrams, not numbered algorithms. Arrows mean “feeds”; summing blocks combine outputs. Not every connection performs FM: MODE determines the processing.*
+
+#### Subtractive: start rich and remove
+
+**Example:** a harmonically rich wave passes through the voice filter. In SYNTH, keep one audible output active, choose a rich waveform in WAVE and open **FILTER / EG2 / OUTPUT**. Select a low-pass type and lower **CUTOFF**. Compare open and closed: high frequencies become less prominent. **RESO** emphasizes the cutoff region; **EG2** can move that opening during a note. Start with moderate resonance.
+
+#### Additive: build by summing
+
+**Example:** three sine waves at ratios 1, 2 and 3 reach output directly. In **ALGO > USER**, zero the operator connections and enable only OUT for OP1, OP2 and OP3. Set MODE FM, WAVE SIN and COARSE to 1, 2 and 3, with neutral FINE and FB/WIDTH off. Start at low LEVEL on all three. Raise one contribution at a time: you are building a spectrum by addition, without operators modulating each other. Different envelopes let each component evolve independently. This is an additive approach using the available operators, not an editor for hundreds of partials.
+
+#### Traditional FM: one oscillation transforms another
+
+**Example:** OP2 modulates OP1, both in FM/SIN. INIT supplies this starting point: OP1 reaches output; gradually raise OP2 LEVEL. The modulator's frequency relationship and level change the distribution of partials. FM mode uses phase modulation, a technique related to FM synthesis; its name does not mean that every Usina connection works this way.
+
+#### Physical modeling: excite and let resonate
+
+**Example:** an impact excites a resonant body. After INIT, select **MODAL** for OP1. Choose excitation in **EXCITER**; in **OBJECT**, compare **MATERIAL**, **SIZE** and **DECAY**, one change at a time. You control model properties rather than adding each partial manually. The envelope shapes excitation; resonance has its own decay. **DAMP** lets you explore damping after key release.
+
+#### Hybrid: different techniques in one sound
+
+**Example:** an FM attack and a MODAL tail. In USER, keep only the OP2-to-OP1 connection; enable OUT for OP1 and OP3. Set OP1/OP2 to FM and OP3 to MODAL. Use a short envelope for the FM layer and a longer decay for MODAL; balance their levels. The layers reach output in parallel. Compare each by zeroing its LEVEL, then combine them. This does not require the FM layer's audio to excite MODAL.
+
+**Heterodox FM** describes that freedom: retaining the operator network while allowing other sources and transformations within it. It is not an additional menu mode. A connection may perform modulation, filtering or another process depending on MODE; the algorithm organizes the path and the mode determines what each block does.
+
+### Continue exploring
+
+Try a preset from the top library; the arrows browse the current category. Follow the [sound selection](../SOUNDS.md#en) for a guided tour. Macros only affect assigned destinations: an unassigned macro may change nothing.
 
 ## The screen and signal
 
@@ -216,7 +272,9 @@ The output guard handles invalid values, DC, peaks and sustained energy; feedbac
 
 For unexpected sound, lower physical volume first and stop playback/input; release notes and check HOLD, sustain, SEQ and feedback before resuming. Avoid investigating with headphones on at high volume.
 
-## Interface glossary
+## Reference glossary
+
+Look here when a term is unfamiliar. These are short definitions, not prerequisites for playing. The earlier exercises show how to use the controls.
 
 | Label | Meaning |
 |---|---|

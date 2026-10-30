@@ -3,8 +3,12 @@
 <body id="top"><a class="skip" href="#reading">Manual</a>
 <header class="reading-head"><div class="head-inner"><a class="reading-brand" href="../index.html">USINA<small>RUÍDO / USINA</small></a><nav aria-label="Usina"><a class="home-link" href="../index.html">Apresentação</a><a href="../manual/index.html">Manual</a><a href="../install.html">Instalar</a><span class="alpha">ALFA</span></nav></div></header>
 <div class="doc-layout"><aside class="chapter-list"><p class="toc-label">NESTA PÁGINA</p><nav class="toc" aria-label="NESTA PÁGINA"><a href="#capitulos">Capítulos</a>
-<a href="#por-onde-comecar">O que você quer experimentar?</a>
 <a href="#em-cinco-minutos">Em cinco minutos</a>
+<a class="toc-secondary" href="#seu-primeiro-som">Seu primeiro som</a>
+<a class="toc-secondary" href="#ouca-o-que-uma-moduladora-faz">Ouça o que uma moduladora faz</a>
+<a class="toc-secondary" href="#uma-breve-historia-da-fm">Uma breve história da FM</a>
+<a class="toc-secondary" href="#da-fm-a-varias-tecnicas-no-mesmo-motor">Da FM a várias técnicas no mesmo motor</a>
+<a class="toc-secondary" href="#para-continuar-explorando">Para continuar explorando</a>
 <a href="#a-tela-e-o-caminho-do-som">A tela e o caminho do som</a>
 <a href="#frequencia-nivel-e-envelope">Frequência, nível e envelope</a>
 <a class="toc-secondary" href="#adsr-e-adr">ADSR e ADR</a>
@@ -23,12 +27,16 @@
 <a class="toc-secondary" href="#pitch-bend-e-mpe">Pitch bend e MPE</a>
 <a href="#play">PLAY</a>
 <a href="#salvar-entrada-e-seguranca">Salvar, entrada e segurança</a>
-<a href="#pequeno-glossario-para-ler-a-interface">Pequeno glossário para ler a interface</a>
+<a href="#glossario-de-consulta">Glossário de consulta</a>
 <a href="#limitacoes-e-perguntas-frequentes">Limitações e perguntas frequentes</a>
 <a href="#avisos-de-terceiros">Avisos de terceiros</a></nav></aside>
 <main class="doc-content" id="reading"><div class="doc-meta"><span>USINA / 0.2.0-alpha.1</span><a href="../alpha.html">ALFA / ALPHA</a></div><p class="draft-banner">ALFA · Recursos e formatos podem mudar. Confira a versão e a edição antes de seguir um procedimento.</p><details class="mobile-index"><summary>Escolher um assunto</summary><nav class="toc" aria-label="Escolher um assunto"><a href="#capitulos">Capítulos</a>
-<a href="#por-onde-comecar">O que você quer experimentar?</a>
 <a href="#em-cinco-minutos">Em cinco minutos</a>
+<a class="toc-secondary" href="#seu-primeiro-som">Seu primeiro som</a>
+<a class="toc-secondary" href="#ouca-o-que-uma-moduladora-faz">Ouça o que uma moduladora faz</a>
+<a class="toc-secondary" href="#uma-breve-historia-da-fm">Uma breve história da FM</a>
+<a class="toc-secondary" href="#da-fm-a-varias-tecnicas-no-mesmo-motor">Da FM a várias técnicas no mesmo motor</a>
+<a class="toc-secondary" href="#para-continuar-explorando">Para continuar explorando</a>
 <a href="#a-tela-e-o-caminho-do-som">A tela e o caminho do som</a>
 <a href="#frequencia-nivel-e-envelope">Frequência, nível e envelope</a>
 <a class="toc-secondary" href="#adsr-e-adr">ADSR e ADR</a>
@@ -47,7 +55,7 @@
 <a class="toc-secondary" href="#pitch-bend-e-mpe">Pitch bend e MPE</a>
 <a href="#play">PLAY</a>
 <a href="#salvar-entrada-e-seguranca">Salvar, entrada e segurança</a>
-<a href="#pequeno-glossario-para-ler-a-interface">Pequeno glossário para ler a interface</a>
+<a href="#glossario-de-consulta">Glossário de consulta</a>
 <a href="#limitacoes-e-perguntas-frequentes">Limitações e perguntas frequentes</a>
 <a href="#avisos-de-terceiros">Avisos de terceiros</a></nav></details><article class="article"><h1 id="manual-do-usina-alfa">Manual do Usina · ALFA</h1>
 <p><a href="en.html">English</a> · <a href="../install.html">Instalação</a> · <a href="../alpha.html">Aviso do alfa</a> · <a href="../about.html">Página inicial</a></p>
@@ -84,27 +92,46 @@
 </tbody>
 </table></div>
 <p>Você escolhe por onde começar e em que ritmo explorar. Este guia combina gestos, imagens e exemplos. Os nomes em maiúsculas são os que aparecem nos controles; cada termo é explicado quando entra no caminho.</p>
-<section class="guide-welcome" aria-labelledby="por-onde-comecar">
-<p class="guide-kicker">SEU PONTO DE PARTIDA</p>
-<h2 id="por-onde-comecar">O que você quer experimentar?</h2>
-<div class="guide-paths">
-<a href="#em-cinco-minutos"><span class="path-mark" aria-hidden="true">01</span><strong>Quero tocar</strong><span>Escolha um som e explore notas e macros.</span><b aria-hidden="true">Começar →</b></a>
-<a href="#modos-de-operador"><span class="path-mark" aria-hidden="true">02</span><strong>Quero transformar</strong><span>Combine ondas, materiais e movimento.</span><b aria-hidden="true">Explorar →</b></a>
-<a href="#sample-gravar-e-transformar"><span class="path-mark" aria-hidden="true">03</span><strong>Quero gravar algo</strong><span>Use uma gravação sua como parte do som.</span><b aria-hidden="true">Capturar →</b></a>
-</div>
-<details class="guide-words"><summary>Palavras que aparecem na tela</summary><dl><dt>DAW</dt><dd>Programa onde você organiza e grava música. O Usina também tem um aplicativo independente, chamado Standalone.</dd><dt>Preset ou timbre</dt><dd>Um conjunto de ajustes que você pode carregar como ponto de partida.</dd><dt>Knob</dt><dd>Controle circular. Arrastar muda seu valor.</dd><dt>Macro</dt><dd>Um controle que pode mover vários ajustes de uma vez.</dd><dt>Modulação</dt><dd>Uma fonte movimenta um ajuste. Por exemplo: fazer o filtro abrir e fechar sozinho.</dd></dl></details>
-</section>
+<section class="guide-welcome"><h2>Como usar este guia</h2><p>Comece pelo exercício abaixo. Depois consulte os capítulos por módulo. Os nomes em maiúsculas correspondem aos controles da interface.</p><p><a href="#em-cinco-minutos">Seu primeiro som</a></p></section>
 
 <p>Para consultar cada tipo de operador, filtro e efeito e localizar seus controles, abra o <a href="modules.html">guia por módulo e mapa das telas</a>.</p>
 <h2 id="em-cinco-minutos">Em cinco minutos</h2>
+<h3 id="seu-primeiro-som">Seu primeiro som</h3>
+<p><strong>DAW</strong> é o programa que hospeda o plugin; <strong>Standalone</strong> é o aplicativo independente. Um <strong>preset</strong> guarda os ajustes de um timbre. Para este exercício, comece com volume baixo e a entrada de áudio muda. Se já estiver explorando um som, use <strong>SAVE</strong> antes de pressionar <strong>INIT</strong>: ele não desfaz alterações.</p>
+<p><img src="assets/screenshots/learn_init.png" alt="SYNTH após INIT: algoritmo à esquerda, operadores acima e edição de OP1 abaixo." /></p>
+<p><em>Mapa da interface real: INIT e SAVE ficam no topo. OP1 é o primeiro cartão à direita do algoritmo; selecioná-lo abre seus controles na página OPERATOR abaixo.</em></p>
 <ol>
-<li><a href="../install.html">Instale</a>, abra uma pista de instrumento na sua DAW e carregue Usina. Arme a pista, selecione seu teclado MIDI e ligue a monitoração. No Standalone, escolha áudio e MIDI nas opções.</li>
-<li>Comece com o volume de saída baixo e a entrada de áudio muda. Escolha um timbre na biblioteca do topo. As setas percorrem os sons da categoria.</li>
-<li>Toque uma nota curta e depois uma longa. Selecione <strong>PLAY</strong> para concentrar a tela no gesto. Os manuais tocam o mesmo timbre.</li>
-<li>Mova uma macro e ouça. Uma macro só altera o que o preset endereçou; uma macro sem destino pode não mudar o som.</li>
-<li>Use <strong>SAVE</strong> para guardar uma versão sua antes de explorar. <strong>INIT</strong> começa de novo com uma senoide; não é um comando de desfazer.</li>
+<li>Pressione <strong>INIT</strong>: OP1 começa com uma senoide, um som simples; os outros operadores começam com LEVEL em zero.</li>
+<li>Abra <strong>PLAY</strong> e toque uma tecla na tela ou no controlador MIDI. Segure e solte a mesma nota. Se não ouvir, confira a saída de áudio e a entrada MIDI antes de aumentar níveis.</li>
+<li>Volte a <strong>SYNTH &gt; OP1 &gt; OPERATOR</strong>. Aumente <strong>ATTACK</strong>, tocando novamente: a entrada do som deve ficar mais lenta.</li>
+<li>Volte a um ataque curto e aumente <strong>RELEASE</strong>. Agora solte a tecla: o som deve levar mais tempo para desaparecer.</li>
+<li>Compare uma mudança de cada vez e use <strong>SAVE</strong>. Você acabou de editar um envelope: a evolução do nível no tempo, não uma gravação de áudio.</li>
 </ol>
-<p>Para uma primeira escuta, siga o <a href="../sounds.html">percurso de timbres</a>. Nenhum conhecimento de programação ou de FM é necessário para começar.</p>
+<p><img src="assets/screenshots/learn_play.png" alt="PLAY com três teclados na tela, todos tocando o mesmo timbre." /></p>
+<p><em>PLAY reúne controles de execução; SYNTH edita o som que eles tocam. A captura usa ORGAN; não é necessário usar três teclados para este exercício.</em></p>
+<h3 id="ouca-o-que-uma-moduladora-faz">Ouça o que uma moduladora faz</h3>
+<p>Salve o exercício anterior e volte a INIT. No ALGO 1, OP2 alimenta OP1. OP1 é a <strong>portadora</strong>, que chega à saída; OP2 é a <strong>moduladora</strong>, que a transforma. A linha entre os blocos mostra a conexão.</p>
+<p>Selecione <strong>OP2</strong> e aumente seu <strong>LEVEL</strong> aos poucos, de 0 até cerca de 20, repetindo a mesma nota. O som de OP1 ganha componentes novas. Compare <strong>COARSE</strong> de OP2 em 1 e em 2: a relação de frequência muda o caráter da transformação. Volte LEVEL a zero para ouvir o som sem essa modulação. <strong>RATIO</strong> é uma relação com a nota tocada, não uma segunda nota do teclado.</p>
+<h3 id="uma-breve-historia-da-fm">Uma breve história da FM</h3>
+<p>Em 1967, John Chowning explorou a síntese por modulação de frequência no computador em Stanford: oscilações simples podiam produzir espectros ricos. <a href="https://arts.mit.edu/people/john-chowning/">Fonte: MIT</a>.</p>
+<p>Em 1983, o DX7 levou a síntese FM a um público amplo de músicos. <a href="https://www.yamaha.com/en/about/history/innovation/episode-15/">Fonte: história da Yamaha</a>. Sinos e teclados são exemplos conhecidos, mas não limitam a técnica. O Usina também combina outras fontes e processadores; você pode conhecer cada modo aos poucos, ouvindo uma mudança de cada vez.</p>
+<h3 id="da-fm-a-varias-tecnicas-no-mesmo-motor">Da FM a várias técnicas no mesmo motor</h3>
+<p>O Usina parte da organização da FM e amplia o papel dos operadores. O objetivo é alcançar uma gama ampla de timbres por caminhos diferentes e permitir várias técnicas de síntese em um só motor. Não é preciso escolher uma técnica para o instrumento inteiro: cada operador pode ter um papel diferente.</p>
+<p><img src="assets/synthesis-paths-pt.svg" alt="Cinco percursos de síntese: subtração, soma, FM, modelagem física e combinação." /></p>
+<p><em>Diagramas de sinal simplificados, não números de algoritmos. As setas significam “alimenta”; os blocos de soma reúnem saídas. Nem toda ligação faz FM: MODE determina o processamento.</em></p>
+<h4 id="subtrativo-comecar-rico-e-retirar">Subtrativo: começar rico e retirar</h4>
+<p><strong>Exemplo:</strong> uma onda rica em harmônicos passa pelo filtro de voz. Em SYNTH, deixe uma saída sonora ativa, escolha uma onda rica em WAVE e abra <strong>FILTER / EG2 / OUTPUT</strong>. Escolha um tipo passa-baixas e reduza <strong>CUTOFF</strong>. Compare aberto e fechado: as frequências altas perdem presença. <strong>RESO</strong> enfatiza a região de corte; <strong>EG2</strong> permite fazer essa abertura mudar durante a nota. Use ressonância moderada ao começar.</p>
+<h4 id="aditivo-construir-pela-soma">Aditivo: construir pela soma</h4>
+<p><strong>Exemplo:</strong> três senoides nas relações 1, 2 e 3, chegando diretamente à saída. Em <strong>ALGO &gt; USER</strong>, zere as conexões entre operadores e deixe apenas OUT de OP1, OP2 e OP3 ligados. Use MODE FM, WAVE SIN e COARSE em 1, 2 e 3, com FINE neutro, FB e WIDTH desligados. Comece com LEVEL baixo nos três. Aumente uma contribuição de cada vez: você está compondo um espectro por soma, sem um operador modular outro. Envelopes diferentes fazem cada componente evoluir no seu tempo. É uma abordagem aditiva com os operadores disponíveis, não um editor de centenas de parciais.</p>
+<h4 id="fm-tradicional-uma-oscilacao-transforma-outra">FM tradicional: uma oscilação transforma outra</h4>
+<p><strong>Exemplo:</strong> OP2 modula OP1, ambos em FM/SIN. INIT oferece esse ponto de partida: OP1 é a saída; aumente LEVEL de OP2 aos poucos. A relação de frequência e o nível da moduladora mudam a distribuição de parciais. O modo FM usa modulação de fase, técnica relacionada à síntese FM; o nome não significa que toda ligação do Usina opere dessa forma.</p>
+<h4 id="modelagem-fisica-excitar-e-deixar-ressoar">Modelagem física: excitar e deixar ressoar</h4>
+<p><strong>Exemplo:</strong> um impacto excita um corpo ressonante. Após INIT, escolha <strong>MODAL</strong> em OP1. Em <strong>EXCITER</strong>, escolha a excitação; em <strong>OBJECT</strong>, compare <strong>MATERIAL</strong>, <strong>SIZE</strong> e <strong>DECAY</strong>, uma mudança por vez. Você controla propriedades do modelo, em vez de somar cada parcial manualmente. O envelope molda a excitação; a ressonância tem seu próprio decaimento. <strong>DAMP</strong> permite explorar o amortecimento depois de soltar a nota.</p>
+<h4 id="mistura-tecnicas-diferentes-no-mesmo-timbre">Mistura: técnicas diferentes no mesmo timbre</h4>
+<p><strong>Exemplo:</strong> ataque em FM e sustentação em MODAL. Em USER, mantenha somente a ligação OP2 para OP1; deixe OUT de OP1 e OP3 ligados. Configure OP1/OP2 em FM e OP3 em MODAL. Use um envelope curto na camada FM e um decaimento mais longo no MODAL; equilibre os níveis. As camadas chegam à saída em paralelo. Você pode comparar cada uma zerando seu LEVEL e depois reuni-las. Isso não exige que o MODAL seja excitado pelo áudio da camada FM.</p>
+<p><strong>FM heterodoxa</strong> descreve essa liberdade: conservar a rede de operadores e permitir outras fontes e transformações nela. Não é um modo adicional no menu. Uma ligação pode realizar modulação, filtragem ou outro processo conforme MODE; o algoritmo organiza o percurso, e o modo define o que acontece em cada bloco.</p>
+<h3 id="para-continuar-explorando">Para continuar explorando</h3>
+<p>Experimente um preset na biblioteca do topo; as setas percorrem a categoria atual. Siga o <a href="../sounds.html">percurso de timbres</a> para uma seleção guiada. Macros só afetam os destinos endereçados: uma macro sem destino pode não alterar o som.</p>
 <h2 id="a-tela-e-o-caminho-do-som">A tela e o caminho do som</h2>
 <p>O topo reúne biblioteca, INIT, SAVE, LOAD e as vistas <strong>SYNTH, FX, SEQ, CABINE e PLAY</strong>. Em SYNTH, a visão dos seis operadores mostra quem participa do algoritmo; selecionar um abre sua edição. As páginas inferiores separam <strong>OPERATOR</strong>, <strong>FILTER / EG2 / OUTPUT</strong> e <strong>MOD</strong>.</p>
 <p>Pense em três escalas de trabalho:</p>
@@ -405,7 +432,8 @@
 <p>IN GAIN ajusta entrada; IN MIX determina quanto entra no caminho audível. <strong>&gt; FX</strong> encaminha a entrada pelos efeitos em vez de juntá-la seca depois deles. Comece com IN MIX e FEEDBACK em zero. Em realimentação, faça mudanças pequenas e ensaie a forma de interromper o sinal no seu host.</p>
 <p>A guarda de saída trata valores inválidos, DC, picos e energia sustentada; a proteção contra microfonia atua no caminho externo. Nenhuma dessas camadas conhece a pressão sonora dos seus fones/caixas ou protege contra ganhos depois do plugin. <strong>Não existe garantia de audição segura por instalar um limitador.</strong></p>
 <p>Se houver som inesperado, reduza primeiro o volume físico e interrompa a reprodução/entrada; solte as notas e confira HOLD, sustain, SEQ e feedback antes de retomar. Evite começar a investigação com fones no ouvido e volume alto.</p>
-<h2 id="pequeno-glossario-para-ler-a-interface">Pequeno glossário para ler a interface</h2>
+<h2 id="glossario-de-consulta">Glossário de consulta</h2>
+<p>Consulte aqui uma palavra desconhecida. São definições curtas, não etapas obrigatórias antes de tocar. Os exercícios anteriores mostram como aplicar os controles.</p>
 <p>Os nomes em inglês continuam nos controles. Esta tabela ajuda a reconhecer a função, sem precisar decorar a sigla antes de tocar.</p>
 <div class="table-scroll" tabindex="0" aria-label="Tabela com rolagem"><table>
 <thead>
