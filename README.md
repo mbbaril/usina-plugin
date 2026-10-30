@@ -3,7 +3,7 @@
 **ALFA · v0.2.0-alpha.1 em preparação**  
 Um sintetizador da família **Ruído**. Síntese FM, modelagem física e processamento de áudio: ondas, objetos que ressoam, ruído e gravações do que está ao redor.
 
-[English](README.en.md) · [Baixar e instalar](INSTALL.md) · [Manual](manual/README.md) · [Aviso do alfa](ALPHA.md) · [Versão web](https://usina.ruido.art.br/)
+[English](README.en.md) · [Baixar e instalar](INSTALL.md) · [Manual](manual/README.md) · [Aviso do alfa](ALPHA.md) · [Versão web](https://lab.usina.ruido.art.br/)
 
 ## Comece pelo som
 
@@ -35,7 +35,7 @@ Quando o release estiver publicado, abra **Releases → v0.2.0-alpha.1 → Asset
 
 **“Source code (zip/tar.gz)” automático do GitHub é a árvore desta vitrine. Não é o pacote completo de fontes do plugin.** Baixe o anexo de fontes indicado nas notas. Ele deve acompanhar os binários da mesma versão.
 
-Linux experimental fica para uma entrega posterior e não acompanha esta edição. A confirmação dos formatos e sistemas efetivamente testados acompanha o release. Confira se sua DAW aceita o formato escolhido. **macOS ainda não é oferecido.** Para experimentar no navegador, inclusive em Mac, há o [Usina no navegador](https://usina.ruido.art.br/); ele é uma edição separada, com diferenças de recursos e de acesso MIDI.
+Linux experimental fica para uma entrega posterior e não acompanha esta edição. A confirmação dos formatos e sistemas efetivamente testados acompanha o release. Confira se sua DAW aceita o formato escolhido. **macOS ainda não é oferecido.** Para experimentar no navegador, inclusive em Mac, há o [Usina no navegador](https://lab.usina.ruido.art.br/); ele é uma edição separada, com diferenças de recursos e de acesso MIDI.
 
 [Instalação e solução de problemas](INSTALL.md) · [Notas da versão](releases/v0.2.0-alpha.1.md)
 

@@ -3,7 +3,7 @@
 **ALPHA · v0.2.0-alpha.1 in preparation**  
 A synthesizer in the **Ruído** family. FM synthesis, physical modelling and audio processing: waves, resonating objects, noise and recordings of your surroundings.
 
-[Português](README.md) · [Install](INSTALL.en.md) · [Manual](manual/README.en.md) · [Alpha notice](ALPHA.md#en) · [Web edition](https://usina.ruido.art.br/)
+[Português](README.md) · [Install](INSTALL.en.md) · [Manual](manual/README.en.md) · [Alpha notice](ALPHA.md#en) · [Web edition](https://lab.usina.ruido.art.br/)
 
 ## Start with a sound
 
@@ -35,7 +35,7 @@ Once published, open **Releases → v0.2.0-alpha.1 → Assets**:
 
 **GitHub's automatic “Source code (zip/tar.gz)” contains this showcase repository, not the plugin's complete source.** Use the source attachment named in the release notes. It must correspond to the same binary release.
 
-Experimental Linux packages are deferred and are not included in this edition. Each release identifies the systems and formats actually tested. Check that your DAW supports your chosen format. **No macOS package is offered yet.** The separate [Usina web edition](https://usina.ruido.art.br/) can be explored in a browser, including on a Mac; features and MIDI access differ.
+Experimental Linux packages are deferred and are not included in this edition. Each release identifies the systems and formats actually tested. Check that your DAW supports your chosen format. **No macOS package is offered yet.** The separate [Usina web edition](https://lab.usina.ruido.art.br/) can be explored in a browser, including on a Mac; features and MIDI access differ.
 
 [Installation and troubleshooting](INSTALL.en.md) · [Release notes](releases/v0.2.0-alpha.1.md#en)
 
