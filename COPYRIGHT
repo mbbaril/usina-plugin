@@ -1,0 +1,17 @@
+Usina
+Copyright (C) 2026 Mario Brandalise Baril
+
+The synthesis engine and the code written for Usina are free software: you can redistribute them and/or modify them
+under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 only
+(see LICENSE).
+
+The plugin, as a combined work built with JUCE, is distributed under the GNU Affero General Public License,
+version 3 (see LICENSE.AGPL-3.0).
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the licences for details.
+
+Parts of Usina are ports of code by other authors, and Usina uses third-party libraries. Their copyright notices
+and licence terms continue to apply to those parts: each ported file keeps its original notice, THIRD_PARTY.md
+records what came from where, and THIRD_PARTY_NOTICES.txt (in each binary package) carries the licence texts of the
+libraries compiled into it.
